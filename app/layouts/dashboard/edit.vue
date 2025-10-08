@@ -23,7 +23,7 @@
       </div>
     </div>
   </Nav>
-  <div class="bg-red-500">
+  <div>
     <slot />
   </div>
 </template>

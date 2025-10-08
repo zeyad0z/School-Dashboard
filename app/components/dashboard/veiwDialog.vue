@@ -43,15 +43,16 @@
       </div>
 
       <!-- Buttons -->
-      <div class="flex justify-end gap-3 mt-8">
+      <hr class="text-gray-200 mt-5 mb-3" />
+      <div class="flex justify-center gap-3">
         <button
-          class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition w-full"
           @click="$emit('close')"
         >
           Cancel
         </button>
         <button
-          class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+          class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition w-full"
           @click="$emit('edit', product)"
         >
           Edit Product

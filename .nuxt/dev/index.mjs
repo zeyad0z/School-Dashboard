@@ -2001,6 +2001,10 @@ const pathToI18nConfig = {
     "en": "/addProduct",
     "ar": "/addProduct"
   },
+  "/editProduct": {
+    "en": "/editProduct",
+    "ar": "/editProduct"
+  },
   "/prodManagement": {
     "en": "/prodManagement",
     "ar": "/prodManagement"
@@ -2012,6 +2016,7 @@ const i18nPathToPath = {
   "/options": "/options",
   "/dashboard": "/dashboard",
   "/addProduct": "/addProduct",
+  "/editProduct": "/editProduct",
   "/prodManagement": "/prodManagement"
 };
 
