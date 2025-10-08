@@ -1,13 +1,16 @@
 <template>
   <div class="relative min-h-screen">
-    <NavBar @toggle-sidebar="showSidebar = !showSidebar" />
+    <NavBar
+      @toggle-sidebar="showSidebar = !showSidebar"
+      class="fixed top-0 left-0 w-full z-30"
+    />
     <Transition name="sidebar-slide">
       <sideBar
         v-if="showSidebar"
-        class="fixed left-0 top-[85px] w-72 bg-white transition-transform duration-300"
+        class="fixed left-0 top-[85px] w-72 bg-white transition-transform duration-300 z-20"
       />
     </Transition>
-    <div class="ml-115 mr-45 py-5">
+    <div class="ml-115 mr-45 py-5 pt-[100px]">
       <slot />
     </div>
   </div>

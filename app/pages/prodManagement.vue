@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="dashboard-default" class="bg-blue-50">
     <div>
-      <!-- header -->
+      <!-- Header -->
       <div class="flex justify-between items-center">
         <div>
           <h1 class="text-[2rem] font-bold text-blue-900">
@@ -11,62 +11,183 @@
             Manage school products, inventory, and pricing
           </p>
         </div>
-        <div>
-          <button
-            class="border border-blue-200 rounded-md px-3 py-1.5 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition"
-            @click="$router.push('/dashboard')"
-          >
-            Back to Dashboard
-          </button>
-        </div>
+        <button
+          class="border border-blue-200 rounded-md px-3 py-1.5 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition"
+          @click="$router.push('/dashboard')"
+        >
+          Back to Dashboard
+        </button>
       </div>
 
-      <!-- search bar and filtering -->
+      <!-- Search & Filter -->
       <div class="bg-white rounded-md p-6 mt-7 shadow-lg flex gap-4">
         <input
+          v-model="search"
           type="search"
-          placeholder="🔍   Search by name, SKU..."
-          class="border border-blue-200 rounded-md px-3 py-1.5 w-[57rem]"
+          placeholder="🔍 Search by name, SKU..."
+          class="border border-blue-200 rounded-md px-3 py-1.5 w-[54rem]"
         />
+
         <select
-          name="filter"
+          v-model="filter"
           class="border border-blue-200 rounded-md px-3 py-1.5"
         >
           <option>All Categories</option>
-          <option>ID</option>
-          <option>Title</option>
-          <option>Price</option>
-          <option>Description</option>
-          <option>Category</option>
+          <option>Electronics</option>
+          <option>Jewelery</option>
+          <option>Men's Clothing</option>
+          <option>Women's Clothing</option>
         </select>
+
         <button
-          class="text-white bg-blue-600 rounded-md px-2 py-1.5 font-semibold"
+          class="text-white bg-blue-600 rounded-md px-3 py-1.5 font-semibold hover:bg-blue-700 transition"
+          @click="$router.push('/addProduct')"
         >
           + Add Product
         </button>
       </div>
 
+      <!-- Table -->
       <div class="mt-5">
-        <ul>
-          <li
-            class="flex justify-between px-6 py-4 text-blue-900 font-semibold bg-blue-100 rounded-t-lg"
-          >
-            <p>SKU</p>
-            <p>Product Name</p>
-            <p>Category</p>
-            <p>Price(SAR)</p>
-            <p>Description</p>
-            <p>Status</p>
-            <p>Actions</p>
-          </li>
-          <li v-for="product in dashStore.products" :key="product.id"></li>
-        </ul>
+        <table class="w-full text-center border-collapse">
+          <thead>
+            <tr class="bg-blue-100 text-blue-900 font-semibold">
+              <th class="px-6 py-4 text-start">SKU</th>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Price (SAR)</th>
+              <th>Stock</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr
+              v-for="product in filteredProducts"
+              :key="product.id"
+              class="bg-white border-b border-gray-200 hover:bg-blue-50 transition"
+            >
+              <td class="px-6 py-4 text-start">{{ product.id }}</td>
+              <td>{{ product.title.slice(0, 25) }}</td>
+              <td>{{ product.category }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ (stock = Math.floor(Math.random() * 100)) }}</td>
+              <td :class="stock === 0 ? 'text-red-600' : 'text-green-600'">
+                {{ stock === 0 ? "Out of Stock" : "Active" }}
+              </td>
+
+              <td class="flex justify-center items-center gap-7 py-4">
+                <button class="hover:cursor-pointer">
+                  <Icon name="lucide:eye" class="w-4 h-4 text-blue-600" />
+                </button>
+                <button class="hover:cursor-pointer">
+                  <Icon name="lucide:edit-3" class="w-4 h-4 text-blue-600" />
+                </button>
+                <button
+                  class="hover:cursor-pointer"
+                  @click="confirmDelete(product.id)"
+                >
+                  <Icon name="lucide:trash-2" class="w-4 h-4 text-red-600" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr class="bg-blue-100 text-blue-900 font-semibold">
+              <td colspan="7" class="px-6 py-4">
+                Showing {{ filteredProducts.length }} of
+                {{ dashStore.products.length }} products
+                <span class="ml-4">
+                  <UIcon name="i-lucide-dollar-sign" class="w-4 h-4" /> Total
+                  Value: SAR {{ totalPrice }}</span
+                >
+                <span class="ml-4">
+                  <UIcon name="i-lucide-package" class="w-4 h-4" /> Total Stock:
+                  {{ totalStock }}</span
+                >
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Delete Confirmation Dialog -->
+      <div
+        v-if="showDialog"
+        class="fixed inset-0 left-60 bg-black/50 bg-opacity-40 flex justify-center items-center"
+      >
+        <div class="bg-white p-6 rounded-lg shadow-xl text-center w-[400px]">
+          <h2 class="text-lg font-bold text-blue-900 mb-4">
+            Are you sure you want to delete this product?
+          </h2>
+          <div class="flex justify-center gap-4">
+            <button
+              class="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400 transition hover:cursor-pointer"
+              @click="showDialog = false"
+            >
+              Cancel
+            </button>
+            <button
+              class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition hover:cursor-pointer"
+              @click="handleDelete"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </NuxtLayout>
 </template>
 
 <script setup>
-import { useDashStore } from "~/stores/DashStore";
+import { ref, computed, onMounted } from "vue";
+import { useDashStore } from "~/stores/DashStore.js";
+
 const dashStore = useDashStore();
+onMounted(() => {
+  if (dashStore.products.length === 0) {
+    dashStore.fetchProducts();
+  }
+});
+
+const search = ref("");
+const filter = ref("All Categories");
+
+const filteredProducts = computed(() => {
+  return dashStore.products.filter((product) => {
+    const matchCategory =
+      filter.value === "All Categories" ||
+      product.category.toLowerCase() === filter.value.toLowerCase();
+
+    const matchSearch = product.title
+      .toLowerCase()
+      .includes(search.value.toLowerCase());
+
+    return matchCategory && matchSearch;
+  });
+});
+
+const totalPrice = computed(() => {
+  return dashStore.products.reduce(
+    (total, product) => Math.floor(total + product.price),
+    0
+  );
+});
+
+// Dialog handling
+const showDialog = ref(false);
+const productToDelete = ref(null);
+
+function confirmDelete(id) {
+  productToDelete.value = id;
+  showDialog.value = true;
+}
+
+function handleDelete() {
+  dashStore.deleteProduct(productToDelete.value);
+  showDialog.value = false;
+}
 </script>

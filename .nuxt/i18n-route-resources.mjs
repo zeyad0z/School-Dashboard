@@ -16,6 +16,10 @@ export const pathToI18nConfig = {
     "en": "/dashboard",
     "ar": "/dashboard"
   },
+  "/addProduct": {
+    "en": "/addProduct",
+    "ar": "/addProduct"
+  },
   "/prodManagement": {
     "en": "/prodManagement",
     "ar": "/prodManagement"
@@ -26,5 +30,6 @@ export const i18nPathToPath = {
   "/": "/",
   "/options": "/options",
   "/dashboard": "/dashboard",
+  "/addProduct": "/addProduct",
   "/prodManagement": "/prodManagement"
 };
