@@ -4,7 +4,7 @@
       class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA]"
     >
       <div
-        class="h-[40rem] mt-10 bg-white w-full max-w-4xl rounded-2xl shadow-md p-10"
+        class="h-[44rem] mt-10 bg-white w-full max-w-4xl rounded-2xl shadow-md p-10 overflow-y-auto"
       >
         <form
           class="grid grid-cols-1 md:grid-cols-2 gap-5"
@@ -29,7 +29,7 @@
             <UInput
               v-model="titleEn"
               class="w-full text-end"
-              placeholder="Enter product"
+              placeholder="Enter product name"
             />
           </div>
 
@@ -47,7 +47,7 @@
             </label>
             <select
               v-model="category"
-              class="border border-gray-300 rounded-md py-1 w-full"
+              class="border border-gray-300 rounded-md py-2 px-2 w-full"
             >
               <option value="" disabled selected hidden>اختار الفئة</option>
               <option>Electronics</option>
@@ -83,9 +83,24 @@
             />
           </div>
 
+          <!-- Image URL -->
+          <div class="md:col-span-2">
+            <label class="block mb-1 text-sm text-end font-medium">
+              رابط صورة المنتج <span class="text-red-500">*</span>
+            </label>
+            <UInput
+              v-model="image"
+              class="w-full"
+              type="url"
+              placeholder="https://example.com/product.jpg"
+            />
+          </div>
+
           <!-- Description -->
           <div class="md:col-span-2">
-            <label class="block mb-1 text-sm text-end font-medium">الوصف</label>
+            <label class="block mb-1 text-sm text-end font-medium">
+              الوصف
+            </label>
             <UTextarea
               v-model="description"
               class="w-full"
@@ -99,10 +114,10 @@
               <label class="block mb-1 text-sm font-medium">الحالة</label>
               <select
                 v-model="status"
-                class="border border-gray-300 rounded-md py-1 w-full"
+                class="border border-gray-300 rounded-md py-2 px-2 w-full"
               >
-                <option>Active</option>
-                <option>Inactive</option>
+                <option value="Active">Active</option>
+                <option value="Out of Stock">Out of Stock</option>
               </select>
             </div>
 
@@ -110,7 +125,7 @@
               type="submit"
               class="mt-20 px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
             >
-              إضافة
+              إضافة المنتج
             </button>
           </div>
         </form>
@@ -136,6 +151,7 @@ const price = ref(0);
 const stock = ref(0);
 const description = ref("");
 const status = ref("Active");
+const image = ref("");
 
 // function to handle adding product
 function handleAddProduct() {
@@ -148,6 +164,7 @@ function handleAddProduct() {
     stock: parseInt(stock.value),
     description: description.value,
     status: status.value,
+    image: image.value,
   });
 
   // clear fields
@@ -159,8 +176,9 @@ function handleAddProduct() {
   stock.value = 0;
   description.value = "";
   status.value = "Active";
+  image.value = "";
 
-  // redirect to product management page
+  // navigate back
   router.push("/prodManagement");
 }
 </script>

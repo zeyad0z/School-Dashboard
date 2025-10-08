@@ -72,18 +72,32 @@
               <td>{{ product.title.slice(0, 25) }}</td>
               <td>{{ product.category }}</td>
               <td>{{ product.price }}</td>
-              <td>{{ (stock = Math.floor(Math.random() * 100)) }}</td>
-              <td :class="stock === 0 ? 'text-red-600' : 'text-green-600'">
-                {{ stock === 0 ? "Out of Stock" : "Active" }}
+              <td>{{ product.stock }}</td>
+              <td
+                :class="
+                  product.status === 'Out of Stock'
+                    ? 'text-red-600'
+                    : 'text-green-600'
+                "
+              >
+                {{ product.status }}
               </td>
 
               <td class="flex justify-center items-center gap-7 py-4">
-                <button class="hover:cursor-pointer">
+                <!-- 👁️ View -->
+                <button
+                  class="hover:cursor-pointer"
+                  @click="openViewDialog(product)"
+                >
                   <Icon name="lucide:eye" class="w-4 h-4 text-blue-600" />
                 </button>
+
+                <!-- ✏️ Edit -->
                 <button class="hover:cursor-pointer">
                   <Icon name="lucide:edit-3" class="w-4 h-4 text-blue-600" />
                 </button>
+
+                <!-- 🗑️ Delete -->
                 <button
                   class="hover:cursor-pointer"
                   @click="confirmDelete(product.id)"
@@ -101,43 +115,32 @@
                 {{ dashStore.products.length }} products
                 <span class="ml-4">
                   <UIcon name="i-lucide-dollar-sign" class="w-4 h-4" /> Total
-                  Value: SAR {{ totalPrice }}</span
-                >
+                  Value: SAR {{ totalPrice }}
+                </span>
                 <span class="ml-4">
                   <UIcon name="i-lucide-package" class="w-4 h-4" /> Total Stock:
-                  {{ totalStock }}</span
-                >
+                  {{ totalStock }}
+                </span>
               </td>
             </tr>
           </tfoot>
         </table>
       </div>
 
-      <!-- Delete Confirmation Dialog -->
-      <div
-        v-if="showDialog"
-        class="fixed inset-0 left-60 bg-black/50 bg-opacity-40 flex justify-center items-center"
-      >
-        <div class="bg-white p-6 rounded-lg shadow-xl text-center w-[400px]">
-          <h2 class="text-lg font-bold text-blue-900 mb-4">
-            Are you sure you want to delete this product?
-          </h2>
-          <div class="flex justify-center gap-4">
-            <button
-              class="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400 transition hover:cursor-pointer"
-              @click="showDialog = false"
-            >
-              Cancel
-            </button>
-            <button
-              class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition hover:cursor-pointer"
-              @click="handleDelete"
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
+      <!-- 🧩 Dialog Components -->
+      <DeleteDialog
+        :show="showDialog"
+        :product="selectedProduct"
+        @cancel="showDialog = false"
+        @confirm="handleDelete"
+      />
+
+      <VeiwDialog
+        :show="showViewDialog"
+        :product="selectedProduct"
+        @close="showViewDialog = false"
+        @edit="editProduct"
+      />
     </div>
   </NuxtLayout>
 </template>
@@ -145,8 +148,11 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useDashStore } from "~/stores/DashStore.js";
+import DeleteDialog from "../components/dashboard/deleteDialog.vue";
+import VeiwDialog from "../components/dashboard/veiwDialog.vue";
 
 const dashStore = useDashStore();
+
 onMounted(() => {
   if (dashStore.products.length === 0) {
     dashStore.fetchProducts();
@@ -170,24 +176,41 @@ const filteredProducts = computed(() => {
   });
 });
 
-const totalPrice = computed(() => {
-  return dashStore.products.reduce(
+const totalPrice = computed(() =>
+  dashStore.products.reduce(
     (total, product) => Math.floor(total + product.price),
     0
-  );
-});
+  )
+);
+const totalStock = computed(() =>
+  dashStore.products.reduce((total, product) => total + product.stock, 0)
+);
 
-// Dialog handling
+// 🗑 Delete Dialog Logic
 const showDialog = ref(false);
+const selectedProduct = ref(null);
 const productToDelete = ref(null);
 
 function confirmDelete(id) {
   productToDelete.value = id;
+  selectedProduct.value = dashStore.products.find((p) => p.id === id);
   showDialog.value = true;
 }
 
 function handleDelete() {
   dashStore.deleteProduct(productToDelete.value);
   showDialog.value = false;
+}
+
+// 👁 View Product Dialog Logic
+const showViewDialog = ref(false);
+function openViewDialog(product) {
+  selectedProduct.value = product;
+  showViewDialog.value = true;
+}
+
+// ✏️ Edit Logic (placeholder)
+function editProduct(product) {
+  console.log("Editing:", product);
 }
 </script>

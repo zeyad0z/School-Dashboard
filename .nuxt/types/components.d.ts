@@ -15,8 +15,10 @@ type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}
 
 interface _GlobalComponents {
       'UIBaseCard': typeof import("../../app/components/UI/BaseCard.vue")['default']
+    'DashboardDeleteDialog': typeof import("../../app/components/dashboard/deleteDialog.vue")['default']
     'DashboardNavBar': typeof import("../../app/components/dashboard/navBar.vue")['default']
     'DashboardSideBar': typeof import("../../app/components/dashboard/sideBar.vue")['default']
+    'DashboardVeiwDialog': typeof import("../../app/components/dashboard/veiwDialog.vue")['default']
     'HomePageLoginCard': typeof import("../../app/components/homePage/loginCard.vue")['default']
     'HomePageSideSection': typeof import("../../app/components/homePage/sideSection.vue")['default']
     'UAccordion': typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/Accordion.vue")['default']
@@ -107,8 +109,10 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyUIBaseCard': LazyComponent<typeof import("../../app/components/UI/BaseCard.vue")['default']>
+    'LazyDashboardDeleteDialog': LazyComponent<typeof import("../../app/components/dashboard/deleteDialog.vue")['default']>
     'LazyDashboardNavBar': LazyComponent<typeof import("../../app/components/dashboard/navBar.vue")['default']>
     'LazyDashboardSideBar': LazyComponent<typeof import("../../app/components/dashboard/sideBar.vue")['default']>
+    'LazyDashboardVeiwDialog': LazyComponent<typeof import("../../app/components/dashboard/veiwDialog.vue")['default']>
     'LazyHomePageLoginCard': LazyComponent<typeof import("../../app/components/homePage/loginCard.vue")['default']>
     'LazyHomePageSideSection': LazyComponent<typeof import("../../app/components/homePage/sideSection.vue")['default']>
     'LazyUAccordion': LazyComponent<typeof import("../../node_modules/@nuxt/ui/dist/runtime/components/Accordion.vue")['default']>
