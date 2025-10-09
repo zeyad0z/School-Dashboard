@@ -84,7 +84,7 @@
               </td>
 
               <td class="flex justify-center items-center gap-7 py-4">
-                <!-- 👁️ View -->
+                <!-- View -->
                 <button
                   class="hover:cursor-pointer"
                   @click="openViewDialog(product)"
@@ -92,7 +92,7 @@
                   <Icon name="lucide:eye" class="w-4 h-4 text-blue-600" />
                 </button>
 
-                <!-- ✏️ Edit -->
+                <!-- Edit -->
                 <button
                   class="hover:cursor-pointer"
                   @click="editProduct(product)"
@@ -100,7 +100,7 @@
                   <Icon name="lucide:edit-3" class="w-4 h-4 text-blue-600" />
                 </button>
 
-                <!-- 🗑️ Delete -->
+                <!-- Delete -->
                 <button
                   class="hover:cursor-pointer"
                   @click="confirmDelete(product.id)"
@@ -130,7 +130,7 @@
         </table>
       </div>
 
-      <!-- 🧩 Dialog Components -->
+      <!-- Dialog Components -->
       <DeleteDialog
         :show="showDialog"
         :product="selectedProduct"
@@ -191,7 +191,7 @@ const totalStock = computed(() =>
   dashStore.products.reduce((total, product) => total + product.stock, 0)
 );
 
-// 🗑 Delete Dialog Logic
+// Delete Dialog Logic
 const showDialog = ref(false);
 const selectedProduct = ref(null);
 const productToDelete = ref(null);
@@ -207,14 +207,14 @@ function handleDelete() {
   showDialog.value = false;
 }
 
-// 👁 View Product Dialog Logic
+// View Product Dialog Logic
 const showViewDialog = ref(false);
 function openViewDialog(product) {
   selectedProduct.value = product;
   showViewDialog.value = true;
 }
 
-// ✏️ Edit Logic
+// Edit Logic
 function editProduct(product) {
   if (!product?.id) return; // تأكيد وجود المنتج
   router.push({

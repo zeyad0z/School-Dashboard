@@ -55,7 +55,6 @@ watch(
   (path) => {
     if (path === "/dashboard") active.value = "dashboard";
     else if (path === "/prodManagement") active.value = "products";
-    // Add more routes if needed
   },
   { immediate: true }
 );

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="dashboard-edit">
+  <nuxtLayot name="dashboard-edit">
     <div
       class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA]"
     >
@@ -108,7 +108,7 @@
         </form>
       </div>
     </div>
-  </NuxtLayout>
+  </nuxtLayot>
 </template>
 
 <script setup>
