@@ -49,5 +49,19 @@ export const useDashStore = defineStore("DashStore", {
 
       alert("✅ Product added!");
     },
+
+    updateProduct(updatedProduct) {
+      const index = this.products.findIndex((p) => p.id === updatedProduct.id);
+      if (index !== -1) {
+        // ✅ نحدث العنصر داخل الـ array بطريقة تضمن التفاعل (reactivity)
+        this.products.splice(index, 1, {
+          ...this.products[index],
+          ...updatedProduct,
+          title: updatedProduct.titleEn || this.products[index].title,
+        });
+        return true;
+      }
+      return false;
+    },
   },
 });

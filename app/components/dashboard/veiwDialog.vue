@@ -1,10 +1,12 @@
 <template>
   <div
     v-if="show"
-    class="fixed inset-0 bg-black/40 flex justify-center items-center z-50"
+    class="fixed inset-0 bg-black/40 flex justify-center items-center z-50 backdrop-blur-sm"
+    @click.self="$emit('close')"
   >
     <div
       class="bg-white p-8 rounded-2xl shadow-2xl w-[90%] max-w-[650px] relative overflow-y-auto max-h-[90vh]"
+      @click.stop
     >
       <!-- Close Button -->
       <button
@@ -78,6 +80,9 @@ const fields = computed(() => ({
   Price: props.product?.price ? `${props.product.price} SAR` : "",
   "Stock Quantity": props.product?.stock || "",
   Description: props.product?.description || "",
-  "Total Inventory Value": props.product?.price * props.product?.stock || "",
+  "Total Inventory Value":
+    props.product?.price && props.product?.stock
+      ? `${(props.product.price * props.product.stock).toFixed(2)} SAR`
+      : "—",
 }));
 </script>

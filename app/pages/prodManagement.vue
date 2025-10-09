@@ -93,7 +93,10 @@
                 </button>
 
                 <!-- ✏️ Edit -->
-                <button class="hover:cursor-pointer">
+                <button
+                  class="hover:cursor-pointer"
+                  @click="editProduct(product)"
+                >
                   <Icon name="lucide:edit-3" class="w-4 h-4 text-blue-600" />
                 </button>
 
@@ -150,8 +153,10 @@ import { ref, computed, onMounted } from "vue";
 import { useDashStore } from "~/stores/DashStore.js";
 import DeleteDialog from "../components/dashboard/deleteDialog.vue";
 import VeiwDialog from "../components/dashboard/veiwDialog.vue";
+import { useRouter } from "vue-router";
 
 const dashStore = useDashStore();
+const router = useRouter();
 
 onMounted(() => {
   if (dashStore.products.length === 0) {
@@ -209,8 +214,12 @@ function openViewDialog(product) {
   showViewDialog.value = true;
 }
 
-// ✏️ Edit Logic (placeholder)
+// ✏️ Edit Logic
 function editProduct(product) {
-  console.log("Editing:", product);
+  if (!product?.id) return; // تأكيد وجود المنتج
+  router.push({
+    path: "/editProduct",
+    query: { id: product.id.toString() }, // نحول id لنص علشان URL يكون صحيح
+  });
 }
 </script>
