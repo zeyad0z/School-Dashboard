@@ -1,3 +1,32 @@
 {
-    "welcome":"مرحبا"
+  "date": "١ سبتمبر ٢٠٢٥",
+  "greeting": "مرحباً أيها المدير الدولي",
+  "welcome_message": "مرحباً بعودتك إلى لوحة التحكم الخاصة بك. إليك ما يحدث في مدرستك اليوم.",
+
+  "total_students": "إجمالي الطلاب",
+  "active_staff": "الموظفون النشطون",
+  "increase_from_last_month": "+٥.٢٪ عن الشهر الماضي",
+  "all_present_today": "الجميع حاضر اليوم",
+
+  "quick_actions": "إجراءات سريعة",
+  "manage_students": "إدارة الطلاب",
+  "view_schedule": "عرض الجدول",
+  "generate_reports": "إنشاء التقارير",
+  "system_settings": "إعدادات النظام",
+
+  "recent_activity": "النشاطات الأخيرة",
+  "new_student_enrollment": "تسجيل طالب جديد",
+  "grade_submission_completed": "تم إرسال الدرجات",
+  "system_maintenance_scheduled": "صيانة النظام المجدولة",
+
+  "desc_new_student": "تم تسجيل سارة أحمد في الصف 10A",
+  "desc_grade_submission": "تم إرسال درجات مادة الرياضيات للصف التاسع",
+  "desc_system_maintenance": "انقطاع مخطط له غداً من 2:00 صباحاً إلى 4:00 صباحاً",
+
+  "notification_center": "مركز الإشعارات",
+  "all": "الكل",
+  "unread": "غير مقروء (٣٢١)",
+  "withdraw_request_title": "لديك طلب سحب للطالب {name}",
+  "withdraw_request_desc": "لديك طلب سحب للطالب {name}، يرجى تأكيده",
+  "view": "عرض"
 }

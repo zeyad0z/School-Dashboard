@@ -18,11 +18,13 @@ export default defineNuxtConfig({
     storageKey: "nuxt-color-mode",
   },
 
-    i18n: {
+  i18n: {
+    langDir: "locales/",
     locales: [
-      { code: 'en', name: 'English', file: 'en.json'},
-      { code: 'ar', name: 'Arabic', file: 'ar.json'},
+      { code: "en", name: "English", file: "en.json" },
+      { code: "ar", name: "العربية", file: "ar.json", dir: "rtl" },
     ],
-    defaultLocale: 'en',
-  }
+    defaultLocale: "en",
+    strategy: "no_prefix",
+  },
 });

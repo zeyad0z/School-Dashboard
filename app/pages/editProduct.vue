@@ -1,5 +1,5 @@
 <template>
-  <nuxtLayot name="dashboard-edit">
+  <NuxtLayout name="dashboard-edit">
     <div
       class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA]"
     >
@@ -108,7 +108,7 @@
         </form>
       </div>
     </div>
-  </nuxtLayot>
+  </NuxtLayout>
 </template>
 
 <script setup>
@@ -132,7 +132,7 @@ const image = ref("");
 
 onMounted(async () => {
   if (dashStore.products.length === 0) {
-    await dashStore.fetchProducts(); // ← استنى البيانات
+    await dashStore.fetchProducts();
   }
 
   const productId = route.query.id;
@@ -177,7 +177,7 @@ function handleEditProduct() {
   }
 }
 
-// 🟨 زر إلغاء التعديل
+//زر إلغاء التعديل
 function cancelEdit() {
   if (confirm("هل أنت متأكد أنك تريد إلغاء التعديل؟")) {
     router.push("/prodManagement");

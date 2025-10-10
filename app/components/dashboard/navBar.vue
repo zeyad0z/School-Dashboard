@@ -46,9 +46,13 @@
 
       <!-- Language switch -->
       <div class="flex items-center gap-2">
-        <select class="text-blue-600">
-          <option>EN</option>
-          <option>AR</option>
+        <select
+          v-model="locale"
+          @change="changeLanguage"
+          class="text-blue-600 border border-blue-200 rounded-md px-2 py-1"
+        >
+          <option value="en">EN</option>
+          <option value="ar">AR</option>
         </select>
         <UIcon name="i-lucide-globe" class="w-4 h-4 text-blue-600" />
       </div>
@@ -71,4 +75,14 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { useI18n } from "vue-i18n";
+
+const { locale, setLocale } = useI18n();
+
+const changeLanguage = async (event) => {
+  const lang = event.target.value;
+  await setLocale(lang); // Wait until the file is loaded
+  document.dir = lang === "ar" ? "rtl" : "ltr";
+};
+</script>

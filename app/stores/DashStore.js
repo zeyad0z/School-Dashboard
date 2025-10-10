@@ -24,13 +24,13 @@ export const useDashStore = defineStore("DashStore", {
       });
     },
 
-    // 🟥 Delete product
+    // Delete product
     deleteProduct(id) {
       this.products = this.products.filter((p) => p.id !== id);
       alert("✅ Product deleted!");
     },
 
-    // 🟩 Add new product
+    // Add new product
     addNewProduct(newProduct) {
       const finalStatus =
         newProduct.stock === 0 ? "Out of Stock" : newProduct.status || "Active";

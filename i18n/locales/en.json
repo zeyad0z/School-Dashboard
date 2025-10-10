@@ -1,3 +1,32 @@
 {
-    "welcome":"welcome"
+  "date": "2025 September 01",
+  "greeting": "Hello International",
+  "welcome_message": "Welcome back to your dashboard. Here's what's happening at your school today.",
+
+  "total_students": "Total Students",
+  "active_staff": "Active Staff",
+  "increase_from_last_month": "+5.2% from last month",
+  "all_present_today": "All present today",
+
+  "quick_actions": "Quick Actions",
+  "manage_students": "Manage Students",
+  "view_schedule": "View Schedule",
+  "generate_reports": "Generate Reports",
+  "system_settings": "System Settings",
+
+  "recent_activity": "Recent Activity",
+  "new_student_enrollment": "New student enrollment",
+  "grade_submission_completed": "Grade submission completed",
+  "system_maintenance_scheduled": "System maintenance scheduled",
+
+  "desc_new_student": "Sarah Ahmed enrolled in Grade 10A",
+  "desc_grade_submission": "Mathematics grades for Grade 9 submitted",
+  "desc_system_maintenance": "Planned downtime tomorrow 2:00 AM - 4:00 AM",
+
+  "notification_center": "Notification Center",
+  "all": "All",
+  "unread": "Unread (321)",
+  "withdraw_request_title": "You have withdraw request of student {name}",
+  "withdraw_request_desc": "You have withdraw request of student {name}, please confirm it",
+  "view": "View"
 }
