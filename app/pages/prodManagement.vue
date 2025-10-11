@@ -216,10 +216,10 @@ function openViewDialog(product) {
 
 // Edit Logic
 function editProduct(product) {
-  if (!product?.id) return; // تأكيد وجود المنتج
+  if (!product?.id) return;
   router.push({
     path: "/editProduct",
-    query: { id: product.id.toString() }, // نحول id لنص علشان URL يكون صحيح
+    query: { id: product.id.toString() },
   });
 }
 </script>

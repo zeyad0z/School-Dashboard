@@ -65,11 +65,9 @@
           <p class="text-sm font-semibold">International Manager</p>
           <p class="text-xs text-blue-600">Administrator</p>
         </div>
-        <UAvatar
-          size="lg"
-          src="https://ui-avatars.com/api/?name=Manager"
-          alt="User Avatar"
-        />
+        <div
+          class="bg-gray-200 border-1 border-blue-300 rounded-full w-9 h-9"
+        ></div>
       </div>
     </div>
   </header>

@@ -121,12 +121,22 @@
               </select>
             </div>
 
-            <button
-              type="submit"
-              class="mt-20 px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-            >
-              إضافة المنتج
-            </button>
+            <div class="flex gap-4 mt-4 md:mt-20">
+              <button
+                type="button"
+                @click="cancelAdd"
+                class="px-10 py-2 border border-gray-400 text-gray-700 rounded-lg hover:bg-gray-100 transition"
+              >
+                إلغاء
+              </button>
+
+              <button
+                type="submit"
+                class="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              >
+                اضافة المنتج
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -180,5 +190,11 @@ function handleAddProduct() {
 
   // navigate back
   router.push("/prodManagement");
+}
+
+function cancelAdd() {
+  if (confirm("هل أنت متأكد أنك تريد إلغاء اضافة المنتج؟")) {
+    router.push("/prodManagement");
+  }
 }
 </script>
