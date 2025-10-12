@@ -13,7 +13,7 @@
           <!-- Arabic / English name -->
           <div>
             <label class="block text-end mb-1 text-sm font-medium">
-              اسم المنتج بالعربية <span class="text-red-500">*</span>
+              اسم المنتج بالعربية
             </label>
             <UInput v-model="titleAr" class="w-full" />
           </div>
@@ -22,7 +22,7 @@
             <label class="block mb-1 text-end text-sm font-medium">
               اسم المنتج بالإنجليزية <span class="text-red-500">*</span>
             </label>
-            <UInput v-model="titleEn" class="w-full text-end" />
+            <UInput v-model="titleEn" class="w-full text-end" required />
           </div>
 
           <!-- SKU / Category -->
@@ -53,14 +53,20 @@
             <label class="block mb-1 text-end text-sm font-medium"
               >السعر (ريال) <span class="text-red-500">*</span></label
             >
-            <UInput v-model="price" class="w-full" type="number" step="0.1" />
+            <UInput
+              v-model="price"
+              class="w-full"
+              type="number"
+              step="0.1"
+              required
+            />
           </div>
 
           <div>
             <label class="block mb-1 text-sm text-end font-medium"
               >الكمية <span class="text-red-500">*</span></label
             >
-            <UInput v-model="stock" class="w-full" type="number" />
+            <UInput v-model="stock" class="w-full" type="number" required />
           </div>
 
           <!-- Image -->

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="dashboard-prod">
+  <NuxtLayout name="dashboard-add">
     <div
       class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA]"
     >
@@ -10,86 +10,118 @@
           class="grid grid-cols-1 md:grid-cols-2 gap-5"
           @submit.prevent="handleAddProduct"
         >
-          <!-- Arabic / English name -->
+          <!-- Arabic Name -->
           <div>
             <label class="block text-end mb-1 text-sm font-medium">
-              اسم المنتج بالعربية <span class="text-red-500">*</span>
+              اسم المنتج بالعربية
             </label>
             <UInput
-              v-model="titleAr"
+              v-model="form.titleAr"
               class="w-full"
               placeholder="أدخل اسم المنتج"
+              @input="v$.titleAr.$touch()"
             />
+            <p v-if="v$.titleAr.$error" class="text-red-500 text-sm mt-1">
+              {{ v$.titleAr.$errors[0].$message }}
+            </p>
           </div>
 
+          <!-- English Name -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
               اسم المنتج بالإنجليزية <span class="text-red-500">*</span>
             </label>
             <UInput
-              v-model="titleEn"
+              v-model="form.titleEn"
               class="w-full text-end"
               placeholder="Enter product name"
+              @input="v$.titleEn.$touch()"
+              @blur="v$.titleEn.$touch()"
             />
+            <p v-if="v$.titleEn.$error" class="text-red-500 text-sm mt-1">
+              {{ v$.titleEn.$errors[0].$message }}
+            </p>
           </div>
 
-          <!-- SKU / Category -->
+          <!-- SKU -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
               رمز المنتج (SKU) <span class="text-red-500">*</span>
             </label>
-            <UInput v-model="id" class="w-full" placeholder="PROD-001" />
+            <UInput
+              v-model="form.id"
+              class="w-full"
+              placeholder="PROD-001"
+              @blur="v$.id.$touch()"
+            />
+            <p v-if="v$.id.$error" class="text-red-500 text-sm mt-1">
+              {{ v$.id.$errors[0].$message }}
+            </p>
           </div>
 
+          <!-- Category -->
           <div>
             <label class="block mb-1 text-sm font-medium text-end">
               الفئة <span class="text-red-500">*</span>
             </label>
             <select
-              v-model="category"
+              v-model="form.category"
+              @blur="v$.category.$touch()"
               class="border border-gray-300 rounded-md py-2 px-2 w-full"
             >
-              <option value="" disabled selected hidden>اختار الفئة</option>
+              <option value="" disabled hidden>اختار الفئة</option>
               <option>Electronics</option>
               <option>Jewelery</option>
               <option>Men's Clothing</option>
               <option>Women's Clothing</option>
             </select>
+            <p v-if="v$.category.$error" class="text-red-500 text-sm mt-1">
+              {{ v$.category.$errors[0].$message }}
+            </p>
           </div>
 
-          <!-- Price / Quantity -->
+          <!-- Price -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
               السعر (ريال) <span class="text-red-500">*</span>
             </label>
             <UInput
-              v-model="price"
+              v-model="form.price"
               class="w-full"
               type="number"
               step="0.1"
               placeholder="0.0"
+              @blur="v$.price.$touch()"
             />
+            <p v-if="v$.price.$error" class="text-red-500 text-sm mt-1">
+              {{ v$.price.$errors[0].$message }}
+            </p>
           </div>
 
+          <!-- Stock -->
           <div>
             <label class="block mb-1 text-sm text-end font-medium">
               الكمية المتوفّرة <span class="text-red-500">*</span>
             </label>
             <UInput
-              v-model="stock"
+              v-model="form.stock"
               class="w-full"
               type="number"
               placeholder="0"
+              @blur="v$.stock.$touch()"
             />
+            <p v-if="v$.stock.$error" class="text-red-500 text-sm mt-1">
+              {{ v$.stock.$errors[0].$message }}
+            </p>
           </div>
 
-          <!-- Image URL -->
+          <!-- Image -->
           <div class="md:col-span-2">
             <label class="block mb-1 text-sm text-end font-medium">
               رابط صورة المنتج
             </label>
             <UInput
-              v-model="image"
+              v-model="form.image"
               class="w-full"
               type="url"
               placeholder="https://example.com/product.jpg"
@@ -102,18 +134,18 @@
               الوصف
             </label>
             <UTextarea
-              v-model="description"
+              v-model="form.description"
               class="w-full"
               placeholder="أدخل وصف المنتج"
             />
           </div>
 
-          <!-- Status + Button -->
+          <!-- Status + Buttons -->
           <div class="md:col-span-2 flex items-center justify-between mt-4">
             <div>
               <label class="block mb-1 text-sm font-medium">الحالة</label>
               <select
-                v-model="status"
+                v-model="form.status"
                 class="border border-gray-300 rounded-md py-2 px-2 w-full"
               >
                 <option value="Active">Active</option>
@@ -145,50 +177,83 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { useDashStore } from "~/stores/DashStore.js";
 import { useRouter } from "vue-router";
+import useVuelidate from "@vuelidate/core";
+import { required, minValue, helpers } from "@vuelidate/validators";
 
 const dashStore = useDashStore();
 const router = useRouter();
 
-// form data
-const id = ref("");
-const titleAr = ref("");
-const titleEn = ref("");
-const category = ref("");
-const price = ref(0);
-const stock = ref(0);
-const description = ref("");
-const status = ref("Active");
-const image = ref("");
+const form = reactive({
+  id: "",
+  titleAr: "",
+  titleEn: "",
+  category: "",
+  price: null,
+  stock: null,
+  description: "",
+  status: "Active",
+  image: "",
+});
 
-// function to handle adding product
+// Validation rules
+const rules = {
+  id: { required: helpers.withMessage("رمز المنتج مطلوب", required) },
+  titleAr: {
+    arabicOnly: helpers.withMessage(
+      "الاسم يجب أن يكون باللغة العربية فقط",
+      (value) => !value || /^[\u0600-\u06FF\s]+$/.test(value)
+    ),
+  },
+  titleEn: {
+    required: helpers.withMessage("Name in English is required", required),
+    englishOnly: helpers.withMessage("Name must be in English only", (value) =>
+      /^[A-Za-z\s]+$/.test(value)
+    ),
+  },
+  category: { required: helpers.withMessage("الفئة مطلوبة", required) },
+  price: {
+    required: helpers.withMessage("السعر مطلوب", required),
+    minValue: helpers.withMessage(
+      "يجب أن يكون السعر أكبر من 0 ",
+      minValue(0.01)
+    ),
+  },
+  stock: {
+    required: helpers.withMessage("الكمية مطلوبة", required),
+    minValue: helpers.withMessage(
+      "يجب أن تكون الكمية اكبر من او يساوي 0 ",
+      minValue(0)
+    ),
+  },
+  description: {},
+  status: { required },
+  image: {},
+};
+
+const v$ = useVuelidate(rules, form);
+
+// Submit function
 function handleAddProduct() {
+  v$.value.$touch();
+  if (v$.value.$invalid) {
+    alert("⚠️ من فضلك املأ جميع الحقول المطلوبة بشكل صحيح");
+    return;
+  }
+
   dashStore.addNewProduct({
-    id: id.value,
-    titleAr: titleAr.value,
-    titleEn: titleEn.value,
-    category: category.value,
-    price: parseFloat(price.value),
-    stock: parseInt(stock.value),
-    description: description.value,
-    status: status.value,
-    image: image.value,
+    ...form,
+    price: parseFloat(form.price),
+    stock: parseInt(form.stock),
   });
 
   // clear fields
-  id.value = "";
-  titleAr.value = "";
-  titleEn.value = "";
-  category.value = "";
-  price.value = 0;
-  stock.value = 0;
-  description.value = "";
-  status.value = "Active";
-  image.value = "";
+  Object.keys(form).forEach((key) => {
+    form[key] = key === "status" ? "Active" : "";
+  });
 
-  // navigate back
   router.push("/prodManagement");
 }
 

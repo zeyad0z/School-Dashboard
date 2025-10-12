@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import LoginCard from "~/components/homePage/loginCard.vue";
 import SideSection from "~/components/homePage/sideSection.vue";
 </script>

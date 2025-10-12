@@ -101,10 +101,11 @@ const fields = computed(() => ({
   "Stock Quantity": (props.product?.stock || "") + " Units",
 }));
 
-const disc = props.product?.description || "";
+const disc = computed(() => props.product?.description || "");
 
-const total =
+const total = computed(() =>
   props.product?.price && props.product?.stock
-    ? `${(props.product.price * props.product.stock).toFixed(2)}`
-    : "—";
+    ? (props.product.price * props.product.stock).toFixed(2)
+    : "—"
+);
 </script>

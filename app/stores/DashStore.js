@@ -50,6 +50,7 @@ export const useDashStore = defineStore("DashStore", {
       alert("✅ Product added!");
     },
 
+    // Update existing product
     updateProduct(updatedProduct) {
       const index = this.products.findIndex((p) => p.id === updatedProduct.id);
       if (index !== -1) {
