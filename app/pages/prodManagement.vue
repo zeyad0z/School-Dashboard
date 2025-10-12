@@ -5,17 +5,17 @@
       <div class="flex justify-between items-center">
         <div>
           <h1 class="text-[2rem] font-bold text-blue-900">
-            Product Management
+            {{ $t("products management") }}
           </h1>
           <p class="text-blue-700">
-            Manage school products, inventory, and pricing
+            {{ $t("manage school products, inventory, and pricing") }}
           </p>
         </div>
         <button
           class="border border-blue-200 rounded-md px-3 py-1.5 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition"
           @click="$router.push('/dashboard')"
         >
-          Back to Dashboard
+          {{ $t("back to dashboard") }}
         </button>
       </div>
 
@@ -24,7 +24,7 @@
         <input
           v-model="search"
           type="search"
-          placeholder="🔍 Search by name, SKU..."
+          placeholder="🔍 Search by name..."
           class="border border-blue-200 rounded-md px-3 py-1.5 w-[54rem]"
         />
 
@@ -113,9 +113,13 @@
 
           <tfoot>
             <tr class="bg-blue-100 text-blue-900 font-semibold">
-              <td colspan="7" class="px-6 py-4">
-                Showing {{ filteredProducts.length }} of
-                {{ dashStore.products.length }} products
+              <td colspan="3" class="text-start ps-6 py-4">
+                <span
+                  >Showing {{ filteredProducts.length }} of
+                  {{ dashStore.products.length }} products</span
+                >
+              </td>
+              <td colspan="4" class="text-end pe-6 py-4">
                 <span class="ml-4">
                   <UIcon name="i-lucide-dollar-sign" class="w-4 h-4" /> Total
                   Value: SAR {{ totalPrice }}

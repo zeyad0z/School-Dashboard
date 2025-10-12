@@ -3080,6 +3080,8 @@ var unread$1 = "Unread (321)";
 var withdraw_request_title$1 = "You have withdraw request of student {name}";
 var withdraw_request_desc$1 = "You have withdraw request of student {name}, please confirm it";
 var view$1 = "View";
+var dashboard$1 = "Dashboard";
+var administrator$1 = "Administrator";
 const en = {
 	date: date$1,
 	greeting: greeting$1,
@@ -3105,14 +3107,27 @@ const en = {
 	unread: unread$1,
 	withdraw_request_title: withdraw_request_title$1,
 	withdraw_request_desc: withdraw_request_desc$1,
-	view: view$1
+	view: view$1,
+	dashboard: dashboard$1,
+	"products management": "Products Management",
+	"international manager": "International Manager",
+	administrator: administrator$1,
+	"school manager": "School Manager",
+	"testing branch": "Testing Branch",
+	"manage school products, inventory, and pricing": "Manage school products, inventory, and pricing",
+	"back to dashboard": "Back to Dashboard",
+	"hours ago": "hours ago",
+	"ibn khaldun": "Ibn Khaldun",
+	"schools management": "Schools Management"
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   active_staff: active_staff$1,
+  administrator: administrator$1,
   all: all$1,
   all_present_today: all_present_today$1,
+  dashboard: dashboard$1,
   date: date$1,
   default: en,
   desc_grade_submission: desc_grade_submission$1,
@@ -3163,6 +3178,8 @@ var unread = "غير مقروء (٣٢١)";
 var withdraw_request_title = "لديك طلب سحب للطالب {name}";
 var withdraw_request_desc = "لديك طلب سحب للطالب {name}، يرجى تأكيده";
 var view = "عرض";
+var dashboard = "لوحة التحكم";
+var administrator = "مدير";
 const ar = {
 	date: date,
 	greeting: greeting,
@@ -3188,14 +3205,27 @@ const ar = {
 	unread: unread,
 	withdraw_request_title: withdraw_request_title,
 	withdraw_request_desc: withdraw_request_desc,
-	view: view
+	view: view,
+	dashboard: dashboard,
+	"products management": "ادارة المنتجات",
+	"international manager": "المدير الدولي",
+	administrator: administrator,
+	"school manager": "مدير المدرسه",
+	"testing branch": "فرع الاختبار",
+	"manage school products, inventory, and pricing": "إدارة منتجات المدرسة والمخزون والتسعير",
+	"back to dashboard": "العودة إلى لوحة التحكم",
+	"hours ago": "قبل ساعات",
+	"ibn khaldun": "ابن خلدون",
+	"schools management": "إدارة المدارس"
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   active_staff: active_staff,
+  administrator: administrator,
   all: all,
   all_present_today: all_present_today,
+  dashboard: dashboard,
   date: date,
   default: ar,
   desc_grade_submission: desc_grade_submission,

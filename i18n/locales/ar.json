@@ -28,5 +28,17 @@
   "unread": "غير مقروء (٣٢١)",
   "withdraw_request_title": "لديك طلب سحب للطالب {name}",
   "withdraw_request_desc": "لديك طلب سحب للطالب {name}، يرجى تأكيده",
-  "view": "عرض"
+  "view": "عرض",
+
+  "dashboard": "لوحة التحكم",
+  "products management": "ادارة المنتجات",
+  "international manager": "المدير الدولي",
+  "administrator": "مدير",
+  "school manager": "مدير المدرسه",
+  "testing branch": "فرع الاختبار",
+  "manage school products, inventory, and pricing": "إدارة منتجات المدرسة والمخزون والتسعير",
+  "back to dashboard": "العودة إلى لوحة التحكم",
+  "hours ago": "قبل ساعات",
+  "ibn khaldun": "ابن خلدون",
+  "schools management": "إدارة المدارس"
 }

@@ -12,7 +12,7 @@
       <div class="flex items-center gap-3">
         <div class="bg-blue-100 flex items-center p-2 rounded-lg">
           <UIcon
-            name="i-lucide-package"
+            name="i-lucide-package-plus"
             class="w-[1.3rem] h-[1.3rem] bg-blue-600"
           />
         </div>

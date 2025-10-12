@@ -28,13 +28,15 @@
           <!-- SKU / Category -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
-              رمز المنتج (SKU)
+              رمز المنتج (SKU) <span class="text-red-500">*</span>
             </label>
             <UInput v-model="id" class="w-full" disabled />
           </div>
 
           <div>
-            <label class="block mb-1 text-sm font-medium text-end">الفئة</label>
+            <label class="block mb-1 text-sm font-medium text-end">
+              الفئة <span class="text-red-500">*</span>
+            </label>
             <select
               v-model="category"
               class="border border-gray-300 rounded-md py-2 px-2 w-full"
@@ -48,13 +50,15 @@
 
           <!-- Price / Quantity -->
           <div>
-            <label class="block mb-1 text-end text-sm font-medium">السعر</label>
+            <label class="block mb-1 text-end text-sm font-medium"
+              >السعر (ريال) <span class="text-red-500">*</span></label
+            >
             <UInput v-model="price" class="w-full" type="number" step="0.1" />
           </div>
 
           <div>
             <label class="block mb-1 text-sm text-end font-medium"
-              >الكمية</label
+              >الكمية <span class="text-red-500">*</span></label
             >
             <UInput v-model="stock" class="w-full" type="number" />
           </div>

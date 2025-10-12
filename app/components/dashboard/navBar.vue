@@ -11,10 +11,10 @@
 
       <!-- Dropdowns -->
       <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
-        <option>School Manager</option>
+        <option>{{ $t("school manager") }}</option>
       </select>
       <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
-        <option>Testing branch</option>
+        <option>{{ $t("testing branch") }}</option>
       </select>
       <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
         <option>2025/2026</option>
@@ -62,8 +62,8 @@
         class="flex items-center gap-2rounded-lg px-3 py-2 bg-blue-50 rounded-md"
       >
         <div class="text-right mr-2">
-          <p class="text-sm font-semibold">International Manager</p>
-          <p class="text-xs text-blue-600">Administrator</p>
+          <p class="text-sm font-semibold">{{ $t("international manager") }}</p>
+          <p class="text-xs text-blue-600">{{ $t("administrator") }}</p>
         </div>
         <div
           class="bg-gray-200 border-1 border-blue-300 rounded-full w-9 h-9"

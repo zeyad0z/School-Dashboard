@@ -28,5 +28,17 @@
   "unread": "Unread (321)",
   "withdraw_request_title": "You have withdraw request of student {name}",
   "withdraw_request_desc": "You have withdraw request of student {name}, please confirm it",
-  "view": "View"
+  "view": "View",
+
+  "dashboard": "Dashboard",
+  "products management": "Products Management",
+  "international manager": "International Manager",
+  "administrator": "Administrator",
+  "school manager": "School Manager",
+  "testing branch": "Testing Branch",
+  "manage school products, inventory, and pricing": "Manage school products, inventory, and pricing",
+  "back to dashboard": "Back to Dashboard",
+  "hours ago": "hours ago",
+  "ibn khaldun": "Ibn Khaldun",
+  "schools management": "Schools Management"
 }

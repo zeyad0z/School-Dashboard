@@ -86,7 +86,7 @@
           <!-- Image URL -->
           <div class="md:col-span-2">
             <label class="block mb-1 text-sm text-end font-medium">
-              رابط صورة المنتج <span class="text-red-500">*</span>
+              رابط صورة المنتج
             </label>
             <UInput
               v-model="image"

@@ -42,6 +42,26 @@
             {{ value || "—" }}
           </div>
         </div>
+
+        <div class="flex flex-col col-span-2">
+          <label class="text-sm font-semibold text-blue-600 mb-1">
+            Description
+          </label>
+          <div
+            class="bg-blue-100 p-2 rounded-md text-gray-800 border border-gray-200 min-h-[60px] max-h-40 overflow-y-auto"
+          >
+            {{ disc || "—" }}
+          </div>
+        </div>
+
+        <div
+          class="bg-blue-100 px-5 py-3 rounded-md text-gray-800 border border-gray-200 col-span-2 flex justify-between items-center"
+        >
+          <span class="font-bold text-blue-600">Total Inventory Value</span>
+          <span class="font-bold text-blue-900 text-[1.5rem]"
+            >{{ total }} SAR</span
+          >
+        </div>
       </div>
 
       <!-- Buttons -->
@@ -78,11 +98,13 @@ const fields = computed(() => ({
   Status: props.product?.status || "",
   Category: props.product?.category || "",
   Price: props.product?.price ? `${props.product.price} SAR` : "",
-  "Stock Quantity": props.product?.stock || "",
-  Description: props.product?.description || "",
-  "Total Inventory Value":
-    props.product?.price && props.product?.stock
-      ? `${(props.product.price * props.product.stock).toFixed(2)} SAR`
-      : "—",
+  "Stock Quantity": (props.product?.stock || "") + " Units",
 }));
+
+const disc = props.product?.description || "";
+
+const total =
+  props.product?.price && props.product?.stock
+    ? `${(props.product.price * props.product.stock).toFixed(2)}`
+    : "—";
 </script>

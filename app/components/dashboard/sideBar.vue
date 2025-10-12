@@ -6,8 +6,10 @@
         <UIcon name="i-lucide-graduation-cap" class="w-7 h-7 text-white" />
       </div>
       <div>
-        <h2 class="text-lg font-bold text-blue-900">Ibn Khaldun</h2>
-        <p class="text-sm font-medium text-blue-600">Schools Management</p>
+        <h2 class="text-lg font-bold text-blue-900">{{ $t("ibn khaldun") }}</h2>
+        <p class="text-sm font-medium text-blue-600">
+          {{ $t("schools management") }}
+        </p>
       </div>
     </div>
     <hr class="mb-8 text-gray-200" />
@@ -23,7 +25,7 @@
         @click="(active = 'dashboard'), $router.push('/dashboard')"
       >
         <UIcon name="i-lucide-home" class="w-4 h-4 font-bold" />
-        <span>Dashboard</span>
+        <span>{{ $t("dashboard") }}</span>
       </button>
 
       <button
@@ -35,7 +37,7 @@
         @click="(active = 'products'), $router.push('/prodManagement')"
       >
         <UIcon name="i-lucide-package" class="w-4 h-4 font-bold" />
-        <span>Products Management</span>
+        <span>{{ $t("products management") }}</span>
       </button>
     </nav>
   </aside>
