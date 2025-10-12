@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="dashboard-add">
+  <NuxtLayout name="dashboard-prod">
     <div
       class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA]"
     >

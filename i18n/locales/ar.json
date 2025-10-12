@@ -40,5 +40,14 @@
   "back to dashboard": "العودة إلى لوحة التحكم",
   "hours ago": "قبل ساعات",
   "ibn khaldun": "ابن خلدون",
-  "schools management": "إدارة المدارس"
+  "schools management": "إدارة المدارس",
+  "add product": "إضافة منتج",
+  "sku": "رمز التخزين",
+  "product name": "اسم المنتج",
+  "category": "القسم",
+  "price": "السعر",
+  "sar": "ر.س",
+  "stock": "المخزون",
+  "status": "الحالة",
+  "actions": "الاجراءات"
 }

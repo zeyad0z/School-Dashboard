@@ -40,5 +40,14 @@
   "back to dashboard": "Back to Dashboard",
   "hours ago": "hours ago",
   "ibn khaldun": "Ibn Khaldun",
-  "schools management": "Schools Management"
+  "schools management": "Schools Management",
+  "add product": "Add Product",
+  "sku": "SKU",
+  "product name": "Product Name",
+  "category": "Category",
+  "price": "Price",
+  "sar": "SAR",
+  "stock": "Stock",
+  "status": "Status",
+  "actions": "Actions"
 }

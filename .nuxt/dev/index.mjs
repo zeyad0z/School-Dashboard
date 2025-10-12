@@ -2144,7 +2144,22 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1e4f8-mBOeRr49Rsgp19rPBgzoQ1KbDGo\"",
+    "mtime": "2025-10-12T13:44:21.963Z",
+    "size": 124152,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"67756-Sdy8aPiW5y/LfdwELhA4fGM9ZLI\"",
+    "mtime": "2025-10-12T13:44:21.963Z",
+    "size": 423766,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3082,6 +3097,13 @@ var withdraw_request_desc$1 = "You have withdraw request of student {name}, plea
 var view$1 = "View";
 var dashboard$1 = "Dashboard";
 var administrator$1 = "Administrator";
+var sku$1 = "SKU";
+var category$1 = "Category";
+var price$1 = "Price";
+var sar$1 = "SAR";
+var stock$1 = "Stock";
+var status$1 = "Status";
+var actions$1 = "Actions";
 const en = {
 	date: date$1,
 	greeting: greeting$1,
@@ -3118,15 +3140,26 @@ const en = {
 	"back to dashboard": "Back to Dashboard",
 	"hours ago": "hours ago",
 	"ibn khaldun": "Ibn Khaldun",
-	"schools management": "Schools Management"
+	"schools management": "Schools Management",
+	"add product": "Add Product",
+	sku: sku$1,
+	"product name": "Product Name",
+	category: category$1,
+	price: price$1,
+	sar: sar$1,
+	stock: stock$1,
+	status: status$1,
+	actions: actions$1
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
+  actions: actions$1,
   active_staff: active_staff$1,
   administrator: administrator$1,
   all: all$1,
   all_present_today: all_present_today$1,
+  category: category$1,
   dashboard: dashboard$1,
   date: date$1,
   default: en,
@@ -3140,8 +3173,13 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   manage_students: manage_students$1,
   new_student_enrollment: new_student_enrollment$1,
   notification_center: notification_center$1,
+  price: price$1,
   quick_actions: quick_actions$1,
   recent_activity: recent_activity$1,
+  sar: sar$1,
+  sku: sku$1,
+  status: status$1,
+  stock: stock$1,
   system_maintenance_scheduled: system_maintenance_scheduled$1,
   system_settings: system_settings$1,
   total_students: total_students$1,
@@ -3180,6 +3218,13 @@ var withdraw_request_desc = "لديك طلب سحب للطالب {name}، يرج
 var view = "عرض";
 var dashboard = "لوحة التحكم";
 var administrator = "مدير";
+var sku = "رمز التخزين";
+var category = "القسم";
+var price = "السعر";
+var sar = "ر.س";
+var stock = "المخزون";
+var status = "الحالة";
+var actions = "الاجراءات";
 const ar = {
 	date: date,
 	greeting: greeting,
@@ -3216,15 +3261,26 @@ const ar = {
 	"back to dashboard": "العودة إلى لوحة التحكم",
 	"hours ago": "قبل ساعات",
 	"ibn khaldun": "ابن خلدون",
-	"schools management": "إدارة المدارس"
+	"schools management": "إدارة المدارس",
+	"add product": "إضافة منتج",
+	sku: sku,
+	"product name": "اسم المنتج",
+	category: category,
+	price: price,
+	sar: sar,
+	stock: stock,
+	status: status,
+	actions: actions
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
+  actions: actions,
   active_staff: active_staff,
   administrator: administrator,
   all: all,
   all_present_today: all_present_today,
+  category: category,
   dashboard: dashboard,
   date: date,
   default: ar,
@@ -3238,8 +3294,13 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   manage_students: manage_students,
   new_student_enrollment: new_student_enrollment,
   notification_center: notification_center,
+  price: price,
   quick_actions: quick_actions,
   recent_activity: recent_activity,
+  sar: sar,
+  sku: sku,
+  status: status,
+  stock: stock,
   system_maintenance_scheduled: system_maintenance_scheduled,
   system_settings: system_settings,
   total_students: total_students,

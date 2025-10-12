@@ -43,7 +43,7 @@
           class="text-white bg-blue-600 rounded-md px-3 py-1.5 font-semibold hover:bg-blue-700 transition"
           @click="$router.push('/addProduct')"
         >
-          + Add Product
+          + {{ $t("add product") }}
         </button>
       </div>
 
@@ -52,13 +52,13 @@
         <table class="w-full text-center border-collapse">
           <thead>
             <tr class="bg-blue-100 text-blue-900 font-semibold">
-              <th class="px-6 py-4 text-start">SKU</th>
-              <th>Product Name</th>
-              <th>Category</th>
-              <th>Price (SAR)</th>
-              <th>Stock</th>
-              <th>Status</th>
-              <th>Actions</th>
+              <th class="px-6 py-4 text-start">{{ $t("sku") }}</th>
+              <th>{{ $t("product name") }}</th>
+              <th>{{ $t("category") }}</th>
+              <th>{{ $t("price") }} ({{ $t("sar") }})</th>
+              <th>{{ $t("stock") }}</th>
+              <th>{{ $t("status") }}</th>
+              <th>{{ $t("actions") }}</th>
             </tr>
           </thead>
 
