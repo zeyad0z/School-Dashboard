@@ -1,5 +1,4 @@
 <template>
-  <!--Notification Center -->
   <div
     class="mt-8 bg-white shadow-lg rounded-xl border border-blue-100 overflow-hidden"
   >
@@ -72,43 +71,18 @@
       </div>
     </div>
 
-    <!-- Pagination -->
-    <div class="flex justify-center items-center gap-2 py-8 bg-blue-50">
-      <button
-        @click="prevPage"
-        :disabled="currentPage === 1"
-        class="w-8 h-8 flex items-center justify-center text-blue-700 border rounded-md hover:bg-blue-100 transition disabled:opacity-50"
-      >
-        <UIcon name="i-lucide-chevron-left" />
-      </button>
-
-      <button
-        v-for="i in totalPages"
-        :key="i"
-        @click="goToPage(i)"
-        class="w-8 h-8 flex items-center justify-center rounded-md border transition"
-        :class="[
-          i === currentPage
-            ? 'bg-blue-600 text-white border-blue-600'
-            : 'text-blue-700 border-blue-300 bg-white hover:bg-blue-600 hover:text-white',
-        ]"
-      >
-        {{ i }}
-      </button>
-
-      <button
-        @click="nextPage"
-        :disabled="currentPage === totalPages"
-        class="w-8 h-8 flex items-center justify-center text-blue-700 border rounded-md hover:bg-blue-100 transition disabled:opacity-50"
-      >
-        <UIcon name="i-lucide-chevron-right" />
-      </button>
-    </div>
+    <BasePagination
+      class="py-8"
+      :data="notifications"
+      :items-per-page="3"
+      @update:paginatedData="paginatedNotifications = $event"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
+import BasePagination from "../UI/BasePagination.vue";
 
 const notifications = ref([
   { name: "زياد عبدالعزيز الكيلاني", date: "Mon, Sep 1, 2025 12:58 PM" },
@@ -125,27 +99,5 @@ const notifications = ref([
   { name: "عمر سعيد القادمي", date: "Mon, Sep 1, 2025 06:55 AM" },
 ]);
 
-const currentPage = ref(1);
-const itemsPerPage = 3;
-
-const totalPages = computed(() =>
-  Math.ceil(notifications.value.length / itemsPerPage)
-);
-
-const paginatedNotifications = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage;
-  return notifications.value.slice(start, start + itemsPerPage);
-});
-
-function goToPage(page) {
-  if (page >= 1 && page <= totalPages.value) currentPage.value = page;
-}
-
-function nextPage() {
-  if (currentPage.value < totalPages.value) currentPage.value++;
-}
-
-function prevPage() {
-  if (currentPage.value > 1) currentPage.value--;
-}
+const paginatedNotifications = ref([]);
 </script>

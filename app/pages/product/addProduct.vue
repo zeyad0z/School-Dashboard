@@ -198,7 +198,6 @@ const form = reactive({
   image: "",
 });
 
-// Validation rules
 const rules = {
   id: { required: helpers.withMessage("رمز المنتج مطلوب", required) },
   titleAr: {
@@ -235,7 +234,6 @@ const rules = {
 
 const v$ = useVuelidate(rules, form);
 
-// Submit function
 function handleAddProduct() {
   v$.value.$touch();
   if (v$.value.$invalid) {
@@ -248,18 +246,12 @@ function handleAddProduct() {
     price: parseFloat(form.price),
     stock: parseInt(form.stock),
   });
-
-  // clear fields
-  Object.keys(form).forEach((key) => {
-    form[key] = key === "status" ? "Active" : "";
-  });
-
-  router.push("/product/");
+  router.push("/product");
 }
 
 function cancelAdd() {
   if (confirm("هل أنت متأكد أنك تريد إلغاء اضافة المنتج؟")) {
-    router.push("/product/");
+    router.push("/product");
   }
 }
 </script>

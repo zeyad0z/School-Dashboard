@@ -1,6 +1,5 @@
 <template>
   <aside class="w-64 bg-white flex flex-col px-6 py-6 shadow-xl">
-    <!-- Logo / Title -->
     <div class="flex items-center gap-3 mb-4">
       <div class="bg-blue-500 rounded-xl flex items-center p-2.5 shadow-xl">
         <UIcon name="i-lucide-graduation-cap" class="w-7 h-7 text-white" />

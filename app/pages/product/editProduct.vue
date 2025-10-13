@@ -187,7 +187,6 @@ function handleEditProduct() {
   }
 }
 
-//زر إلغاء التعديل
 function cancelEdit() {
   if (confirm("هل أنت متأكد أنك تريد إلغاء التعديل؟")) {
     router.push("/product/");

@@ -2,7 +2,6 @@
   <header
     class="flex items-center justify-between w-full bg-white px-7 py-4 shadow-md"
   >
-    <!-- Left section -->
     <div class="flex gap-5">
       <!-- Sidebar toggle button-->
       <Button class="text-blue-600" @click="$emit('toggle-sidebar')">
@@ -27,7 +26,6 @@
       />
     </div>
 
-    <!-- Right section -->
     <div class="flex items-center gap-4">
       <!-- Notifications -->
       <div class="relative">
@@ -80,7 +78,7 @@ const { locale, setLocale } = useI18n();
 
 const changeLanguage = async (event) => {
   const lang = event.target.value;
-  await setLocale(lang); // Wait until the file is loaded
+  await setLocale(lang);
   document.dir = lang === "ar" ? "rtl" : "ltr";
 };
 </script>

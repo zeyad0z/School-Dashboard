@@ -49,31 +49,34 @@
 
       <!-- Table -->
       <div class="mt-5">
-        <table class="w-full text-center border-collapse">
+        <table class="w-full text-center border-collapse table-fixed">
           <thead>
             <tr class="bg-blue-100 text-blue-900 font-semibold">
-              <th class="px-6 py-4 text-start">{{ $t("sku") }}</th>
-              <th>{{ $t("product name") }}</th>
-              <th>{{ $t("category") }}</th>
-              <th>{{ $t("price") }} ({{ $t("sar") }})</th>
-              <th>{{ $t("stock") }}</th>
-              <th>{{ $t("status") }}</th>
-              <th>{{ $t("actions") }}</th>
+              <th class="w-[8rem] px-6 py-4 text-start">{{ $t("sku") }}</th>
+              <th class="w-[16rem]">{{ $t("product name") }}</th>
+              <th class="w-[15rem]">{{ $t("category") }}</th>
+              <th class="w-[10rem]">{{ $t("price") }} ({{ $t("sar") }})</th>
+              <th class="w-[10rem]">{{ $t("stock") }}</th>
+              <th class="w-[10rem]">{{ $t("status") }}</th>
+              <th class="w-[11rem]">{{ $t("actions") }}</th>
             </tr>
           </thead>
 
           <tbody>
             <tr
-              v-for="product in filteredProducts"
+              v-for="product in paginatedProducts"
               :key="product.id"
               class="bg-white border-b border-gray-200 hover:bg-blue-50 transition"
             >
               <td class="px-6 py-4 text-start">{{ product.id }}</td>
-              <td>{{ product.title.slice(0, 25) }}</td>
+              <td>
+                {{ product.title.slice(0, 30) }}
+              </td>
               <td>{{ product.category }}</td>
               <td>{{ product.price }}</td>
               <td>{{ product.stock }}</td>
               <td
+                class="col-span-1"
                 :class="
                   product.status === 'Out of Stock'
                     ? 'text-red-600'
@@ -83,7 +86,9 @@
                 {{ product.status }}
               </td>
 
-              <td class="flex justify-center items-center gap-7 py-4">
+              <td
+                class="flex justify-center items-center gap-7 py-4 col-span-1"
+              >
                 <!-- View -->
                 <button
                   class="hover:cursor-pointer"
@@ -113,13 +118,21 @@
 
           <tfoot>
             <tr class="bg-blue-100 text-blue-900 font-semibold">
-              <td colspan="3" class="text-start ps-6 py-4">
+              <td colspan="2" class="text-start ps-6 py-4">
                 <span
                   >Showing {{ filteredProducts.length }} of
                   {{ dashStore.products.length }} products</span
                 >
               </td>
-              <td colspan="4" class="text-end pe-6 py-4">
+              <td colspan="2">
+                <Pagination
+                  class="bg-blue-100"
+                  :data="filteredProducts"
+                  :itemsPerPage="5"
+                  @update:paginatedData="paginatedProducts = $event"
+                />
+              </td>
+              <td colspan="3" class="text-end pe-6 py-4">
                 <span class="ml-4">
                   <UIcon name="i-lucide-dollar-sign" class="w-4 h-4" /> Total
                   Value: SAR {{ totalPrice }}
@@ -134,7 +147,6 @@
         </table>
       </div>
 
-      <!-- Dialog Components -->
       <DeleteDialog
         :show="showDialog"
         :product="selectedProduct"
@@ -158,6 +170,7 @@ import { useDashStore } from "~/stores/DashStore.js";
 import DeleteDialog from "../../components/dashboard/deleteDialog.vue";
 import VeiwDialog from "../../components/dashboard/veiwDialog.vue";
 import { useRouter } from "vue-router";
+import Pagination from "~/components/UI/BasePagination.vue";
 
 const dashStore = useDashStore();
 const router = useRouter();
@@ -226,4 +239,6 @@ function editProduct(product) {
     query: { id: product.id.toString() },
   });
 }
+
+const paginatedProducts = ref([]);
 </script>

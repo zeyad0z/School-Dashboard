@@ -15,6 +15,7 @@ type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}
 
 interface _GlobalComponents {
       'UIBaseCard': typeof import("../../app/components/UI/BaseCard.vue")['default']
+    'UIBasePagination': typeof import("../../app/components/UI/BasePagination.vue")['default']
     'DashboardDeleteDialog': typeof import("../../app/components/dashboard/deleteDialog.vue")['default']
     'DashboardNavBar': typeof import("../../app/components/dashboard/navBar.vue")['default']
     'DashboardNotification': typeof import("../../app/components/dashboard/notification.vue")['default']
@@ -110,6 +111,7 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyUIBaseCard': LazyComponent<typeof import("../../app/components/UI/BaseCard.vue")['default']>
+    'LazyUIBasePagination': LazyComponent<typeof import("../../app/components/UI/BasePagination.vue")['default']>
     'LazyDashboardDeleteDialog': LazyComponent<typeof import("../../app/components/dashboard/deleteDialog.vue")['default']>
     'LazyDashboardNavBar': LazyComponent<typeof import("../../app/components/dashboard/navBar.vue")['default']>
     'LazyDashboardNotification': LazyComponent<typeof import("../../app/components/dashboard/notification.vue")['default']>

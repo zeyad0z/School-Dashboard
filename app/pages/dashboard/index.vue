@@ -16,7 +16,7 @@
           <p class="text-blue-700 mt-1">{{ $t("welcome_message") }}</p>
         </div>
 
-        <!-- Top Stats -->
+        <!-- Top cards -->
         <div class="flex gap-5 mt-6 md:mt-0">
           <div
             class="bg-[#1F6FFF] text-white rounded-xl p-5 w-75 h-42 flex justify-between items-center shadow-md hover:shadow-2xl"
@@ -54,7 +54,6 @@
         </div>
       </div>
 
-      <!-- Dashboard Widgets -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
         <!-- Quick Actions -->
         <div class="bg-white shadow-lg rounded-xl p-6 border border-blue-100">
