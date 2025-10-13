@@ -254,12 +254,12 @@ function handleAddProduct() {
     form[key] = key === "status" ? "Active" : "";
   });
 
-  router.push("/prodManagement");
+  router.push("/product/");
 }
 
 function cancelAdd() {
   if (confirm("هل أنت متأكد أنك تريد إلغاء اضافة المنتج؟")) {
-    router.push("/prodManagement");
+    router.push("/product/");
   }
 }
 </script>

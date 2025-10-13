@@ -5,7 +5,7 @@
     <BaseCard class="mx-5">
       <div class="mb-8 pb-4 text-center">
         <h1 class="text-2xl text-black/85 sm:text-[1.95rem] font-bold mb-3">
-           {{$t('welcome')}}
+          {{ $t("welcome") }}
         </h1>
         <p class="text-gray-500 text-sm sm:text-[1.02rem] mt-3">
           Access your educational dashboard
@@ -120,7 +120,8 @@
           :class="[
             v$.pass.$error && v$.pass.minLength.$invalid ? 'mt-6' : 'mt-6',
           ]"
-          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 mt-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm sm:text-[0.92rem] font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed">
+          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 mt-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm sm:text-[0.92rem] font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
+        >
           {{ loading ? "Signing In..." : "Sign In" }}
         </button>
       </form>
@@ -135,7 +136,7 @@ import { useUserStore } from "~/stores/UserStore";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, maxLength, helpers } from "@vuelidate/validators";
 
-const {t , locale, setLocale} = useI18n();
+const { t, locale, setLocale } = useI18n();
 
 const UserStore = useUserStore();
 const loading = ref(false);
@@ -176,7 +177,7 @@ const submitForm = () => {
     UserStore.user.ename = state.ename;
     UserStore.user.aname = state.aname;
     console.log("✅ Valid form:", state);
-    navigateTo("/options");
+    navigateTo("/home/options");
   } else {
     console.log("❌ Invalid form");
   }

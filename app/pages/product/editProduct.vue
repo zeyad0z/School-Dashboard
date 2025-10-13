@@ -160,7 +160,7 @@ onMounted(async () => {
     image.value = product.image || "";
   } else {
     console.warn("Product not found, returning to management page.");
-    router.push("/prodManagement");
+    router.push("/product/");
   }
 });
 
@@ -181,7 +181,7 @@ function handleEditProduct() {
 
   if (success !== false) {
     alert("✅ تم تحديث المنتج بنجاح!");
-    router.push("/prodManagement");
+    router.push("/product/");
   } else {
     alert("❌ حدث خطأ أثناء التحديث!");
   }
@@ -190,7 +190,7 @@ function handleEditProduct() {
 //زر إلغاء التعديل
 function cancelEdit() {
   if (confirm("هل أنت متأكد أنك تريد إلغاء التعديل؟")) {
-    router.push("/prodManagement");
+    router.push("/product/");
   }
 }
 </script>

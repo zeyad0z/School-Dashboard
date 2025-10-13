@@ -2144,7 +2144,22 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1ed20-wKNxPWNHxISJo4DjUHI9WX6YPtY\"",
+    "mtime": "2025-10-13T11:55:06.317Z",
+    "size": 126240,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"6778e-juX/q6OhgDadj3jRj23ZHUflDs0\"",
+    "mtime": "2025-10-13T11:55:06.317Z",
+    "size": 423822,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3238,7 +3253,7 @@ var sar = "ر.س";
 var stock = "المخزون";
 var status = "الحالة";
 var actions = "الاجراءات";
-var withdrawals = "الانسحابات";
+var withdrawals = "الأنسحابات";
 var finance = "المالية";
 var reports = "التقارير";
 var transportation = "النقل";
@@ -3279,7 +3294,7 @@ const ar = {
 	"manage school products, inventory, and pricing": "إدارة منتجات المدرسة والمخزون والتسعير",
 	"back to dashboard": "العودة إلى لوحة التحكم",
 	"hours ago": "قبل ساعات",
-	"ibn khaldun": "ابن خلدون",
+	"ibn khaldun": "إبن خلدون",
 	"schools management": "إدارة المدارس",
 	"add product": "إضافة منتج",
 	sku: sku,
@@ -3292,11 +3307,11 @@ const ar = {
 	actions: actions,
 	"1,247": "١٬٢٤٧",
 	"2025/2026": "٢٠٢٥ / ٢٠٢٦",
-	"administration assistant": "مساعد إداري",
+	"administration assistant": "المساعد الإداري",
 	"academic management": "الإدارة الأكاديمية",
 	"classroom management": "إدارة الفصول الدراسية",
 	"behavior notes": "ملاحظات السلوك",
-	"printing press": "مطبعة",
+	"printing press": "المطبعة",
 	withdrawals: withdrawals,
 	"student academic performance": "أداء الطالب الأكاديمي",
 	"dropout students": "الطلاب المنسحبون",

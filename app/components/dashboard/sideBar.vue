@@ -76,7 +76,7 @@ const sidebarItems = [
     name: "products",
     label: "products management",
     icon: "i-lucide-package",
-    route: "/prodManagement",
+    route: "../product",
   },
   {
     name: "behavior notes",
@@ -128,18 +128,24 @@ const sidebarItems = [
   },
 ];
 
-// ✅ Handle click and routing
-function handleClick(item) {
+// Handle click and routing
+async function handleClick(item) {
   active.value = item.name;
-  router.push(item.route);
+  await router.push(item.route);
 }
 
-// ✅ Watch current route to update active highlight
+// Watch current route to update active highlight
 watch(
   () => route.path,
   (path) => {
-    const match = sidebarItems.find((i) => i.route === path);
-    if (match) active.value = match.name;
+    const cleanPath = path.replace(/\/$/, "");
+    const match = sidebarItems.find((i) =>
+      i.route.replace(/\/$/, "").includes(cleanPath)
+    );
+
+    if (match) {
+      active.value = match.name;
+    }
   },
   { immediate: true }
 );

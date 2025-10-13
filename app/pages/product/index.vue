@@ -41,7 +41,7 @@
 
         <button
           class="text-white bg-blue-600 rounded-md px-3 py-1.5 font-semibold hover:bg-blue-700 transition"
-          @click="$router.push('/addProduct')"
+          @click="$router.push('/Product/addProduct')"
         >
           + {{ $t("add product") }}
         </button>
@@ -155,8 +155,8 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useDashStore } from "~/stores/DashStore.js";
-import DeleteDialog from "../components/dashboard/deleteDialog.vue";
-import VeiwDialog from "../components/dashboard/veiwDialog.vue";
+import DeleteDialog from "../../components/dashboard/deleteDialog.vue";
+import VeiwDialog from "../../components/dashboard/veiwDialog.vue";
 import { useRouter } from "vue-router";
 
 const dashStore = useDashStore();
@@ -222,7 +222,7 @@ function openViewDialog(product) {
 function editProduct(product) {
   if (!product?.id) return;
   router.push({
-    path: "/editProduct",
+    path: "/product/editProduct",
     query: { id: product.id.toString() },
   });
 }
