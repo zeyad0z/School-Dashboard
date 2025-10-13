@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-64 h-screen bg-white flex flex-col px-6 py-6 shadow-xl">
+  <aside class="w-64 bg-white flex flex-col px-6 py-6 shadow-xl">
     <!-- Logo / Title -->
     <div class="flex items-center gap-3 mb-4">
       <div class="bg-blue-500 rounded-xl flex items-center p-2.5 shadow-xl">
@@ -15,29 +15,19 @@
     <hr class="mb-8 text-gray-200" />
 
     <!-- Menu Items -->
-    <nav class="flex flex-col gap-2">
+    <nav class="flex flex-col gap-1">
       <button
-        class="flex items-center gap-3 px-3 py-3.5 rounded-lg text-blue-700 text-sm font-medium hover:bg-blue-50 hover:shadow-sm transition"
+        v-for="(item, index) in sidebarItems"
+        :key="index"
+        class="flex items-center gap-3 ps-3 py-3.5 rounded-lg text-blue-700 text-sm font-medium hover:bg-blue-50 hover:shadow-sm transition"
         :class="{
           'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600':
-            active === 'dashboard',
+            active === item.name,
         }"
-        @click="(active = 'dashboard'), $router.push('/dashboard')"
+        @click="handleClick(item)"
       >
-        <UIcon name="i-lucide-home" class="w-4 h-4 font-bold" />
-        <span>{{ $t("dashboard") }}</span>
-      </button>
-
-      <button
-        class="flex items-center gap-3 px-3 py-3.5 rounded-lg text-blue-700 text-sm font-medium hover:bg-blue-50 hover:shadow-sm transition"
-        :class="{
-          'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600':
-            active === 'products',
-        }"
-        @click="(active = 'products'), $router.push('/prodManagement')"
-      >
-        <UIcon name="i-lucide-package" class="w-4 h-4 font-bold" />
-        <span>{{ $t("products management") }}</span>
+        <UIcon :name="item.icon" class="w-4 h-4 font-bold" />
+        <span>{{ $t(item.label) }}</span>
       </button>
     </nav>
   </aside>
@@ -45,17 +35,111 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
-const route = useRoute();
+import { useRoute, useRouter } from "vue-router";
 
+const router = useRouter();
+const route = useRoute();
 const active = ref("dashboard");
 
-// Sync active state with route
+const sidebarItems = [
+  {
+    name: "dashboard",
+    label: "dashboard",
+    icon: "i-lucide-home",
+    route: "/dashboard",
+  },
+  {
+    name: "school manager",
+    label: "school manager",
+    icon: "i-lucide-graduation-cap",
+    route: "/dashboard",
+  },
+  {
+    name: "administration assistant",
+    label: "administration assistant",
+    icon: "i-lucide-user-check",
+    route: "/dashboard",
+  },
+  {
+    name: "academic management",
+    label: "academic management",
+    icon: "i-lucide-book-open",
+    route: "/dashboard",
+  },
+  {
+    name: "classroom management",
+    label: "classroom management",
+    icon: "i-lucide-users",
+    route: "/dashboard",
+  },
+  {
+    name: "products",
+    label: "products management",
+    icon: "i-lucide-package",
+    route: "/prodManagement",
+  },
+  {
+    name: "behavior notes",
+    label: "behavior notes",
+    icon: "lucide-file-text",
+    route: "/dashboard",
+  },
+  {
+    name: "printing press",
+    label: "printing press",
+    icon: "i-lucide-printer",
+    route: "/dashboard",
+  },
+  {
+    name: "withdrawals",
+    label: "withdrawals",
+    icon: "i-lucide-users",
+    route: "/dashboard",
+  },
+  {
+    name: "student academic performance",
+    label: "student academic performance",
+    icon: "lucide-chart-column",
+    route: "/dashboard",
+  },
+  {
+    name: "dropout students",
+    label: "dropout students",
+    icon: "i-lucide-users",
+    route: "/dashboard",
+  },
+  {
+    name: "finance",
+    label: "finance",
+    icon: "i-lucide-credit-card",
+    route: "/dashboard",
+  },
+  {
+    name: "evaluation and measurement",
+    label: "evaluation and measurement",
+    icon: "i-lucide-award",
+    route: "/dashboard",
+  },
+  {
+    name: "reports",
+    label: "reports",
+    icon: "i-lucide-clipboard-list",
+    route: "/dashboard",
+  },
+];
+
+// ✅ Handle click and routing
+function handleClick(item) {
+  active.value = item.name;
+  router.push(item.route);
+}
+
+// ✅ Watch current route to update active highlight
 watch(
   () => route.path,
   (path) => {
-    if (path === "/dashboard") active.value = "dashboard";
-    else if (path === "/prodManagement") active.value = "products";
+    const match = sidebarItems.find((i) => i.route === path);
+    if (match) active.value = match.name;
   },
   { immediate: true }
 );

@@ -2144,22 +2144,7 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1e57f-hWdS29PLPfW+WszwGDNCywBIAiA\"",
-    "mtime": "2025-10-13T08:33:17.121Z",
-    "size": 124287,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"6775c-6QkrA1wBUYMht+UB8pk/Q5OdJfI\"",
-    "mtime": "2025-10-13T08:33:17.121Z",
-    "size": 423772,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3104,6 +3089,11 @@ var sar$1 = "SAR";
 var stock$1 = "Stock";
 var status$1 = "Status";
 var actions$1 = "Actions";
+var withdrawals$1 = "Withdrawals";
+var finance$1 = "Finance";
+var reports$1 = "Reports";
+var transportation$1 = "Transportation";
+var certificates$1 = "Certificates";
 const en = {
 	"89": "89",
 	date: date$1,
@@ -3152,7 +3142,22 @@ const en = {
 	status: status$1,
 	actions: actions$1,
 	"1,247": "1,247",
-	"2025/2026": "2025/2026"
+	"2025/2026": "2025/2026",
+	"administration assistant": "Administration Assistant",
+	"academic management": "Academic Management",
+	"classroom management": "Classroom Management",
+	"behavior notes": "Behavior Notes",
+	"printing press": "Printing Press",
+	withdrawals: withdrawals$1,
+	"student academic performance": "Student Academic Perfor...",
+	"dropout students": "Dropout Students",
+	finance: finance$1,
+	"evaluation and measurement": "Evaluation and Measu...",
+	reports: reports$1,
+	transportation: transportation$1,
+	certificates: certificates$1,
+	"customer relations": "Customer Relations",
+	"communication tools": "Communication Tools"
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3163,12 +3168,14 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   all: all$1,
   all_present_today: all_present_today$1,
   category: category$1,
+  certificates: certificates$1,
   dashboard: dashboard$1,
   date: date$1,
   default: en,
   desc_grade_submission: desc_grade_submission$1,
   desc_new_student: desc_new_student$1,
   desc_system_maintenance: desc_system_maintenance$1,
+  finance: finance$1,
   generate_reports: generate_reports$1,
   grade_submission_completed: grade_submission_completed$1,
   greeting: greeting$1,
@@ -3179,6 +3186,7 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   price: price$1,
   quick_actions: quick_actions$1,
   recent_activity: recent_activity$1,
+  reports: reports$1,
   sar: sar$1,
   sku: sku$1,
   status: status$1,
@@ -3186,12 +3194,14 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   system_maintenance_scheduled: system_maintenance_scheduled$1,
   system_settings: system_settings$1,
   total_students: total_students$1,
+  transportation: transportation$1,
   unread: unread$1,
   view: view$1,
   view_schedule: view_schedule$1,
   welcome_message: welcome_message$1,
   withdraw_request_desc: withdraw_request_desc$1,
-  withdraw_request_title: withdraw_request_title$1
+  withdraw_request_title: withdraw_request_title$1,
+  withdrawals: withdrawals$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
 var date = "١ سبتمبر ٢٠٢٥";
@@ -3228,6 +3238,11 @@ var sar = "ر.س";
 var stock = "المخزون";
 var status = "الحالة";
 var actions = "الاجراءات";
+var withdrawals = "الانسحابات";
+var finance = "المالية";
+var reports = "التقارير";
+var transportation = "النقل";
+var certificates = "الشهادات";
 const ar = {
 	"89": "٨٩",
 	date: date,
@@ -3276,7 +3291,22 @@ const ar = {
 	status: status,
 	actions: actions,
 	"1,247": "١٬٢٤٧",
-	"2025/2026": "٢٠٢٥ / ٢٠٢٦"
+	"2025/2026": "٢٠٢٥ / ٢٠٢٦",
+	"administration assistant": "مساعد إداري",
+	"academic management": "الإدارة الأكاديمية",
+	"classroom management": "إدارة الفصول الدراسية",
+	"behavior notes": "ملاحظات السلوك",
+	"printing press": "مطبعة",
+	withdrawals: withdrawals,
+	"student academic performance": "أداء الطالب الأكاديمي",
+	"dropout students": "الطلاب المنسحبون",
+	finance: finance,
+	"evaluation and measurement": "التقييم والقياس",
+	reports: reports,
+	transportation: transportation,
+	certificates: certificates,
+	"customer relations": "علاقات العملاء",
+	"communication tools": "أدوات الاتصال"
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3287,12 +3317,14 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   all: all,
   all_present_today: all_present_today,
   category: category,
+  certificates: certificates,
   dashboard: dashboard,
   date: date,
   default: ar,
   desc_grade_submission: desc_grade_submission,
   desc_new_student: desc_new_student,
   desc_system_maintenance: desc_system_maintenance,
+  finance: finance,
   generate_reports: generate_reports,
   grade_submission_completed: grade_submission_completed,
   greeting: greeting,
@@ -3303,6 +3335,7 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   price: price,
   quick_actions: quick_actions,
   recent_activity: recent_activity,
+  reports: reports,
   sar: sar,
   sku: sku,
   status: status,
@@ -3310,12 +3343,14 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   system_maintenance_scheduled: system_maintenance_scheduled,
   system_settings: system_settings,
   total_students: total_students,
+  transportation: transportation,
   unread: unread,
   view: view,
   view_schedule: view_schedule,
   welcome_message: welcome_message,
   withdraw_request_desc: withdraw_request_desc,
-  withdraw_request_title: withdraw_request_title
+  withdraw_request_title: withdraw_request_title,
+  withdrawals: withdrawals
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const template = "";

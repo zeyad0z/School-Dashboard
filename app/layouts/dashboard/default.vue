@@ -21,10 +21,11 @@
       />
     </Transition>
     <div
+      class="py-5 pt-[100px]"
       :class="
         document.dir === 'rtl' || $i18n.locale === 'ar'
-          ? 'mr-115 ml-45 py-5 pt-[100px]'
-          : 'ml-115 mr-45 py-5 pt-[100px]'
+          ? 'mr-115 ml-45 '
+          : 'ml-115 mr-45 '
       "
     >
       <slot />

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex items-center justify-between w-full bg-white px-10 py-4 shadow-md"
+    class="flex items-center justify-between w-full bg-white px-7 py-4 shadow-md"
   >
     <!-- Left section -->
     <div class="flex gap-5">
@@ -61,7 +61,7 @@
       <div
         class="flex items-center gap-2rounded-lg px-3 py-2 bg-blue-50 rounded-md"
       >
-        <div class="text-right mr-2">
+        <div class="text-right mr-2 ml-1">
           <p class="text-sm font-semibold">{{ $t("international manager") }}</p>
           <p class="text-xs text-blue-600">{{ $t("administrator") }}</p>
         </div>

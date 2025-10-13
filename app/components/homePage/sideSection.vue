@@ -92,7 +92,7 @@ const cards = [
   {
     title: "Knowledge",
     text: "Comprehensive curriculum and learning resources",
-    icon: "i-heroicons-book-open",
+    icon: "i-lucide-book-open",
   },
   {
     title: "Community",
