@@ -17,6 +17,7 @@ interface _GlobalComponents {
       'UIBaseCard': typeof import("../../app/components/UI/BaseCard.vue")['default']
     'DashboardDeleteDialog': typeof import("../../app/components/dashboard/deleteDialog.vue")['default']
     'DashboardNavBar': typeof import("../../app/components/dashboard/navBar.vue")['default']
+    'DashboardNotification': typeof import("../../app/components/dashboard/notification.vue")['default']
     'DashboardSideBar': typeof import("../../app/components/dashboard/sideBar.vue")['default']
     'DashboardVeiwDialog': typeof import("../../app/components/dashboard/veiwDialog.vue")['default']
     'HomePageLoginCard': typeof import("../../app/components/homePage/loginCard.vue")['default']
@@ -111,6 +112,7 @@ interface _GlobalComponents {
       'LazyUIBaseCard': LazyComponent<typeof import("../../app/components/UI/BaseCard.vue")['default']>
     'LazyDashboardDeleteDialog': LazyComponent<typeof import("../../app/components/dashboard/deleteDialog.vue")['default']>
     'LazyDashboardNavBar': LazyComponent<typeof import("../../app/components/dashboard/navBar.vue")['default']>
+    'LazyDashboardNotification': LazyComponent<typeof import("../../app/components/dashboard/notification.vue")['default']>
     'LazyDashboardSideBar': LazyComponent<typeof import("../../app/components/dashboard/sideBar.vue")['default']>
     'LazyDashboardVeiwDialog': LazyComponent<typeof import("../../app/components/dashboard/veiwDialog.vue")['default']>
     'LazyHomePageLoginCard': LazyComponent<typeof import("../../app/components/homePage/loginCard.vue")['default']>

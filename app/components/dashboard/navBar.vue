@@ -17,7 +17,7 @@
         <option>{{ $t("testing branch") }}</option>
       </select>
       <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
-        <option>2025/2026</option>
+        <option>{{ $t("2025/2026") }}</option>
       </select>
 
       <input

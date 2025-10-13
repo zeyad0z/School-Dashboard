@@ -17,6 +17,7 @@ type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}
 export const UIBaseCard: typeof import("../app/components/UI/BaseCard.vue")['default']
 export const DashboardDeleteDialog: typeof import("../app/components/dashboard/deleteDialog.vue")['default']
 export const DashboardNavBar: typeof import("../app/components/dashboard/navBar.vue")['default']
+export const DashboardNotification: typeof import("../app/components/dashboard/notification.vue")['default']
 export const DashboardSideBar: typeof import("../app/components/dashboard/sideBar.vue")['default']
 export const DashboardVeiwDialog: typeof import("../app/components/dashboard/veiwDialog.vue")['default']
 export const HomePageLoginCard: typeof import("../app/components/homePage/loginCard.vue")['default']
@@ -111,6 +112,7 @@ export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/co
 export const LazyUIBaseCard: LazyComponent<typeof import("../app/components/UI/BaseCard.vue")['default']>
 export const LazyDashboardDeleteDialog: LazyComponent<typeof import("../app/components/dashboard/deleteDialog.vue")['default']>
 export const LazyDashboardNavBar: LazyComponent<typeof import("../app/components/dashboard/navBar.vue")['default']>
+export const LazyDashboardNotification: LazyComponent<typeof import("../app/components/dashboard/notification.vue")['default']>
 export const LazyDashboardSideBar: LazyComponent<typeof import("../app/components/dashboard/sideBar.vue")['default']>
 export const LazyDashboardVeiwDialog: LazyComponent<typeof import("../app/components/dashboard/veiwDialog.vue")['default']>
 export const LazyHomePageLoginCard: LazyComponent<typeof import("../app/components/homePage/loginCard.vue")['default']>

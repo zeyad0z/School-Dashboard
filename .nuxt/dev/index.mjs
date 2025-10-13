@@ -2144,7 +2144,22 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1e57f-hWdS29PLPfW+WszwGDNCywBIAiA\"",
+    "mtime": "2025-10-13T08:33:17.121Z",
+    "size": 124287,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"6775c-6QkrA1wBUYMht+UB8pk/Q5OdJfI\"",
+    "mtime": "2025-10-13T08:33:17.121Z",
+    "size": 423772,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3090,6 +3105,7 @@ var stock$1 = "Stock";
 var status$1 = "Status";
 var actions$1 = "Actions";
 const en = {
+	"89": "89",
 	date: date$1,
 	greeting: greeting$1,
 	welcome_message: welcome_message$1,
@@ -3134,7 +3150,9 @@ const en = {
 	sar: sar$1,
 	stock: stock$1,
 	status: status$1,
-	actions: actions$1
+	actions: actions$1,
+	"1,247": "1,247",
+	"2025/2026": "2025/2026"
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3211,6 +3229,7 @@ var stock = "المخزون";
 var status = "الحالة";
 var actions = "الاجراءات";
 const ar = {
+	"89": "٨٩",
 	date: date,
 	greeting: greeting,
 	welcome_message: welcome_message,
@@ -3255,7 +3274,9 @@ const ar = {
 	sar: sar,
 	stock: stock,
 	status: status,
-	actions: actions
+	actions: actions,
+	"1,247": "١٬٢٤٧",
+	"2025/2026": "٢٠٢٥ / ٢٠٢٦"
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
