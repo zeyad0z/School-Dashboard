@@ -16,8 +16,8 @@
             class="w-[1.3rem] h-[1.3rem] bg-blue-600"
           />
         </div>
-        <div class="flex flex-col items-center">
-          <h1 class="text-[1.2rem] font-bold">تعديل منتج</h1>
+        <div class="flex flex-col items-start">
+          <h1 class="text-[1.2rem] font-bold">{{ $t("edit_product") }}</h1>
           <p>Edit Product</p>
         </div>
       </div>

@@ -136,8 +136,8 @@ import { useUserStore } from "~/stores/UserStore";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, maxLength, helpers } from "@vuelidate/validators";
 
+const toast = useToast();
 const { t, locale, setLocale } = useI18n();
-
 const UserStore = useUserStore();
 const loading = ref(false);
 
@@ -176,10 +176,20 @@ const submitForm = () => {
     UserStore.user.id = state.id;
     UserStore.user.ename = state.ename;
     UserStore.user.aname = state.aname;
-    console.log("✅ Valid form:", state);
+
+    toast.add({
+      title: "Success",
+      description: "✅ Login successful, welcome!",
+      color: "success",
+    });
+
     navigateTo("/home/options");
   } else {
-    console.log("❌ Invalid form");
+    toast.add({
+      title: "Error",
+      description: "❌ Invalid form, please check your inputs",
+      color: "error",
+    });
   }
 };
 

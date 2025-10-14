@@ -15,9 +15,9 @@
             <label class="block text-end mb-1 text-sm font-medium">
               {{ $t("addProduct.titleAr") }}
             </label>
-            <UInput
+            <input
               v-model="titleAr"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('addProduct.titleArPlaceholder')"
             />
           </div>
@@ -26,9 +26,9 @@
             <label class="block mb-1 text-end text-sm font-medium">
               {{ $t("addProduct.titleEn") }} <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="titleEn"
-              class="w-full text-end"
+              class="w-full px-3 py-1 border bg-white rounded-sm text-end focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('addProduct.titleEnPlaceholder')"
               required
             />
@@ -39,7 +39,11 @@
             <label class="block mb-1 text-end text-sm font-medium">
               {{ $t("sku") }} <span class="text-red-500">*</span>
             </label>
-            <UInput v-model="id" class="w-full" disabled />
+            <input
+              v-model="id"
+              class="w-full px-3 py-1 border bg-gray-100 rounded-sm focus:outline-none border-gray-300 cursor-not-allowed"
+              disabled
+            />
           </div>
 
           <div>
@@ -48,7 +52,7 @@
             </label>
             <select
               v-model="category"
-              class="border border-gray-300 rounded-md py-2 px-2 w-full"
+              class="px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] w-full"
             >
               <option value="electronics">{{ $t("electronics") }}</option>
               <option value="jewelery">{{ $t("jewelry") }}</option>
@@ -65,9 +69,9 @@
               {{ $t("price") }} ({{ $t("sar") }})
               <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="price"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="number"
               step="0.1"
               :placeholder="$t('price_placeholder')"
@@ -79,9 +83,9 @@
             <label class="block mb-1 text-sm text-end font-medium">
               {{ $t("stock") }} <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="stock"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="number"
               :placeholder="$t('stock_placeholder')"
               required
@@ -93,9 +97,9 @@
             <label class="block mb-1 text-sm text-end font-medium">
               {{ $t("image_url") }}
             </label>
-            <UInput
+            <input
               v-model="image"
-              class="w-full"
+              class="w-full px-3 py-2 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="url"
               :placeholder="$t('enter_image_url')"
             />
@@ -106,9 +110,9 @@
             <label class="block mb-1 text-sm text-end font-medium">
               {{ $t("description") }}
             </label>
-            <UTextarea
+            <textarea
               v-model="description"
-              class="w-full"
+              class="w-full px-3 py-6 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('description_placeholder')"
             />
           </div>
@@ -117,20 +121,20 @@
           <div
             class="md:col-span-2 flex flex-col md:flex-row items-center justify-between mt-6 gap-5"
           >
-            <div>
+            <div class="mt-4">
               <label class="block mb-1 text-sm font-medium">{{
                 $t("status_label")
               }}</label>
               <select
                 v-model="status"
-                class="border border-gray-300 rounded-md py-2 px-2 w-full"
+                class="px-3 py-2 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] w-full"
               >
                 <option value="Active">{{ $t("active") }}</option>
                 <option value="Out of Stock">{{ $t("out_of_stock") }}</option>
               </select>
             </div>
 
-            <div class="flex gap-4 mt-4 md:mt-20">
+            <div class="flex gap-4 mt-10">
               <button
                 type="button"
                 @click="cancelEdit"

@@ -15,9 +15,9 @@
             <label class="block text-end mb-1 text-sm font-medium">
               {{ $t("addProduct.titleAr") }}
             </label>
-            <UInput
+            <input
               v-model="form.titleAr"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('addProduct.titleArPlaceholder')"
               @input="v$.titleAr.$touch()"
             />
@@ -31,9 +31,9 @@
             <label class="block mb-1 text-end text-sm font-medium">
               {{ $t("addProduct.titleEn") }} <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="form.titleEn"
-              class="w-full text-end"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('addProduct.titleEnPlaceholder')"
               @input="v$.titleEn.$touch()"
               @blur="v$.titleEn.$touch()"
@@ -48,9 +48,9 @@
             <label class="block mb-1 text-end text-sm font-medium">
               {{ $t("sku") }} <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="form.id"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('sku_placeholder')"
               @blur="v$.id.$touch()"
             />
@@ -67,7 +67,7 @@
             <select
               v-model="form.category"
               @blur="v$.category.$touch()"
-              class="border border-gray-300 rounded-md py-2 px-2 w-full"
+              class="px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] w-full"
             >
               <option value="" disabled hidden>
                 {{ $t("select_category") }}
@@ -88,9 +88,9 @@
               {{ $t("price") }} ({{ $t("sar") }})
               <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="form.price"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="number"
               step="0.1"
               :placeholder="$t('price_placeholder')"
@@ -106,9 +106,9 @@
             <label class="block mb-1 text-sm text-end font-medium">
               {{ $t("stock") }} <span class="text-red-500">*</span>
             </label>
-            <UInput
+            <input
               v-model="form.stock"
-              class="w-full"
+              class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="number"
               :placeholder="$t('stock_placeholder')"
               @blur="v$.stock.$touch()"
@@ -123,9 +123,9 @@
             <label class="block mb-1 text-sm text-end font-medium">
               {{ $t("image_url") }}
             </label>
-            <UInput
+            <input
               v-model="form.image"
-              class="w-full"
+              class="w-full px-3 py-2 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="url"
               :placeholder="$t('enter_image_url')"
             />
@@ -136,29 +136,29 @@
             <label class="block mb-1 text-sm text-end font-medium">
               {{ $t("description") }}
             </label>
-            <UTextarea
+            <textarea
               v-model="form.description"
-              class="w-full"
+              class="w-full px-3 py-6 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               :placeholder="$t('description_placeholder')"
             />
           </div>
 
           <!-- Status + Buttons -->
-          <div class="md:col-span-2 flex items-center justify-between mt-4">
-            <div>
+          <div class="col-span-2 flex items-center justify-between">
+            <div class="mt-4">
               <label class="block mb-1 text-sm font-medium">
                 {{ $t("status_label") }}
               </label>
               <select
                 v-model="form.status"
-                class="border border-gray-300 rounded-md py-2 px-2 w-full"
+                class="px-3 py-2 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] w-full"
               >
                 <option value="Active">{{ $t("active") }}</option>
                 <option value="Out of Stock">{{ $t("out_of_stock") }}</option>
               </select>
             </div>
 
-            <div class="flex gap-4 mt-4 md:mt-20">
+            <div class="flex gap-4 mt-10">
               <button
                 type="button"
                 @click="cancelAdd"
