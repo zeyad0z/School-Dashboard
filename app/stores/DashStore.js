@@ -27,7 +27,6 @@ export const useDashStore = defineStore("DashStore", {
     // Delete product
     deleteProduct(id) {
       this.products = this.products.filter((p) => p.id !== id);
-      alert("✅ Product deleted!");
     },
 
     // Add new product
@@ -46,8 +45,6 @@ export const useDashStore = defineStore("DashStore", {
         status: finalStatus,
         image: newProduct.image,
       });
-
-      alert("✅ Product added!");
     },
 
     // Update existing product

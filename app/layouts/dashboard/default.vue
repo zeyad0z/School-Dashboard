@@ -18,7 +18,7 @@
     </Transition>
 
     <div
-      class="pt-[100px] transition-all duration-300 ease-in-out max-w-[calc(100%-22rem)] mx-auto px-35"
+      class="pt-[100px] transition-all duration-300 ease-in-out max-w-[calc(100%-22rem)] mx-auto px-35 h-screen"
       :style="{
         transform: showSidebar
           ? isRTL

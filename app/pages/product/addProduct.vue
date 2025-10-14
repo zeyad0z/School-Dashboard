@@ -183,6 +183,7 @@ import { useRouter } from "vue-router";
 import useVuelidate from "@vuelidate/core";
 import { required, minValue, helpers } from "@vuelidate/validators";
 
+const toast = useToast();
 const dashStore = useDashStore();
 const router = useRouter();
 
@@ -237,7 +238,12 @@ const v$ = useVuelidate(rules, form);
 function handleAddProduct() {
   v$.value.$touch();
   if (v$.value.$invalid) {
-    alert("⚠️ من فضلك املأ جميع الحقول المطلوبة بشكل صحيح");
+    toast.add({
+      title: "خطأ في الإدخال",
+      description: "⚠️ من فضلك املأ جميع الحقول المطلوبة بشكل صحيح",
+      color: "warning",
+      duration: 3000,
+    });
     return;
   }
 
@@ -246,6 +252,14 @@ function handleAddProduct() {
     price: parseFloat(form.price),
     stock: parseInt(form.stock),
   });
+
+  toast.add({
+    title: "نجاح",
+    description: "✅ تم إضافة المنتج بنجاح",
+    color: "success",
+    duration: 3000,
+  });
+
   router.push("/product");
 }
 

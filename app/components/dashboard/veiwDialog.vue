@@ -5,7 +5,7 @@
     @click.self="$emit('close')"
   >
     <div
-      class="bg-white p-8 rounded-2xl shadow-2xl w-[90%] max-w-[650px] relative overflow-y-auto max-h-[90vh]"
+      class="bg-white p-8 rounded-2xl shadow-2xl w-[90%] max-w-[650px] relative overflow-y-auto max-h-[80vh] mt-20"
       @click.stop
     >
       <!-- Close Button -->

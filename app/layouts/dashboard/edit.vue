@@ -10,7 +10,7 @@
       </button>
 
       <div class="flex items-center gap-3">
-        <div class="bg-blue-100 flex items-center  p-2 rounded-lg">
+        <div class="bg-blue-100 flex items-center p-2 rounded-lg">
           <UIcon
             name="i-lucide-package"
             class="w-[1.3rem] h-[1.3rem] bg-blue-600"

@@ -126,6 +126,7 @@ import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useDashStore } from "~/stores/DashStore.js";
 
+const toast = useToast();
 const dashStore = useDashStore();
 const router = useRouter();
 const route = useRoute();
@@ -159,8 +160,7 @@ onMounted(async () => {
     status.value = product.status || "Active";
     image.value = product.image || "";
   } else {
-    console.warn("Product not found, returning to management page.");
-    router.push("/product/");
+    router.push("/product");
   }
 });
 
@@ -180,16 +180,27 @@ function handleEditProduct() {
   const success = dashStore.updateProduct(updatedProduct);
 
   if (success !== false) {
-    alert("✅ تم تحديث المنتج بنجاح!");
+    toast.add({
+      title: "نجاح",
+      description: "✅ تم تحديث المنتج بنجاح!",
+      color: "success",
+    });
     router.push("/product/");
   } else {
-    alert("❌ حدث خطأ أثناء التحديث!");
+    toast.add({
+      title: "خطأ",
+      description: "❌ حدث خطأ أثناء التحديث!",
+      color: "error",
+    });
   }
 }
 
 function cancelEdit() {
-  if (confirm("هل أنت متأكد أنك تريد إلغاء التعديل؟")) {
-    router.push("/product/");
-  }
+  toast.add({
+    title: "إلغاء",
+    description: "❌ تم إلغاء تعديل المنتج.",
+    color: "error",
+  });
+  router.push("/product/");
 }
 </script>

@@ -25,7 +25,7 @@
           v-model="search"
           type="search"
           placeholder="🔍 Search by name..."
-          class="border border-blue-200 rounded-md px-3 py-1.5 w-[54rem]"
+          class="border border-blue-200 rounded-md px-3 py-1.5 w-[56rem]"
         />
 
         <select
@@ -172,6 +172,7 @@ import VeiwDialog from "../../components/dashboard/veiwDialog.vue";
 import { useRouter } from "vue-router";
 import Pagination from "~/components/UI/BasePagination.vue";
 
+const toast = useToast();
 const dashStore = useDashStore();
 const router = useRouter();
 
@@ -221,6 +222,11 @@ function confirmDelete(id) {
 
 function handleDelete() {
   dashStore.deleteProduct(productToDelete.value);
+  toast.add({
+    title: "نجاح الحذف",
+    description: "✅ ! تم حذف المنتج",
+    color: "info",
+  });
   showDialog.value = false;
 }
 
