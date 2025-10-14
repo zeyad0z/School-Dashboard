@@ -3,7 +3,7 @@
     <div>
       <!-- Header -->
       <div
-        class="flex flex-col md:flex-row md:items-center md:justify-between mt-2"
+        class="flex flex-col md:flex-row md:items-start md:justify-between mt-2"
       >
         <div>
           <p class="text-sm text-blue-700 font-medium">{{ $t("date") }}</p>
@@ -13,13 +13,13 @@
             {{ $t("greeting") }}
             <span class="text-3xl">👋</span>
           </h1>
-          <p class="text-blue-700 mt-1">{{ $t("welcome_message") }}</p>
+          <p class="text-blue-700 mt-3">{{ $t("welcome_message") }}</p>
         </div>
 
         <!-- Top cards -->
         <div class="flex gap-5 mt-6 md:mt-0">
           <div
-            class="bg-[#1F6FFF] text-white rounded-xl p-5 w-75 h-42 flex justify-between items-center shadow-md hover:shadow-2xl"
+            class="bg-[#1F6FFF] text-white rounded-xl p-5 w-75 h-43 flex justify-between items-center shadow-md hover:shadow-2xl"
           >
             <div>
               <p class="text-sm opacity-90">{{ $t("total_students") }}</p>
@@ -36,7 +36,7 @@
           </div>
 
           <div
-            class="bg-[#00B0E7] text-white rounded-xl p-5 w-75 h-42 flex justify-between items-center shadow-md hover:shadow-2xl"
+            class="bg-[#00B0E7] text-white rounded-xl p-5 w-75 h-43 flex justify-between items-center shadow-md hover:shadow-2xl"
           >
             <div>
               <p class="text-sm opacity-90">{{ $t("active_staff") }}</p>
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
         <!-- Quick Actions -->
         <div class="bg-white shadow-lg rounded-xl p-6 border border-blue-100">
           <h2
@@ -112,7 +112,7 @@
           </div>
         </div>
       </div>
-      <Notification />
+      <Notification class="mb-7" />
     </div>
   </NuxtLayout>
 </template>
