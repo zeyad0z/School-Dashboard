@@ -13,74 +13,104 @@
           <!-- Arabic / English name -->
           <div>
             <label class="block text-end mb-1 text-sm font-medium">
-              اسم المنتج بالعربية
+              {{ $t("addProduct.titleAr") }}
             </label>
-            <UInput v-model="titleAr" class="w-full" />
+            <UInput
+              v-model="titleAr"
+              class="w-full"
+              :placeholder="$t('addProduct.titleArPlaceholder')"
+            />
           </div>
 
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
-              اسم المنتج بالإنجليزية <span class="text-red-500">*</span>
+              {{ $t("addProduct.titleEn") }} <span class="text-red-500">*</span>
             </label>
-            <UInput v-model="titleEn" class="w-full text-end" required />
+            <UInput
+              v-model="titleEn"
+              class="w-full text-end"
+              :placeholder="$t('addProduct.titleEnPlaceholder')"
+              required
+            />
           </div>
 
           <!-- SKU / Category -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
-              رمز المنتج (SKU) <span class="text-red-500">*</span>
+              {{ $t("sku") }} <span class="text-red-500">*</span>
             </label>
             <UInput v-model="id" class="w-full" disabled />
           </div>
 
           <div>
             <label class="block mb-1 text-sm font-medium text-end">
-              الفئة <span class="text-red-500">*</span>
+              {{ $t("category") }} <span class="text-red-500">*</span>
             </label>
             <select
               v-model="category"
               class="border border-gray-300 rounded-md py-2 px-2 w-full"
             >
-              <option value="electronics">Electronics</option>
-              <option value="jewelery">Jewelery</option>
-              <option value="men's clothing">Men's Clothing</option>
-              <option value="women's clothing">Women's Clothing</option>
+              <option value="electronics">{{ $t("electronics") }}</option>
+              <option value="jewelery">{{ $t("jewelry") }}</option>
+              <option value="men's clothing">{{ $t("mens_clothing") }}</option>
+              <option value="women's clothing">
+                {{ $t("womens_clothing") }}
+              </option>
             </select>
           </div>
 
           <!-- Price / Quantity -->
           <div>
-            <label class="block mb-1 text-end text-sm font-medium"
-              >السعر (ريال) <span class="text-red-500">*</span></label
-            >
+            <label class="block mb-1 text-end text-sm font-medium">
+              {{ $t("price") }} ({{ $t("sar") }})
+              <span class="text-red-500">*</span>
+            </label>
             <UInput
               v-model="price"
               class="w-full"
               type="number"
               step="0.1"
+              :placeholder="$t('price_placeholder')"
               required
             />
           </div>
 
           <div>
-            <label class="block mb-1 text-sm text-end font-medium"
-              >الكمية <span class="text-red-500">*</span></label
-            >
-            <UInput v-model="stock" class="w-full" type="number" required />
+            <label class="block mb-1 text-sm text-end font-medium">
+              {{ $t("stock") }} <span class="text-red-500">*</span>
+            </label>
+            <UInput
+              v-model="stock"
+              class="w-full"
+              type="number"
+              :placeholder="$t('stock_placeholder')"
+              required
+            />
           </div>
 
           <!-- Image -->
           <div class="md:col-span-2">
             <label class="block mb-1 text-sm text-end font-medium">
-              رابط الصورة
+              {{ $t("image_url") }}
             </label>
-            <UInput v-model="image" class="w-full" type="url" />
+            <UInput
+              v-model="image"
+              class="w-full"
+              type="url"
+              :placeholder="$t('enter_image_url')"
+            />
           </div>
 
           <!-- Description -->
           <div class="md:col-span-2">
-            <label class="block mb-1 text-sm text-end font-medium">الوصف</label>
-            <UTextarea v-model="description" class="w-full" />
+            <label class="block mb-1 text-sm text-end font-medium">
+              {{ $t("description") }}
+            </label>
+            <UTextarea
+              v-model="description"
+              class="w-full"
+              :placeholder="$t('description_placeholder')"
+            />
           </div>
 
           <!-- Status + Buttons -->
@@ -88,13 +118,15 @@
             class="md:col-span-2 flex flex-col md:flex-row items-center justify-between mt-6 gap-5"
           >
             <div>
-              <label class="block mb-1 text-sm font-medium">الحالة</label>
+              <label class="block mb-1 text-sm font-medium">{{
+                $t("status_label")
+              }}</label>
               <select
                 v-model="status"
                 class="border border-gray-300 rounded-md py-2 px-2 w-full"
               >
-                <option value="Active">Active</option>
-                <option value="Out of Stock">Out of Stock</option>
+                <option value="Active">{{ $t("active") }}</option>
+                <option value="Out of Stock">{{ $t("out_of_stock") }}</option>
               </select>
             </div>
 
@@ -104,14 +136,14 @@
                 @click="cancelEdit"
                 class="px-10 py-2 border border-gray-400 text-gray-700 rounded-lg hover:bg-gray-100 transition"
               >
-                إلغاء
+                {{ $t("cancel") }}
               </button>
 
               <button
                 type="submit"
                 class="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
               >
-                تحديث المنتج
+                {{ $t("edit_product") }}
               </button>
             </div>
           </div>
@@ -125,7 +157,7 @@
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useDashStore } from "~/stores/DashStore.js";
-
+const { t } = useI18n();
 const toast = useToast();
 const dashStore = useDashStore();
 const router = useRouter();
@@ -181,15 +213,15 @@ function handleEditProduct() {
 
   if (success !== false) {
     toast.add({
-      title: "نجاح",
-      description: "✅ تم تحديث المنتج بنجاح!",
+      title: t("edit_success_title"),
+      description: t("edit_success_message"),
       color: "success",
     });
     router.push("/product/");
   } else {
     toast.add({
-      title: "خطأ",
-      description: "❌ حدث خطأ أثناء التحديث!",
+      title: t("form_error_title"),
+      description: t("form_error_message"),
       color: "error",
     });
   }
@@ -197,8 +229,8 @@ function handleEditProduct() {
 
 function cancelEdit() {
   toast.add({
-    title: "إلغاء",
-    description: "❌ تم إلغاء تعديل المنتج.",
+    title: t("edit_cancel_title"),
+    description: t("edit_cancel_message"),
     color: "error",
   });
   router.push("/product/");

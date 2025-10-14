@@ -2144,7 +2144,22 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"21697-AXluGoALvIz6tpXgLtdgtV93vSY\"",
+    "mtime": "2025-10-14T11:58:24.416Z",
+    "size": 136855,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"6789a-YaaMq9MTxFHxdxAEA9KyAwqbxtM\"",
+    "mtime": "2025-10-14T11:58:24.416Z",
+    "size": 424090,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3094,6 +3109,49 @@ var finance$1 = "Finance";
 var reports$1 = "Reports";
 var transportation$1 = "Transportation";
 var certificates$1 = "Certificates";
+var add_new_product$1 = "Add New Product";
+var sku_placeholder$1 = "PROD-001";
+var select_category$1 = "Select Category";
+var price_placeholder$1 = "Enter product price";
+var stock_placeholder$1 = "Enter available stock quantity";
+var image_url$1 = "Product Image URL";
+var enter_image_url$1 = "Enter image link (optional)";
+var description_placeholder$1 = "Enter product description";
+var status_label$1 = "Status";
+var active$1 = "Active";
+var out_of_stock$1 = "Out of Stock";
+var cancel$1 = "Cancel";
+var submit$1 = "Add Product";
+var edit_product$1 = "Edit Product";
+var form_error_title$1 = "Input Error";
+var form_error_message$1 = "⚠️ Please fill all required fields correctly.";
+var form_success_title$1 = "Success";
+var form_success_message$1 = "✅ Product added successfully.";
+var edit_success_title$1 = "Success";
+var edit_success_message$1 = "✅ Product updated successfully.";
+var form_cancel_title$1 = "Cancelled";
+var form_cancel_message$1 = "❌ Product addition cancelled.";
+var edit_cancel_title$1 = "Cancelled";
+var edit_cancel_message$1 = "❌ Product edit cancelled.";
+var required_field$1 = "This field is required.";
+var invalid_english$1 = "Name must be in English only.";
+var invalid_arabic$1 = "Name must be in Arabic only.";
+var invalid_price$1 = "Price must be greater than 0.";
+var invalid_stock$1 = "Stock must be zero or more.";
+var electronics$1 = "Electronics";
+var jewelry$1 = "Jewelry";
+var mens_clothing$1 = "Men's Clothing";
+var womens_clothing$1 = "Women's Clothing";
+var search_by_name$1 = "🔍 Search by name...";
+var all_categories$1 = "All Categories";
+var showing$1 = "Showing";
+var of$1 = "of";
+var products$1 = "products";
+var total_value$1 = "Total Value";
+var total_stock$1 = "Total Stock";
+var edit$1 = "Edit";
+var delete_success_message$1 = "✅ Product deleted successfully.";
+var delete_cancel_message$1 = "❌ Product deletion cancelled.";
 const en = {
 	"89": "89",
 	date: date$1,
@@ -3157,43 +3215,133 @@ const en = {
 	transportation: transportation$1,
 	certificates: certificates$1,
 	"customer relations": "Customer Relations",
-	"communication tools": "Communication Tools"
+	"communication tools": "Communication Tools",
+	add_new_product: add_new_product$1,
+	"addProduct.titleAr": "product name in Arabic",
+	"addProduct.titleArPlaceholder": "Enter product name in Arabic",
+	"addProduct.titleEn": "product name in English",
+	"addProduct.titleEnPlaceholder": "Enter product name in English",
+	sku_placeholder: sku_placeholder$1,
+	select_category: select_category$1,
+	price_placeholder: price_placeholder$1,
+	stock_placeholder: stock_placeholder$1,
+	image_url: image_url$1,
+	enter_image_url: enter_image_url$1,
+	description_placeholder: description_placeholder$1,
+	status_label: status_label$1,
+	active: active$1,
+	out_of_stock: out_of_stock$1,
+	cancel: cancel$1,
+	submit: submit$1,
+	edit_product: edit_product$1,
+	form_error_title: form_error_title$1,
+	form_error_message: form_error_message$1,
+	form_success_title: form_success_title$1,
+	form_success_message: form_success_message$1,
+	edit_success_title: edit_success_title$1,
+	edit_success_message: edit_success_message$1,
+	form_cancel_title: form_cancel_title$1,
+	form_cancel_message: form_cancel_message$1,
+	edit_cancel_title: edit_cancel_title$1,
+	edit_cancel_message: edit_cancel_message$1,
+	required_field: required_field$1,
+	invalid_english: invalid_english$1,
+	invalid_arabic: invalid_arabic$1,
+	invalid_price: invalid_price$1,
+	invalid_stock: invalid_stock$1,
+	electronics: electronics$1,
+	jewelry: jewelry$1,
+	mens_clothing: mens_clothing$1,
+	womens_clothing: womens_clothing$1,
+	search_by_name: search_by_name$1,
+	all_categories: all_categories$1,
+	showing: showing$1,
+	of: of$1,
+	products: products$1,
+	total_value: total_value$1,
+	total_stock: total_stock$1,
+	edit: edit$1,
+	"delete": "Delete",
+	delete_success_message: delete_success_message$1,
+	delete_cancel_message: delete_cancel_message$1
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   actions: actions$1,
+  active: active$1,
   active_staff: active_staff$1,
+  add_new_product: add_new_product$1,
   administrator: administrator$1,
   all: all$1,
+  all_categories: all_categories$1,
   all_present_today: all_present_today$1,
+  cancel: cancel$1,
   category: category$1,
   certificates: certificates$1,
   dashboard: dashboard$1,
   date: date$1,
   default: en,
+  delete_cancel_message: delete_cancel_message$1,
+  delete_success_message: delete_success_message$1,
   desc_grade_submission: desc_grade_submission$1,
   desc_new_student: desc_new_student$1,
   desc_system_maintenance: desc_system_maintenance$1,
+  description_placeholder: description_placeholder$1,
+  edit: edit$1,
+  edit_cancel_message: edit_cancel_message$1,
+  edit_cancel_title: edit_cancel_title$1,
+  edit_product: edit_product$1,
+  edit_success_message: edit_success_message$1,
+  edit_success_title: edit_success_title$1,
+  electronics: electronics$1,
+  enter_image_url: enter_image_url$1,
   finance: finance$1,
+  form_cancel_message: form_cancel_message$1,
+  form_cancel_title: form_cancel_title$1,
+  form_error_message: form_error_message$1,
+  form_error_title: form_error_title$1,
+  form_success_message: form_success_message$1,
+  form_success_title: form_success_title$1,
   generate_reports: generate_reports$1,
   grade_submission_completed: grade_submission_completed$1,
   greeting: greeting$1,
+  image_url: image_url$1,
   increase_from_last_month: increase_from_last_month$1,
+  invalid_arabic: invalid_arabic$1,
+  invalid_english: invalid_english$1,
+  invalid_price: invalid_price$1,
+  invalid_stock: invalid_stock$1,
+  jewelry: jewelry$1,
   manage_students: manage_students$1,
+  mens_clothing: mens_clothing$1,
   new_student_enrollment: new_student_enrollment$1,
   notification_center: notification_center$1,
+  of: of$1,
+  out_of_stock: out_of_stock$1,
   price: price$1,
+  price_placeholder: price_placeholder$1,
+  products: products$1,
   quick_actions: quick_actions$1,
   recent_activity: recent_activity$1,
   reports: reports$1,
+  required_field: required_field$1,
   sar: sar$1,
+  search_by_name: search_by_name$1,
+  select_category: select_category$1,
+  showing: showing$1,
   sku: sku$1,
+  sku_placeholder: sku_placeholder$1,
   status: status$1,
+  status_label: status_label$1,
   stock: stock$1,
+  stock_placeholder: stock_placeholder$1,
+  submit: submit$1,
   system_maintenance_scheduled: system_maintenance_scheduled$1,
   system_settings: system_settings$1,
+  total_stock: total_stock$1,
   total_students: total_students$1,
+  total_value: total_value$1,
   transportation: transportation$1,
   unread: unread$1,
   view: view$1,
@@ -3201,7 +3349,8 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   welcome_message: welcome_message$1,
   withdraw_request_desc: withdraw_request_desc$1,
   withdraw_request_title: withdraw_request_title$1,
-  withdrawals: withdrawals$1
+  withdrawals: withdrawals$1,
+  womens_clothing: womens_clothing$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
 var date = "١ سبتمبر ٢٠٢٥";
@@ -3243,6 +3392,50 @@ var finance = "المالية";
 var reports = "التقارير";
 var transportation = "النقل";
 var certificates = "الشهادات";
+var add_new_product = "إضافة منتج جديد";
+var sku_placeholder = "PROD-001";
+var select_category = "اختار الفئة";
+var price_placeholder = "أدخل سعر المنتج";
+var stock_placeholder = "أدخل كمية المنتج المتوفرة";
+var image_url = "رابط صورة المنتج";
+var enter_image_url = "أدخل رابط الصورة (اختياري)";
+var description = "الوصف";
+var description_placeholder = "أدخل وصف المنتج";
+var status_label = "الحالة";
+var active = "نشط";
+var out_of_stock = "غير متوفر";
+var cancel = "إلغاء";
+var submit = "إضافة المنتج";
+var edit_product = "تعديل المنتج";
+var form_error_title = "خطأ في الإدخال";
+var form_error_message = "⚠️ من فضلك املأ جميع الحقول المطلوبة بشكل صحيح";
+var form_success_title = "نجاح";
+var form_success_message = "✅ تم إضافة المنتج بنجاح";
+var edit_success_title = "نجاح";
+var edit_success_message = "✅ تم تحديث المنتج بنجاح";
+var form_cancel_title = "تم الإلغاء";
+var form_cancel_message = "❌ تم إلغاء إضافة المنتج";
+var edit_cancel_title = "تم الإلغاء";
+var edit_cancel_message = "❌ تم إلغاء تعديل المنتج";
+var required_field = "هذا الحقل مطلوب";
+var invalid_english = "يجب أن يكون الاسم باللغة الإنجليزية فقط";
+var invalid_arabic = "يجب أن يكون الاسم باللغة العربية فقط";
+var invalid_price = "يجب أن يكون السعر أكبر من 0";
+var invalid_stock = "يجب أن تكون الكمية أكبر من أو تساوي 0";
+var electronics = "إلكترونيات";
+var jewelry = "مجوهرات";
+var mens_clothing = "ملابس رجالية";
+var womens_clothing = "ملابس نسائية";
+var search_by_name = "🔍 ابحث بالاسم...";
+var all_categories = "كل الفئات";
+var showing = "عرض";
+var of = "من";
+var products = "منتجات";
+var total_value = "القيمة الإجمالية";
+var total_stock = "إجمالي المخزون";
+var edit = "تعديل";
+var delete_success_message = "✅ تم حذف المنتج بنجاح.";
+var delete_cancel_message = "❌ تم الغاء حذف المنتج.";
 const ar = {
 	"89": "٨٩",
 	date: date,
@@ -3306,43 +3499,135 @@ const ar = {
 	transportation: transportation,
 	certificates: certificates,
 	"customer relations": "علاقات العملاء",
-	"communication tools": "أدوات الاتصال"
+	"communication tools": "أدوات الاتصال",
+	add_new_product: add_new_product,
+	"addProduct.titleAr": "اسم المنتج بالعربية",
+	"addProduct.titleArPlaceholder": "ادخل اسم المنتج بالعربية",
+	"addProduct.titleEn": "اسم المنتج بالإنجليزية",
+	"addProduct.titleEnPlaceholder": "ادخل اسم المنتج بالإنجليزية",
+	sku_placeholder: sku_placeholder,
+	select_category: select_category,
+	price_placeholder: price_placeholder,
+	stock_placeholder: stock_placeholder,
+	image_url: image_url,
+	enter_image_url: enter_image_url,
+	description: description,
+	description_placeholder: description_placeholder,
+	status_label: status_label,
+	active: active,
+	out_of_stock: out_of_stock,
+	cancel: cancel,
+	submit: submit,
+	edit_product: edit_product,
+	form_error_title: form_error_title,
+	form_error_message: form_error_message,
+	form_success_title: form_success_title,
+	form_success_message: form_success_message,
+	edit_success_title: edit_success_title,
+	edit_success_message: edit_success_message,
+	form_cancel_title: form_cancel_title,
+	form_cancel_message: form_cancel_message,
+	edit_cancel_title: edit_cancel_title,
+	edit_cancel_message: edit_cancel_message,
+	required_field: required_field,
+	invalid_english: invalid_english,
+	invalid_arabic: invalid_arabic,
+	invalid_price: invalid_price,
+	invalid_stock: invalid_stock,
+	electronics: electronics,
+	jewelry: jewelry,
+	mens_clothing: mens_clothing,
+	womens_clothing: womens_clothing,
+	search_by_name: search_by_name,
+	all_categories: all_categories,
+	showing: showing,
+	of: of,
+	products: products,
+	total_value: total_value,
+	total_stock: total_stock,
+	edit: edit,
+	"delete": "حذف",
+	delete_success_message: delete_success_message,
+	delete_cancel_message: delete_cancel_message
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   actions: actions,
+  active: active,
   active_staff: active_staff,
+  add_new_product: add_new_product,
   administrator: administrator,
   all: all,
+  all_categories: all_categories,
   all_present_today: all_present_today,
+  cancel: cancel,
   category: category,
   certificates: certificates,
   dashboard: dashboard,
   date: date,
   default: ar,
+  delete_cancel_message: delete_cancel_message,
+  delete_success_message: delete_success_message,
   desc_grade_submission: desc_grade_submission,
   desc_new_student: desc_new_student,
   desc_system_maintenance: desc_system_maintenance,
+  description: description,
+  description_placeholder: description_placeholder,
+  edit: edit,
+  edit_cancel_message: edit_cancel_message,
+  edit_cancel_title: edit_cancel_title,
+  edit_product: edit_product,
+  edit_success_message: edit_success_message,
+  edit_success_title: edit_success_title,
+  electronics: electronics,
+  enter_image_url: enter_image_url,
   finance: finance,
+  form_cancel_message: form_cancel_message,
+  form_cancel_title: form_cancel_title,
+  form_error_message: form_error_message,
+  form_error_title: form_error_title,
+  form_success_message: form_success_message,
+  form_success_title: form_success_title,
   generate_reports: generate_reports,
   grade_submission_completed: grade_submission_completed,
   greeting: greeting,
+  image_url: image_url,
   increase_from_last_month: increase_from_last_month,
+  invalid_arabic: invalid_arabic,
+  invalid_english: invalid_english,
+  invalid_price: invalid_price,
+  invalid_stock: invalid_stock,
+  jewelry: jewelry,
   manage_students: manage_students,
+  mens_clothing: mens_clothing,
   new_student_enrollment: new_student_enrollment,
   notification_center: notification_center,
+  of: of,
+  out_of_stock: out_of_stock,
   price: price,
+  price_placeholder: price_placeholder,
+  products: products,
   quick_actions: quick_actions,
   recent_activity: recent_activity,
   reports: reports,
+  required_field: required_field,
   sar: sar,
+  search_by_name: search_by_name,
+  select_category: select_category,
+  showing: showing,
   sku: sku,
+  sku_placeholder: sku_placeholder,
   status: status,
+  status_label: status_label,
   stock: stock,
+  stock_placeholder: stock_placeholder,
+  submit: submit,
   system_maintenance_scheduled: system_maintenance_scheduled,
   system_settings: system_settings,
+  total_stock: total_stock,
   total_students: total_students,
+  total_value: total_value,
   transportation: transportation,
   unread: unread,
   view: view,
@@ -3350,7 +3635,8 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   welcome_message: welcome_message,
   withdraw_request_desc: withdraw_request_desc,
   withdraw_request_title: withdraw_request_title,
-  withdrawals: withdrawals
+  withdrawals: withdrawals,
+  womens_clothing: womens_clothing
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const template = "";

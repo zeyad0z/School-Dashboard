@@ -16,9 +16,9 @@
             class="w-[1.3rem] h-[1.3rem] bg-blue-600"
           />
         </div>
-        <div class="flex flex-col items-center">
-          <h1 class="text-[1.2rem] font-bold">إضافة منتج جديد</h1>
-          <p>Add New Product</p>
+        <div class="flex flex-col items-start">
+          <h1 class="text-[1.2rem] font-bold">{{ $t("add_new_product") }}</h1>
+          <p class="text-start">Add New Product</p>
         </div>
       </div>
     </div>

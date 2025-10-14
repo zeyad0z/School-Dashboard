@@ -24,7 +24,7 @@
         <input
           v-model="search"
           type="search"
-          placeholder="🔍 Search by name..."
+          :placeholder="$t('search_by_name')"
           class="border border-blue-200 rounded-md px-3 py-1.5 w-[56rem]"
         />
 
@@ -32,11 +32,11 @@
           v-model="filter"
           class="border border-blue-200 rounded-md px-3 py-1.5"
         >
-          <option>All Categories</option>
-          <option>Electronics</option>
-          <option>Jewelery</option>
-          <option>Men's Clothing</option>
-          <option>Women's Clothing</option>
+          <option value="all">{{ $t("all_categories") }}</option>
+          <option value="electronics">{{ $t("electronics") }}</option>
+          <option value="jewelery">{{ $t("jewelry") }}</option>
+          <option value="men's clothing">{{ $t("mens_clothing") }}</option>
+          <option value="women's clothing">{{ $t("womens_clothing") }}</option>
         </select>
 
         <button
@@ -69,9 +69,7 @@
               class="bg-white border-b border-gray-200 hover:bg-blue-50 transition"
             >
               <td class="px-6 py-4 text-start">{{ product.id }}</td>
-              <td>
-                {{ product.title.slice(0, 30) }}
-              </td>
+              <td>{{ product.title.slice(0, 30) }}</td>
               <td>{{ product.category }}</td>
               <td>{{ product.price }}</td>
               <td>{{ product.stock }}</td>
@@ -83,7 +81,13 @@
                     : 'text-green-600'
                 "
               >
-                {{ product.status }}
+                {{
+                  $t(
+                    product.status === "Out of Stock"
+                      ? "out_of_stock"
+                      : "active"
+                  )
+                }}
               </td>
 
               <td
@@ -93,6 +97,7 @@
                 <button
                   class="hover:cursor-pointer"
                   @click="openViewDialog(product)"
+                  :title="$t('view')"
                 >
                   <Icon name="lucide:eye" class="w-4 h-4 text-blue-600" />
                 </button>
@@ -101,6 +106,7 @@
                 <button
                   class="hover:cursor-pointer"
                   @click="editProduct(product)"
+                  :title="$t('edit')"
                 >
                   <Icon name="lucide:edit-3" class="w-4 h-4 text-blue-600" />
                 </button>
@@ -109,6 +115,7 @@
                 <button
                   class="hover:cursor-pointer"
                   @click="confirmDelete(product.id)"
+                  :title="$t('delete')"
                 >
                   <Icon name="lucide:trash-2" class="w-4 h-4 text-red-600" />
                 </button>
@@ -119,10 +126,12 @@
           <tfoot>
             <tr class="bg-blue-100 text-blue-900 font-semibold">
               <td colspan="2" class="text-start ps-6 py-4">
-                <span
-                  >Showing {{ filteredProducts.length }} of
-                  {{ dashStore.products.length }} products</span
-                >
+                <span>
+                  {{ $t("showing") }} {{ filteredProducts.length }}
+                  {{ $t("of") }}
+                  {{ dashStore.products.length }}
+                  {{ $t("products") }}
+                </span>
               </td>
               <td colspan="2">
                 <Pagination
@@ -134,12 +143,12 @@
               </td>
               <td colspan="3" class="text-end pe-6 py-4">
                 <span class="ml-4">
-                  <UIcon name="i-lucide-dollar-sign" class="w-4 h-4" /> Total
-                  Value: SAR {{ totalPrice }}
+                  <UIcon name="i-lucide-dollar-sign" class="w-4 h-4" />
+                  {{ $t("total_value") }}: {{ $t("sar") }} {{ totalPrice }}
                 </span>
                 <span class="ml-4">
-                  <UIcon name="i-lucide-package" class="w-4 h-4" /> Total Stock:
-                  {{ totalStock }}
+                  <UIcon name="i-lucide-package" class="w-4 h-4" />
+                  {{ $t("total_stock") }}: {{ totalStock }}
                 </span>
               </td>
             </tr>
@@ -150,7 +159,14 @@
       <DeleteDialog
         :show="showDialog"
         :product="selectedProduct"
-        @cancel="showDialog = false"
+        @cancel="
+          (showDialog = false),
+            toast.add({
+              title: $t('form_cancel_title'),
+              description: $t('delete_cancel_message'),
+              color: 'info',
+            })
+        "
         @confirm="handleDelete"
       />
 
@@ -183,12 +199,12 @@ onMounted(() => {
 });
 
 const search = ref("");
-const filter = ref("All Categories");
+const filter = ref("all");
 
 const filteredProducts = computed(() => {
   return dashStore.products.filter((product) => {
     const matchCategory =
-      filter.value === "All Categories" ||
+      filter.value === "all" ||
       product.category.toLowerCase() === filter.value.toLowerCase();
 
     const matchSearch = product.title
@@ -223,8 +239,8 @@ function confirmDelete(id) {
 function handleDelete() {
   dashStore.deleteProduct(productToDelete.value);
   toast.add({
-    title: "نجاح الحذف",
-    description: "✅ ! تم حذف المنتج",
+    title: $t("form_success_title"),
+    description: $t("delete_success_message"),
     color: "info",
   });
   showDialog.value = false;

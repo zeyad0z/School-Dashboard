@@ -13,12 +13,12 @@
           <!-- Arabic Name -->
           <div>
             <label class="block text-end mb-1 text-sm font-medium">
-              اسم المنتج بالعربية
+              {{ $t("addProduct.titleAr") }}
             </label>
             <UInput
               v-model="form.titleAr"
               class="w-full"
-              placeholder="أدخل اسم المنتج"
+              :placeholder="$t('addProduct.titleArPlaceholder')"
               @input="v$.titleAr.$touch()"
             />
             <p v-if="v$.titleAr.$error" class="text-red-500 text-sm mt-1">
@@ -29,12 +29,12 @@
           <!-- English Name -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
-              اسم المنتج بالإنجليزية <span class="text-red-500">*</span>
+              {{ $t("addProduct.titleEn") }} <span class="text-red-500">*</span>
             </label>
             <UInput
               v-model="form.titleEn"
               class="w-full text-end"
-              placeholder="Enter product name"
+              :placeholder="$t('addProduct.titleEnPlaceholder')"
               @input="v$.titleEn.$touch()"
               @blur="v$.titleEn.$touch()"
             />
@@ -46,12 +46,12 @@
           <!-- SKU -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
-              رمز المنتج (SKU) <span class="text-red-500">*</span>
+              {{ $t("sku") }} <span class="text-red-500">*</span>
             </label>
             <UInput
               v-model="form.id"
               class="w-full"
-              placeholder="PROD-001"
+              :placeholder="$t('sku_placeholder')"
               @blur="v$.id.$touch()"
             />
             <p v-if="v$.id.$error" class="text-red-500 text-sm mt-1">
@@ -62,18 +62,20 @@
           <!-- Category -->
           <div>
             <label class="block mb-1 text-sm font-medium text-end">
-              الفئة <span class="text-red-500">*</span>
+              {{ $t("category") }} <span class="text-red-500">*</span>
             </label>
             <select
               v-model="form.category"
               @blur="v$.category.$touch()"
               class="border border-gray-300 rounded-md py-2 px-2 w-full"
             >
-              <option value="" disabled hidden>اختار الفئة</option>
-              <option>Electronics</option>
-              <option>Jewelery</option>
-              <option>Men's Clothing</option>
-              <option>Women's Clothing</option>
+              <option value="" disabled hidden>
+                {{ $t("select_category") }}
+              </option>
+              <option>{{ $t("electronics") }}</option>
+              <option>{{ $t("jewelry") }}</option>
+              <option>{{ $t("mens_clothing") }}</option>
+              <option>{{ $t("womens_clothing") }}</option>
             </select>
             <p v-if="v$.category.$error" class="text-red-500 text-sm mt-1">
               {{ v$.category.$errors[0].$message }}
@@ -83,14 +85,15 @@
           <!-- Price -->
           <div>
             <label class="block mb-1 text-end text-sm font-medium">
-              السعر (ريال) <span class="text-red-500">*</span>
+              {{ $t("price") }} ({{ $t("sar") }})
+              <span class="text-red-500">*</span>
             </label>
             <UInput
               v-model="form.price"
               class="w-full"
               type="number"
               step="0.1"
-              placeholder="0.0"
+              :placeholder="$t('price_placeholder')"
               @blur="v$.price.$touch()"
             />
             <p v-if="v$.price.$error" class="text-red-500 text-sm mt-1">
@@ -101,13 +104,13 @@
           <!-- Stock -->
           <div>
             <label class="block mb-1 text-sm text-end font-medium">
-              الكمية المتوفّرة <span class="text-red-500">*</span>
+              {{ $t("stock") }} <span class="text-red-500">*</span>
             </label>
             <UInput
               v-model="form.stock"
               class="w-full"
               type="number"
-              placeholder="0"
+              :placeholder="$t('stock_placeholder')"
               @blur="v$.stock.$touch()"
             />
             <p v-if="v$.stock.$error" class="text-red-500 text-sm mt-1">
@@ -118,38 +121,40 @@
           <!-- Image -->
           <div class="md:col-span-2">
             <label class="block mb-1 text-sm text-end font-medium">
-              رابط صورة المنتج
+              {{ $t("image_url") }}
             </label>
             <UInput
               v-model="form.image"
               class="w-full"
               type="url"
-              placeholder="https://example.com/product.jpg"
+              :placeholder="$t('enter_image_url')"
             />
           </div>
 
           <!-- Description -->
           <div class="md:col-span-2">
             <label class="block mb-1 text-sm text-end font-medium">
-              الوصف
+              {{ $t("description") }}
             </label>
             <UTextarea
               v-model="form.description"
               class="w-full"
-              placeholder="أدخل وصف المنتج"
+              :placeholder="$t('description_placeholder')"
             />
           </div>
 
           <!-- Status + Buttons -->
           <div class="md:col-span-2 flex items-center justify-between mt-4">
             <div>
-              <label class="block mb-1 text-sm font-medium">الحالة</label>
+              <label class="block mb-1 text-sm font-medium">
+                {{ $t("status_label") }}
+              </label>
               <select
                 v-model="form.status"
                 class="border border-gray-300 rounded-md py-2 px-2 w-full"
               >
-                <option value="Active">Active</option>
-                <option value="Out of Stock">Out of Stock</option>
+                <option value="Active">{{ $t("active") }}</option>
+                <option value="Out of Stock">{{ $t("out_of_stock") }}</option>
               </select>
             </div>
 
@@ -159,14 +164,14 @@
                 @click="cancelAdd"
                 class="px-10 py-2 border border-gray-400 text-gray-700 rounded-lg hover:bg-gray-100 transition"
               >
-                إلغاء
+                {{ $t("cancel") }}
               </button>
 
               <button
                 type="submit"
                 class="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
               >
-                اضافة المنتج
+                {{ $t("submit") }}
               </button>
             </div>
           </div>
@@ -186,6 +191,7 @@ import { required, minValue, helpers } from "@vuelidate/validators";
 const toast = useToast();
 const dashStore = useDashStore();
 const router = useRouter();
+const { t } = useI18n();
 
 const form = reactive({
   id: "",
@@ -200,33 +206,27 @@ const form = reactive({
 });
 
 const rules = {
-  id: { required: helpers.withMessage("رمز المنتج مطلوب", required) },
+  id: { required: helpers.withMessage(t("required_field"), required) },
   titleAr: {
     arabicOnly: helpers.withMessage(
-      "الاسم يجب أن يكون باللغة العربية فقط",
+      t("invalid_arabic"),
       (value) => !value || /^[\u0600-\u06FF\s]+$/.test(value)
     ),
   },
   titleEn: {
-    required: helpers.withMessage("Name in English is required", required),
-    englishOnly: helpers.withMessage("Name must be in English only", (value) =>
+    required: helpers.withMessage(t("required_field"), required),
+    englishOnly: helpers.withMessage(t("invalid_english"), (value) =>
       /^[A-Za-z\s]+$/.test(value)
     ),
   },
-  category: { required: helpers.withMessage("الفئة مطلوبة", required) },
+  category: { required: helpers.withMessage(t("required_field"), required) },
   price: {
-    required: helpers.withMessage("السعر مطلوب", required),
-    minValue: helpers.withMessage(
-      "يجب أن يكون السعر أكبر من 0 ",
-      minValue(0.01)
-    ),
+    required: helpers.withMessage(t("required_field"), required),
+    minValue: helpers.withMessage(t("invalid_price"), minValue(0.01)),
   },
   stock: {
-    required: helpers.withMessage("الكمية مطلوبة", required),
-    minValue: helpers.withMessage(
-      "يجب أن تكون الكمية اكبر من او يساوي 0 ",
-      minValue(0)
-    ),
+    required: helpers.withMessage(t("required_field"), required),
+    minValue: helpers.withMessage(t("invalid_stock"), minValue(0)),
   },
   description: {},
   status: { required },
@@ -239,8 +239,8 @@ function handleAddProduct() {
   v$.value.$touch();
   if (v$.value.$invalid) {
     toast.add({
-      title: "خطأ في الإدخال",
-      description: "⚠️ من فضلك املأ جميع الحقول المطلوبة بشكل صحيح",
+      title: t("form_error_title"),
+      description: t("form_error_message"),
       color: "warning",
       duration: 3000,
     });
@@ -254,8 +254,8 @@ function handleAddProduct() {
   });
 
   toast.add({
-    title: "نجاح",
-    description: "✅ تم إضافة المنتج بنجاح",
+    title: t("form_success_title"),
+    description: t("form_success_message"),
     color: "success",
     duration: 3000,
   });
@@ -264,8 +264,11 @@ function handleAddProduct() {
 }
 
 function cancelAdd() {
-  if (confirm("هل أنت متأكد أنك تريد إلغاء اضافة المنتج؟")) {
-    router.push("/product");
-  }
+  toast.add({
+    title: t("form_cancel_title"),
+    description: t("form_cancel_message"),
+    color: "error",
+  });
+  router.push("/product");
 }
 </script>
