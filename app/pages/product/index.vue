@@ -12,7 +12,7 @@
           </p>
         </div>
         <button
-          class="border border-blue-200 rounded-md px-3 py-1.5 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition"
+          class="border border-blue-300 bg-blue-200 rounded-md px-3 py-1.5 text-blue-800 font-semibold hover:bg-blue-600 hover:text-white transition"
           @click="$router.push('/dashboard')"
         >
           {{ $t("back to dashboard") }}
@@ -25,12 +25,12 @@
           v-model="search"
           type="search"
           :placeholder="$t('search_by_name')"
-          class="border border-blue-200 rounded-md px-3 py-1.5 w-[56rem]"
+          class="border border-blue-200 rounded-md px-3 py-1.5 w-[56rem] focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
         />
 
         <select
           v-model="filter"
-          class="border border-blue-200 rounded-md px-3 py-1.5"
+          class="border border-blue-200 rounded-md px-3 py-1.5 focus:ring-2 focus:ring-[#8FAEF3]"
         >
           <option value="all">{{ $t("all_categories") }}</option>
           <option value="electronics">{{ $t("electronics") }}</option>

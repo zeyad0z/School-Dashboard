@@ -9,20 +9,26 @@
       </Button>
 
       <!-- Dropdowns -->
-      <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
+      <select
+        class="border-1 border-blue-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+      >
         <option>{{ $t("school manager") }}</option>
       </select>
-      <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
+      <select
+        class="border-1 border-blue-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+      >
         <option>{{ $t("testing branch") }}</option>
       </select>
-      <select class="border-1 border-blue-200 rounded-md px-3 py-1.5">
+      <select
+        class="border-1 border-blue-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+      >
         <option>{{ $t("2025/2026") }}</option>
       </select>
 
       <input
         type="search"
         placeholder="🔍  Search..."
-        class="border-1 border-blue-200 rounded-md px-3 py-1.5 w-[16rem] bg-blue-50"
+        class="border-1 border-blue-200 rounded-md px-3 py-1.5 w-[16rem] bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
       />
     </div>
 
