@@ -4,7 +4,7 @@
   >
     <div class="flex gap-5">
       <!-- Sidebar toggle button-->
-      <Button class="text-blue-600" @click="$emit('toggle-sidebar')">
+      <Button class="text-blue-600" @click="showSidebar.toggleSidebar()">
         <UIcon name="i-lucide-menu" class="w-4 h-4" />
       </Button>
 
@@ -75,6 +75,9 @@
 import { useI18n } from "vue-i18n";
 
 const { locale, setLocale } = useI18n();
+import { useSideBarStore } from "../../stores/SideBarStore.js";
+
+const showSidebar = useSideBarStore();
 
 const changeLanguage = async (event) => {
   const lang = event.target.value;

@@ -43,6 +43,7 @@ export { useOverlay } from '../node_modules/@nuxt/ui/dist/runtime/composables/us
 export { portalTargetInjectionKey, usePortal } from '../node_modules/@nuxt/ui/dist/runtime/composables/usePortal';
 export { useToast } from '../node_modules/@nuxt/ui/dist/runtime/composables/useToast';
 export { useDashStore } from '../app/stores/DashStore';
+export { useSideBarStore } from '../app/stores/SideBarStore';
 export { useUserStore } from '../app/stores/UserStore';
 export { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/composables';
 export { defineStore, acceptHMRUpdate, usePinia, storeToRefs } from '../node_modules/@pinia/nuxt/dist/runtime/composables';

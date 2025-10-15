@@ -1,44 +1,69 @@
 <template>
-  <aside class="w-64 bg-white flex flex-col px-6 py-6 shadow-xl">
-    <div class="flex items-center gap-3 mb-4">
-      <div class="bg-blue-500 rounded-xl flex items-center p-2.5 shadow-xl">
-        <UIcon name="i-lucide-graduation-cap" class="w-7 h-7 text-white" />
-      </div>
-      <div>
-        <h2 class="text-lg font-bold text-blue-900">{{ $t("ibn khaldun") }}</h2>
-        <p class="text-sm font-medium text-blue-600">
-          {{ $t("schools management") }}
-        </p>
-      </div>
-    </div>
-    <hr class="mb-8 text-gray-200" />
+  <Transition name="sidebar">
+    <aside
+      :key="showSidebar.isSidebarOpen"
+      class="flex flex-col px-6 py-6 shadow-xl bg-white transition-all duration-500 overflow-hidden"
+      :class="showSidebar.isSidebarOpen ? 'w-72' : 'w-20'"
+    >
+      <div class="flex items-center gap-3 mb-4">
+        <div class="bg-blue-500 rounded-xl flex items-center p-2.5 shadow-xl">
+          <UIcon name="i-lucide-graduation-cap" class="w-7 h-7 text-white" />
+        </div>
 
-    <!-- Menu Items -->
-    <nav class="flex flex-col gap-1">
-      <button
-        v-for="(item, index) in sidebarItems"
-        :key="index"
-        class="flex items-center gap-3 ps-3 py-3.5 rounded-lg text-blue-700 text-sm font-medium hover:bg-blue-50 hover:shadow-sm transition"
-        :class="{
-          'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600':
-            active === item.name,
-        }"
-        @click="handleClick(item)"
-      >
-        <UIcon :name="item.icon" class="w-4 h-4 font-bold" />
-        <span>{{ $t(item.label) }}</span>
-      </button>
-    </nav>
-  </aside>
+        <!-- School name and subtitle -->
+        <Transition name="fade-slide" mode="out-in">
+          <div v-if="showSidebar.isSidebarOpen" key="open">
+            <h2 class="text-lg font-bold text-blue-900">
+              {{ $t("ibn khaldun") }}
+            </h2>
+            <p class="text-sm font-medium text-blue-600">
+              {{ $t("schools management") }}
+            </p>
+          </div>
+        </Transition>
+      </div>
+
+      <hr class="mb-8 text-gray-200" />
+
+      <!-- Menu Items -->
+      <nav class="flex flex-col gap-1">
+        <button
+          v-for="(item, index) in sidebarItems"
+          :key="index"
+          class="flex items-center gap-3 ps-3 py-3.5 rounded-lg text-blue-700 text-sm font-medium hover:bg-blue-50 hover:shadow-sm transition"
+          :class="{
+            'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600':
+              active === item.name,
+          }"
+          @click="handleClick(item)"
+        >
+          <UIcon
+            :name="item.icon"
+            class="w-4 h-4 font-bold"
+            :class="[showSidebar.isSidebarOpen ? '' : 'mb-1']"
+          />
+
+          <!-- Label transition -->
+          <Transition name="fade-slide" mode="out-in">
+            <span v-if="showSidebar.isSidebarOpen" key="label">
+              {{ $t(item.label) }}
+            </span>
+          </Transition>
+        </button>
+      </nav>
+    </aside>
+  </Transition>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useSideBarStore } from "../../stores/SideBarStore.js";
 
 const router = useRouter();
 const route = useRoute();
 const active = ref("dashboard");
+const showSidebar = useSideBarStore();
 
 const sidebarItems = [
   {
@@ -149,3 +174,25 @@ watch(
   { immediate: true }
 );
 </script>
+
+<style scoped>
+.sidebar-enter-active,
+.sidebar-leave-active {
+  transition: all 0.4s ease;
+}
+.sidebar-enter-from,
+.sidebar-leave-to {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.3s ease;
+}
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+</style>
