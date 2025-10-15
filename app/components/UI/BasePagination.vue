@@ -10,19 +10,27 @@
       <UIcon name="i-lucide-chevron-left" />
     </button>
 
-    <button
-      v-for="i in totalPages"
-      :key="i"
-      @click="goToPage(i)"
-      class="w-8 h-8 flex items-center justify-center rounded-md border transition"
-      :class="[
-        i === currentPage
-          ? 'bg-blue-600 text-white border-blue-600'
-          : 'text-blue-700 border-blue-300 bg-white hover:bg-blue-600 hover:text-white',
-      ]"
-    >
-      {{ i }}
-    </button>
+    <template v-for="i in visiblePages" :key="i">
+      <button
+        v-if="i !== '...'"
+        @click="goToPage(i)"
+        class="w-8 h-8 flex items-center justify-center rounded-md border transition"
+        :class="[
+          i === currentPage
+            ? 'bg-blue-600 text-white border-blue-600'
+            : 'text-blue-700 border-blue-300 bg-white hover:bg-blue-600 hover:text-white',
+        ]"
+      >
+        {{ i }}
+      </button>
+
+      <span
+        v-else
+        class="w-8 h-8 flex items-center justify-center text-blue-400 select-none"
+      >
+        ...
+      </span>
+    </template>
 
     <button
       @click="nextPage"
@@ -67,6 +75,27 @@ watch(
   () => emit("update:paginatedData", paginatedData.value),
   { immediate: true }
 );
+
+// ---- logic for showing ONLY 3 pages max with "..." ----
+const visiblePages = computed(() => {
+  const total = totalPages.value;
+  const current = currentPage.value;
+  const pages = [];
+
+  if (total <= 3) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  if (current <= 2) {
+    pages.push(1, 2, 3, "...");
+  } else if (current >= total - 1) {
+    pages.push("...", total - 2, total - 1, total);
+  } else {
+    pages.push("...", current - 1, current, current + 1, "...");
+  }
+
+  return pages;
+});
 
 function goToPage(page) {
   if (page >= 1 && page <= totalPages.value) currentPage.value = page;

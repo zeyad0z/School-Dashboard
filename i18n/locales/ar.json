@@ -116,5 +116,7 @@
   "edit": "تعديل",
   "delete": "حذف",
   "delete_success_message": "✅ تم حذف المنتج بنجاح.",
-  "delete_cancel_message": "❌ تم الغاء حذف المنتج."
+  "delete_cancel_message": "❌ تم الغاء حذف المنتج.",
+  "duplicate_sku_title": "رمز المنتج مكرر",
+  "duplicate_sku_message": "يوجد منتج بنفس الرمز بالفعل، الرجاء استخدام رمز مختلف."
 }

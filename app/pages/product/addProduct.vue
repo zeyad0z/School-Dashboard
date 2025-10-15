@@ -193,6 +193,12 @@ const dashStore = useDashStore();
 const router = useRouter();
 const { t } = useI18n();
 
+onMounted(async () => {
+  if (dashStore.products.length === 0) {
+    await dashStore.fetchProducts();
+  }
+});
+
 const form = reactive({
   id: "",
   titleAr: "",
@@ -247,6 +253,23 @@ function handleAddProduct() {
     return;
   }
 
+  const existingProduct = dashStore.products.find(
+    (p) =>
+      p.id?.toString().trim().toLowerCase() ===
+      form.id.toString().trim().toLowerCase()
+  );
+
+  if (existingProduct) {
+    toast.add({
+      title: t("duplicate_sku_title"),
+      description: t("duplicate_sku_message"),
+      color: "error",
+      duration: 3000,
+    });
+    return;
+  }
+
+  // ✅ Add new product
   dashStore.addNewProduct({
     ...form,
     price: parseFloat(form.price),

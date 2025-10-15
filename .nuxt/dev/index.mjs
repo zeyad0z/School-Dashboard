@@ -3137,6 +3137,8 @@ var total_stock$1 = "Total Stock";
 var edit$1 = "Edit";
 var delete_success_message$1 = "✅ Product deleted successfully.";
 var delete_cancel_message$1 = "❌ Product deletion cancelled.";
+var duplicate_sku_title$1 = "Duplicate SKU";
+var duplicate_sku_message$1 = "A product with this SKU already exists. Please use a different one.";
 const en = {
 	"89": "89",
 	date: date$1,
@@ -3248,7 +3250,9 @@ const en = {
 	edit: edit$1,
 	"delete": "Delete",
 	delete_success_message: delete_success_message$1,
-	delete_cancel_message: delete_cancel_message$1
+	delete_cancel_message: delete_cancel_message$1,
+	duplicate_sku_title: duplicate_sku_title$1,
+	duplicate_sku_message: duplicate_sku_message$1
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3273,6 +3277,8 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   desc_new_student: desc_new_student$1,
   desc_system_maintenance: desc_system_maintenance$1,
   description_placeholder: description_placeholder$1,
+  duplicate_sku_message: duplicate_sku_message$1,
+  duplicate_sku_title: duplicate_sku_title$1,
   edit: edit$1,
   edit_cancel_message: edit_cancel_message$1,
   edit_cancel_title: edit_cancel_title$1,
@@ -3421,6 +3427,8 @@ var total_stock = "إجمالي المخزون";
 var edit = "تعديل";
 var delete_success_message = "✅ تم حذف المنتج بنجاح.";
 var delete_cancel_message = "❌ تم الغاء حذف المنتج.";
+var duplicate_sku_title = "رمز المنتج مكرر";
+var duplicate_sku_message = "يوجد منتج بنفس الرمز بالفعل، الرجاء استخدام رمز مختلف.";
 const ar = {
 	"89": "٨٩",
 	date: date,
@@ -3533,7 +3541,9 @@ const ar = {
 	edit: edit,
 	"delete": "حذف",
 	delete_success_message: delete_success_message,
-	delete_cancel_message: delete_cancel_message
+	delete_cancel_message: delete_cancel_message,
+	duplicate_sku_title: duplicate_sku_title,
+	duplicate_sku_message: duplicate_sku_message
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3559,6 +3569,8 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   desc_system_maintenance: desc_system_maintenance,
   description: description,
   description_placeholder: description_placeholder,
+  duplicate_sku_message: duplicate_sku_message,
+  duplicate_sku_title: duplicate_sku_title,
   edit: edit,
   edit_cancel_message: edit_cancel_message,
   edit_cancel_title: edit_cancel_title,

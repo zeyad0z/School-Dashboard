@@ -115,5 +115,7 @@
   "edit": "Edit",
   "delete": "Delete",
   "delete_success_message": "✅ Product deleted successfully.",
-  "delete_cancel_message": "❌ Product deletion cancelled."
+  "delete_cancel_message": "❌ Product deletion cancelled.",
+  "duplicate_sku_title": "Duplicate SKU",
+  "duplicate_sku_message": "A product with this SKU already exists. Please use a different one."
 }
