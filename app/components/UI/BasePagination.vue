@@ -7,7 +7,7 @@
       :disabled="currentPage === 1"
       class="w-8 h-8 flex items-center justify-center text-blue-700 border rounded-md hover:bg-blue-200 transition disabled:opacity-50"
     >
-      <UIcon name="i-lucide-chevron-left" />
+      <UIcon :name="formatPrevArrow" />
     </button>
 
     <template v-for="i in visiblePages" :key="i">
@@ -21,7 +21,7 @@
             : 'text-blue-700 border-blue-300 bg-white hover:bg-blue-600 hover:text-white',
         ]"
       >
-        {{ i }}
+        {{ formatNumber(i) }}
       </button>
 
       <span
@@ -37,23 +37,20 @@
       :disabled="currentPage === totalPages"
       class="w-8 h-8 flex items-center justify-center text-blue-700 border rounded-md hover:bg-blue-200 transition disabled:opacity-50"
     >
-      <UIcon name="i-lucide-chevron-right" />
+      <UIcon :name="formatNextArrow" />
     </button>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch, defineEmits, defineProps } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
 
 const props = defineProps({
-  data: {
-    type: Array,
-    required: true,
-  },
-  itemsPerPage: {
-    type: Number,
-    default: 5,
-  },
+  data: { type: Array, required: true },
+  itemsPerPage: { type: Number, default: 5 },
 });
 
 const emit = defineEmits(["update:paginatedData"]);
@@ -69,30 +66,35 @@ const paginatedData = computed(() => {
   return props.data.slice(start, start + props.itemsPerPage);
 });
 
-// Emit updated page data
 watch(
   [() => props.data, currentPage],
   () => emit("update:paginatedData", paginatedData.value),
   { immediate: true }
 );
 
-// ---- logic for showing ONLY 3 pages max with "..." ----
+//Localized number formatter (reactive)
+const formatNumber = (num) => {
+  const formatter = new Intl.NumberFormat(
+    locale.value === "ar" ? "ar-EG" : "en-US"
+  );
+  return formatter.format(num);
+};
+const formatPrevArrow = computed(() =>
+  locale.value === "ar" ? "i-lucide-chevron-right" : "i-lucide-chevron-left"
+);
+const formatNextArrow = computed(() =>
+  locale.value === "ar" ? "i-lucide-chevron-left" : "i-lucide-chevron-right"
+);
+
 const visiblePages = computed(() => {
   const total = totalPages.value;
   const current = currentPage.value;
   const pages = [];
 
-  if (total <= 3) {
-    return Array.from({ length: total }, (_, i) => i + 1);
-  }
-
-  if (current <= 2) {
-    pages.push(1, 2, 3, "...");
-  } else if (current >= total - 1) {
-    pages.push("...", total - 2, total - 1, total);
-  } else {
-    pages.push("...", current - 1, current, current + 1, "...");
-  }
+  if (total <= 3) return Array.from({ length: total }, (_, i) => i + 1);
+  if (current <= 2) pages.push(1, 2, 3, "...");
+  else if (current >= total - 1) pages.push("...", total - 2, total - 1, total);
+  else pages.push("...", current - 1, current, current + 1, "...");
 
   return pages;
 });
