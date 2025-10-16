@@ -73,7 +73,7 @@
               v-model="price"
               class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="number"
-              step="0.1"
+              step="0.01"
               :placeholder="$t('price_placeholder')"
               required
             />
@@ -87,6 +87,7 @@
               v-model="stock"
               class="w-full px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3]"
               type="number"
+              step="1"
               :placeholder="$t('stock_placeholder')"
               required
             />
