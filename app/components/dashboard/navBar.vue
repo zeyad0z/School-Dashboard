@@ -70,8 +70,10 @@
           <p class="text-xs text-blue-600">{{ $t("administrator") }}</p>
         </div>
         <div
-          class="bg-gray-200 border-1 border-blue-300 rounded-full w-9 h-9"
-        ></div>
+          class="bg-gray-200 border-1 border-blue-300 rounded-full w-9 h-9 flex justify-center items-center"
+        >
+          <UIcon name="i-lucide-user" class="w-7 h-7 text-blue-500" />
+        </div>
       </div>
     </div>
   </header>

@@ -55,10 +55,10 @@
               class="px-3 py-1 border bg-white rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] w-full"
             >
               <option value="electronics">{{ $t("electronics") }}</option>
-              <option value="jewelery">{{ $t("jewelry") }}</option>
-              <option value="men's clothing">{{ $t("mens_clothing") }}</option>
+              <option value="jewelery">{{ $t("jewelery") }}</option>
+              <option value="men's clothing">{{ $t("men's clothing") }}</option>
               <option value="women's clothing">
-                {{ $t("womens_clothing") }}
+                {{ $t("women's clothing") }}
               </option>
             </select>
           </div>

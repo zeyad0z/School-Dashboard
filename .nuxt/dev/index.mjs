@@ -2144,7 +2144,22 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"218ac-3ULdct31a4s0TG9diUYxDE7Fi9w\"",
+    "mtime": "2025-10-16T08:01:27.853Z",
+    "size": 137388,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"678a1-S376LWH9Y+HDkM2PQ1e/v6NeBhk\"",
+    "mtime": "2025-10-16T08:01:27.853Z",
+    "size": 424097,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3124,9 +3139,7 @@ var invalid_arabic$1 = "Name must be in Arabic only.";
 var invalid_price$1 = "Price must be greater than 0.";
 var invalid_stock$1 = "Stock must be zero or more.";
 var electronics$1 = "Electronics";
-var jewelry$1 = "Jewelry";
-var mens_clothing$1 = "Men's Clothing";
-var womens_clothing$1 = "Women's Clothing";
+var jewelery$1 = "Jewelry";
 var search_by_name$1 = "🔍 Search by name...";
 var all_categories$1 = "All Categories";
 var showing$1 = "Showing";
@@ -3237,9 +3250,9 @@ const en = {
 	invalid_price: invalid_price$1,
 	invalid_stock: invalid_stock$1,
 	electronics: electronics$1,
-	jewelry: jewelry$1,
-	mens_clothing: mens_clothing$1,
-	womens_clothing: womens_clothing$1,
+	jewelery: jewelery$1,
+	"men's clothing": "Men's Clothing",
+	"women's clothing": "Women's Clothing",
 	search_by_name: search_by_name$1,
 	all_categories: all_categories$1,
 	showing: showing$1,
@@ -3303,9 +3316,8 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   invalid_english: invalid_english$1,
   invalid_price: invalid_price$1,
   invalid_stock: invalid_stock$1,
-  jewelry: jewelry$1,
+  jewelery: jewelery$1,
   manage_students: manage_students$1,
-  mens_clothing: mens_clothing$1,
   new_student_enrollment: new_student_enrollment$1,
   notification_center: notification_center$1,
   of: of$1,
@@ -3340,8 +3352,7 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   welcome_message: welcome_message$1,
   withdraw_request_desc: withdraw_request_desc$1,
   withdraw_request_title: withdraw_request_title$1,
-  withdrawals: withdrawals$1,
-  womens_clothing: womens_clothing$1
+  withdrawals: withdrawals$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
 var date = "١ سبتمبر ٢٠٢٥";
@@ -3414,9 +3425,7 @@ var invalid_arabic = "يجب أن يكون الاسم باللغة العربي�
 var invalid_price = "يجب أن يكون السعر أكبر من 0";
 var invalid_stock = "يجب أن تكون الكمية أكبر من أو تساوي 0";
 var electronics = "إلكترونيات";
-var jewelry = "مجوهرات";
-var mens_clothing = "ملابس رجالية";
-var womens_clothing = "ملابس نسائية";
+var jewelery = "مجوهرات";
 var search_by_name = "🔍 ابحث بالاسم...";
 var all_categories = "كل الفئات";
 var showing = "عرض";
@@ -3528,9 +3537,9 @@ const ar = {
 	invalid_price: invalid_price,
 	invalid_stock: invalid_stock,
 	electronics: electronics,
-	jewelry: jewelry,
-	mens_clothing: mens_clothing,
-	womens_clothing: womens_clothing,
+	jewelery: jewelery,
+	"men's clothing": "ملابس رجالية",
+	"women's clothing": "ملابس نسائية",
 	search_by_name: search_by_name,
 	all_categories: all_categories,
 	showing: showing,
@@ -3595,9 +3604,8 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   invalid_english: invalid_english,
   invalid_price: invalid_price,
   invalid_stock: invalid_stock,
-  jewelry: jewelry,
+  jewelery: jewelery,
   manage_students: manage_students,
-  mens_clothing: mens_clothing,
   new_student_enrollment: new_student_enrollment,
   notification_center: notification_center,
   of: of,
@@ -3632,8 +3640,7 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   welcome_message: welcome_message,
   withdraw_request_desc: withdraw_request_desc,
   withdraw_request_title: withdraw_request_title,
-  withdrawals: withdrawals,
-  womens_clothing: womens_clothing
+  withdrawals: withdrawals
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const template = "";

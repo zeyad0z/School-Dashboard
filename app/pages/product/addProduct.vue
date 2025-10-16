@@ -73,9 +73,9 @@
                 {{ $t("select_category") }}
               </option>
               <option>{{ $t("electronics") }}</option>
-              <option>{{ $t("jewelry") }}</option>
-              <option>{{ $t("mens_clothing") }}</option>
-              <option>{{ $t("womens_clothing") }}</option>
+              <option>{{ $t("jewelery") }}</option>
+              <option>{{ $t("men's clothing") }}</option>
+              <option>{{ $t("women's clothing") }}</option>
             </select>
             <p v-if="v$.category.$error" class="text-red-500 text-sm mt-1">
               {{ v$.category.$errors[0].$message }}

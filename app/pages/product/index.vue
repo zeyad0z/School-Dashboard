@@ -34,9 +34,9 @@
         >
           <option value="all">{{ $t("all_categories") }}</option>
           <option value="electronics">{{ $t("electronics") }}</option>
-          <option value="jewelery">{{ $t("jewelry") }}</option>
-          <option value="men's clothing">{{ $t("mens_clothing") }}</option>
-          <option value="women's clothing">{{ $t("womens_clothing") }}</option>
+          <option value="jewelery">{{ $t("jewelery") }}</option>
+          <option value="men's clothing">{{ $t("men's clothing") }}</option>
+          <option value="women's clothing">{{ $t("women's clothing") }}</option>
         </select>
 
         <button
@@ -70,7 +70,7 @@
             >
               <td class="px-6 py-4 text-start">{{ product.id }}</td>
               <td>{{ product.title.slice(0, 30) }}</td>
-              <td>{{ product.category }}</td>
+              <td>{{ $t(product.category) || product.category }}</td>
               <td>{{ product.price }}</td>
               <td>{{ product.stock }}</td>
               <td
