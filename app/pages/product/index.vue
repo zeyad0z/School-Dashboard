@@ -30,7 +30,7 @@
 
         <select
           v-model="filter"
-          class="border border-blue-200 rounded-md px-3 py-1.5 focus:ring-2 focus:ring-[#8FAEF3]"
+          class="border border-blue-200 rounded-md px-3 py-1.5 outline-none focus:ring-2 focus:ring-[#8FAEF3]"
         >
           <option value="all">{{ $t("all_categories") }}</option>
           <option value="electronics">{{ $t("electronics") }}</option>

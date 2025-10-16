@@ -53,7 +53,7 @@
         <select
           v-model="locale"
           @change="changeLanguage"
-          class="text-blue-600 border border-blue-200 rounded-md px-2 py-1"
+          class="text-blue-600 border border-blue-200 rounded-md px-2 py-1 outline-none focus:ring-2 focus:ring-[#8FAEF3]"
         >
           <option value="en">EN</option>
           <option value="ar">AR</option>
