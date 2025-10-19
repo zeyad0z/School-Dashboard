@@ -1,20 +1,24 @@
 <template>
   <div
-    class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8"
+    class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8 dark:bg-[#0f172a]"
   >
-    <BaseCard class="mx-5">
+    <BaseCard class="mx-5 dark:bg-[#1e293b] dark:border dark:border-gray-700">
       <div class="mb-8 pb-4 text-center">
-        <h1 class="text-2xl text-black/85 sm:text-[1.95rem] font-bold mb-3">
+        <h1
+          class="text-2xl text-black/85 sm:text-[1.95rem] font-bold mb-3 dark:text-gray-100"
+        >
           {{ t("welcome") }}
         </h1>
-        <p class="text-gray-500 text-sm sm:text-[1.02rem] mt-3">
+        <p
+          class="text-gray-500 text-sm sm:text-[1.02rem] mt-3 dark:text-gray-400"
+        >
           {{ t("welcome message") }}
         </p>
       </div>
 
       <form @submit.prevent="logIn" class="mt-4 sm:mt-6">
         <!-- ID -->
-        <label for="id" class="text-sm font-medium">
+        <label for="id" class="text-sm font-medium dark:text-gray-200">
           {{ t("staff/student id") }}
         </label>
         <input
@@ -28,15 +32,15 @@
           v-model="state.id"
           @blur="v$.id.$touch()"
           :class="[
-            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none',
+            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400',
             v$.id.$error && v$.id.$dirty
-              ? 'border-2 border-red-400 placeholder-red-400'
-              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3]',
+              ? 'border-2 border-red-400 placeholder-red-400 dark:placeholder-red-300 dark:border-red-500'
+              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3] dark:border-gray-700 dark:focus:ring-[#3b82f6]',
           ]"
         />
 
         <!-- English Name -->
-        <label for="ename" class="text-sm font-medium">
+        <label for="ename" class="text-sm font-medium dark:text-gray-200">
           {{ t("name in english") }}
         </label>
         <input
@@ -51,10 +55,10 @@
           @input="v$.ename.$touch()"
           @blur="v$.ename.$touch()"
           :class="[
-            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none',
+            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400',
             v$.ename.$error && v$.ename.$dirty
-              ? 'border-2 border-red-400 placeholder-red-400'
-              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3]',
+              ? 'border-2 border-red-400 placeholder-red-400 dark:placeholder-red-300 dark:border-red-500'
+              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3] dark:border-gray-700 dark:focus:ring-[#3b82f6]',
           ]"
         />
         <p
@@ -65,7 +69,7 @@
         </p>
 
         <!-- Arabic Name -->
-        <label for="aname" class="text-sm font-medium">
+        <label for="aname" class="text-sm font-medium dark:text-gray-200">
           {{ t("Name in Arabic") }}
         </label>
         <input
@@ -80,10 +84,10 @@
           @input="v$.aname.$touch()"
           @blur="v$.aname.$touch()"
           :class="[
-            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none',
+            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400',
             v$.aname.$error && v$.aname.$dirty
-              ? 'border-2 border-red-400 placeholder-red-400'
-              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3]',
+              ? 'border-2 border-red-400 placeholder-red-400 dark:placeholder-red-300 dark:border-red-500'
+              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3] dark:border-gray-700 dark:focus:ring-[#3b82f6]',
           ]"
         />
         <p
@@ -94,7 +98,7 @@
         </p>
 
         <!-- Password -->
-        <label for="pass" class="text-sm font-medium">
+        <label for="pass" class="text-sm font-medium dark:text-gray-200">
           {{ t("password") }}
         </label>
         <input
@@ -109,10 +113,10 @@
           @input="v$.pass.$touch()"
           @blur="v$.pass.$touch()"
           :class="[
-            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none ',
+            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-2 mt-1 border bg-white rounded-lg focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400',
             v$.pass.$error && v$.pass.$dirty
-              ? 'border-2 border-red-400 placeholder-red-400 '
-              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3]',
+              ? 'border-2 border-red-400 placeholder-red-400 dark:placeholder-red-300 dark:border-red-500'
+              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3] dark:border-gray-700 dark:focus:ring-[#3b82f6]',
           ]"
         />
         <p
@@ -133,9 +137,9 @@
           type="submit"
           :disabled="loading"
           :class="[
-            v$.pass.$error && v$.pass.minLength.$invalid ? 'mt-6' : 'mt-6',
+            'w-full py-3 sm:py-3 mt-6 rounded-lg transition duration-300 text-sm sm:text-[0.92rem] font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed',
+            'bg-[#1d58d6] hover:bg-[#386ad7] text-white dark:bg-[#3b82f6] dark:hover:bg-[#2563eb]',
           ]"
-          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 mt-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm sm:text-[0.92rem] font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
         >
           {{ loading ? t("signing in") : t("sign in") }}
         </button>
@@ -153,7 +157,7 @@ import { required, minLength, maxLength, helpers } from "@vuelidate/validators";
 import { useI18n } from "vue-i18n";
 
 const toast = useToast();
-const { t } = useI18n(); // ✅ keep this and use `t()` instead of `$t()`
+const { t } = useI18n();
 const UserStore = useUserStore();
 const loading = ref(false);
 

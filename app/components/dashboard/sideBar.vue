@@ -2,37 +2,37 @@
   <Transition name="sidebar">
     <aside
       :key="showSidebar.isSidebarOpen"
-      class="flex flex-col px-6 py-6 shadow-xl bg-white transition-all duration-500 overflow-hidden"
+      class="flex flex-col px-6 py-6 shadow-xl bg-white dark:bg-[#1e293b] dark:text-gray-100 transition-all duration-500 overflow-hidden border-r border-blue-100 dark:border-gray-800"
       :class="showSidebar.isSidebarOpen ? 'w-72' : 'w-20'"
     >
       <div class="flex items-center gap-3 mb-4">
-        <div class="bg-blue-500 rounded-xl flex items-center p-2.5 shadow-xl">
+        <div
+          class="bg-blue-500 dark:bg-blue-600 rounded-xl flex items-center p-2.5 shadow-xl"
+        >
           <UIcon name="i-lucide-graduation-cap" class="w-7 h-7 text-white" />
         </div>
 
-        <!-- School name and subtitle -->
         <Transition name="fade-slide" mode="out-in">
           <div v-if="showSidebar.isSidebarOpen" key="open">
-            <h2 class="text-lg font-bold text-blue-900">
+            <h2 class="text-lg font-bold text-blue-900 dark:text-blue-300">
               {{ $t("ibn khaldun") }}
             </h2>
-            <p class="text-sm font-medium text-blue-600">
+            <p class="text-sm font-medium text-blue-600 dark:text-blue-400">
               {{ $t("schools management") }}
             </p>
           </div>
         </Transition>
       </div>
 
-      <hr class="mb-8 text-gray-200" />
+      <hr class="mb-8 border-gray-200 dark:border-gray-700" />
 
-      <!-- Menu Items -->
       <nav class="flex flex-col gap-1">
         <button
           v-for="(item, index) in sidebarItems"
           :key="index"
-          class="flex items-center gap-3 ps-3 py-3.5 rounded-lg text-blue-700 text-sm font-medium hover:bg-blue-50 hover:shadow-sm transition"
+          class="flex items-center gap-3 ps-3 py-3.5 rounded-lg text-blue-700 dark:text-gray-200 text-sm font-medium hover:bg-blue-50 dark:hover:bg-[#1b2433] hover:shadow-sm transition"
           :class="{
-            'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600':
+            'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-700':
               active === item.name,
           }"
           @click="handleClick(item)"
@@ -43,7 +43,6 @@
             :class="[showSidebar.isSidebarOpen ? '' : 'mb-1']"
           />
 
-          <!-- Label transition -->
           <Transition name="fade-slide" mode="out-in">
             <span v-if="showSidebar.isSidebarOpen" key="label">
               {{ $t(item.label) }}
@@ -152,13 +151,11 @@ const sidebarItems = [
   },
 ];
 
-// Handle click and routing
 async function handleClick(item) {
   active.value = item.name;
   await router.push(item.route);
 }
 
-// Watch current route to update active highlight
 watch(
   () => route.path,
   (path) => {
@@ -166,10 +163,7 @@ watch(
     const match = sidebarItems.find((i) =>
       i.route.replace(/\/$/, "").includes(cleanPath)
     );
-
-    if (match) {
-      active.value = match.name;
-    }
+    if (match) active.value = match.name;
   },
   { immediate: true }
 );

@@ -2144,22 +2144,7 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"24be9-XVAmtIejPOhfgCPC0N12mzdo6KM\"",
-    "mtime": "2025-10-19T08:38:18.290Z",
-    "size": 150505,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"679d7-rDzWYgOIZGRl/XWmoAA5aiVRTFE\"",
-    "mtime": "2025-10-19T08:38:18.290Z",
-    "size": 424407,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3199,6 +3184,7 @@ var password_required$1 = "Password is required";
 var form_invalid_title$1 = "Error";
 var form_invalid_desc$1 = "❌ Invalid form, please check your inputs";
 var form_success_desc$1 = "✅ Login successful, welcome!";
+var search$1 = "🔍  Search...";
 const en = {
 	"89": "89",
 	date: date$1,
@@ -3373,7 +3359,8 @@ const en = {
 	form_success_desc: form_success_desc$1,
 	"2_hours_ago": "2 hours ago",
 	"4_hours_ago": "4 hours ago",
-	"6_hours_ago": "6 hours ago"
+	"6_hours_ago": "6 hours ago",
+	search: search$1
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3476,6 +3463,7 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   school_description: school_description$1,
   school_name: school_name$1,
   school_slogan: school_slogan$1,
+  search: search$1,
   search_by_name: search_by_name$1,
   select_category: select_category$1,
   select_your_branch: select_your_branch$1,
@@ -3640,6 +3628,7 @@ var password_required = "كلمة المرور مطلوبة";
 var form_invalid_title = "خطأ";
 var form_invalid_desc = "❌ النموذج غير صالح، يرجى التحقق من البيانات";
 var form_success_desc = "✅ تم تسجيل الدخول بنجاح، مرحباً بك!";
+var search = "🔍  بحث...";
 const ar = {
 	"89": "٨٩",
 	date: date,
@@ -3815,7 +3804,8 @@ const ar = {
 	form_success_desc: form_success_desc,
 	"6_hours_ago": "منذ ٦ ساعات",
 	"4_hours_ago": "منذ ٤ ساعات",
-	"2_hours_ago": "منذ ساعتين"
+	"2_hours_ago": "منذ ساعتين",
+	search: search
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3919,6 +3909,7 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   school_description: school_description,
   school_name: school_name,
   school_slogan: school_slogan,
+  search: search,
   search_by_name: search_by_name,
   select_category: select_category,
   select_your_branch: select_your_branch,

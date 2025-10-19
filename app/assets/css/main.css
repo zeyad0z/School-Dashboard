@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@layer base {
+  :root {
+    --bg-main: #ffffff;
+    --text-main: #111827;
+    --card-bg: #f9fafb;
+  }
+
+  .dark {
+    --bg-main: #0f172a;
+    --text-main: #f8fafc;
+    --card-bg: #1e293b;
+  }
+
+  body {
+    @apply bg-[var(--bg-main)] text-[var(--text-main)] transition-colors duration-300;
+  }
+}

@@ -1,12 +1,14 @@
 <template>
-  <div class="relative min-h-screen overflow-x-hidden">
+  <div
+    class="relative min-h-screen overflow-x-hidden bg-gray-50 text-gray-900 dark:bg-[#0f172a] dark:text-gray-100 transition-colors duration-300"
+  >
     <!-- Navbar -->
     <NavBar class="fixed top-0 left-0 w-full z-30" />
 
     <!-- Sidebar -->
     <sideBar
       :class="[
-        'fixed top-[85px] bg-white h-screen z-20 transition-transform duration-300',
+        'fixed top-[85px] h-screen z-20 transition-transform duration-300 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b]',
         isRTL ? 'right-0' : 'left-0',
         showSidebar.isSidebarOpen ? 'w-72' : 'w-22',
       ]"

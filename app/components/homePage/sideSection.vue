@@ -1,7 +1,8 @@
 <template>
   <div
-    class="h-full w-full bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] relative"
+    class="h-full w-full bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] relative dark:from-[#1e3a8a] dark:via-[#1e40af] dark:to-[#1d4ed8]"
   >
+    <!-- subtle stars background -->
     <div
       class="absolute inset-0 opacity-20 pointer-events-none"
       style="
@@ -24,27 +25,27 @@
       <div class="text-center mb-10 sm:mb-12">
         <div class="flex justify-center mb-4 mt-5 sm:mt-2 xl:mt-17">
           <div
-            class="w-20 h-20 sm:w-24 sm:h-24 lg:w-[6rem] lg:h-[6rem] bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center"
+            class="w-20 h-20 sm:w-24 sm:h-24 lg:w-[6rem] lg:h-[6rem] bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center dark:bg-white/10 dark:backdrop-blur-xl"
           >
             <UIcon
               name="i-heroicons-building-office"
-              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[3.5rem] lg:h-[3.5rem] text-white"
+              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[3.5rem] lg:h-[3.5rem] text-white dark:text-blue-300"
             />
           </div>
         </div>
 
         <h1
-          class="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white mb-3"
+          class="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white mb-3 dark:text-blue-100"
         >
           {{ $t("school_name") }}
         </h1>
         <h2
-          class="text-lg sm:text-xl lg:text-[1.3rem] font-semibold text-blue-100 mb-2"
+          class="text-lg sm:text-xl lg:text-[1.3rem] font-semibold text-blue-100 mb-2 dark:text-blue-300"
         >
           {{ $t("school_slogan") }}
         </h2>
         <p
-          class="text-sm sm:text-base lg:text-[1.17rem] text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium leading-relaxed"
+          class="text-sm sm:text-base lg:text-[1.17rem] text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium leading-relaxed dark:text-gray-300"
         >
           {{ $t("school_description") }}
         </p>
@@ -56,17 +57,20 @@
         <UCard
           v-for="card in cards"
           :key="card.title"
-          class="bg-white/15 rounded-2xl lg:w-[12.5rem] xl:w-[20.2rem] ring-1 ring-white/30 hover:bg-white/20 backdrop-blur-3xl transition-all duration-300 group"
+          class="bg-white/15 rounded-2xl lg:w-[12.5rem] xl:w-[20.2rem] ring-1 ring-white/30 hover:bg-white/20 backdrop-blur-3xl transition-all duration-300 group dark:bg-white/10 dark:ring-gray-700 dark:hover:bg-white/20"
         >
           <template #header>
             <div class="flex flex-col items-center text-center py-1">
               <div
                 class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-3"
               >
-                <UIcon :name="card.icon" class="w-12 h-12 text-white" />
+                <UIcon
+                  :name="card.icon"
+                  class="w-12 h-12 text-white dark:text-blue-300"
+                />
               </div>
               <h3
-                class="text-base sm:text-[1.2rem] font-semibold text-white mb-1 sm:mb-2"
+                class="text-base sm:text-[1.2rem] font-semibold text-white mb-1 sm:mb-2 dark:text-gray-100"
               >
                 {{ $t(card.title) }}
               </h3>
@@ -74,7 +78,7 @@
                 :class="[
                   card.title === 'knowledge' || 'comunnity' ? 'mb-2' : '',
                 ]"
-                class="text-blue-100/80 text-xs sm:text-[0.9rem] font-medium"
+                class="text-blue-100/80 text-xs sm:text-[0.9rem] font-medium dark:text-gray-300"
               >
                 {{ $t(card.text) }}
               </p>
@@ -88,25 +92,9 @@
 
 <script setup>
 const cards = [
-  {
-    title: "knowledge",
-    text: "knowledge_text",
-    icon: "i-lucide-book-open",
-  },
-  {
-    title: "community",
-    text: "community_text",
-    icon: "i-heroicons-users",
-  },
-  {
-    title: "excellence",
-    text: "excellence_text",
-    icon: "i-heroicons-trophy",
-  },
-  {
-    title: "growth",
-    text: "growth_text",
-    icon: "clarity:target-line",
-  },
+  { title: "knowledge", text: "knowledge_text", icon: "i-lucide-book-open" },
+  { title: "community", text: "community_text", icon: "i-heroicons-users" },
+  { title: "excellence", text: "excellence_text", icon: "i-heroicons-trophy" },
+  { title: "growth", text: "growth_text", icon: "clarity:target-line" },
 ];
 </script>

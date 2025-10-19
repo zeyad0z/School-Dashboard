@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col lg:flex-row min-h-screen">
+    <DarkMode class="mt-5 absolute inset left-10" />
     <!-- Language switch -->
-    <div class="flex gap-2 items-start p-4">
+    <div class="flex gap-2 items-start mt-4 absolute inset left-20">
       <select
         v-model="locale"
         @change="changeLanguage"
@@ -26,6 +27,7 @@
 <script setup>
 import LoginCard from "~/components/homePage/loginCard.vue";
 import SideSection from "~/components/homePage/sideSection.vue";
+import DarkMode from "~/components/UI/DarkMode.vue";
 import { useI18n } from "vue-i18n";
 
 const { locale, setLocale } = useI18n();

@@ -1,19 +1,26 @@
 <template>
-  <NuxtLayout name="dashboard-default" class="bg-blue-50">
+  <NuxtLayout
+    name="dashboard-default"
+    class="bg-blue-50 dark:bg-gray-900 transition-colors duration-300"
+  >
     <div>
       <!-- Header -->
       <div
         class="flex flex-col md:flex-row md:items-start md:justify-between mt-2"
       >
         <div>
-          <p class="text-sm text-blue-700 font-medium">{{ $t("date") }}</p>
+          <p class="text-sm text-blue-700 dark:text-blue-300 font-medium">
+            {{ $t("date") }}
+          </p>
           <h1
-            class="text-[2rem] font-bold text-blue-900 flex items-center gap-2"
+            class="text-[2rem] font-bold text-blue-900 dark:text-white flex items-center gap-2"
           >
             {{ $t("greeting") }}
             <span class="text-3xl">👋</span>
           </h1>
-          <p class="text-blue-700 mt-3">{{ $t("welcome_message") }}</p>
+          <p class="text-blue-700 dark:text-blue-400 mt-3">
+            {{ $t("welcome_message") }}
+          </p>
         </div>
 
         <!-- Top cards -->
@@ -56,9 +63,11 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
         <!-- Quick Actions -->
-        <div class="bg-white shadow-lg rounded-xl p-6 border border-blue-100">
+        <div
+          class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 border border-blue-100 dark:border-gray-700"
+        >
           <h2
-            class="text-xl font-semibold text-blue-900 flex items-center gap-2"
+            class="text-xl font-semibold text-blue-900 dark:text-blue-100 flex items-center gap-2"
           >
             <span class="text-blue-600 text-3xl">•</span>
             {{ $t("quick_actions") }}
@@ -68,8 +77,12 @@
             <button
               v-for="(action, index) in actions"
               :key="index"
-              class="flex items-center gap-2 px-2 py-1 rounded-md border border-blue-200 text-blue-700 font-medium hover:bg-blue-600 hover:text-white transition"
-              :class="index === 0 ? 'bg-blue-600 text-white' : 'bg-white'"
+              class="flex items-center gap-2 px-2 py-1 rounded-md border border-blue-200 dark:border-gray-700 text-blue-700 dark:text-blue-200 font-medium transition"
+              :class="[
+                index === 0
+                  ? 'bg-blue-600 text-white hover:bg-blue-700'
+                  : 'bg-white dark:bg-gray-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-700',
+              ]"
             >
               <UIcon :name="action.icon" class="w-4 h-4" />
               {{ $t(action.title) }}
@@ -79,10 +92,10 @@
 
         <!-- Recent Activity -->
         <div
-          class="bg-white shadow-lg rounded-xl p-6 border border-blue-100 col-span-2"
+          class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 border border-blue-100 dark:border-gray-700 col-span-2"
         >
           <h2
-            class="text-xl font-semibold text-blue-900 flex items-center gap-2 mb-10"
+            class="text-xl font-semibold text-blue-900 dark:text-blue-100 flex items-center gap-2 mb-10"
           >
             <span class="text-blue-600 text-3xl">•</span>
             {{ $t("recent_activity") }}
@@ -92,21 +105,22 @@
             <div
               v-for="(activity, i) in activities"
               :key="i"
-              :class="activity.bg"
-              class="p-4 border border-gray-200 rounded-lg flex gap-2"
+              class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg flex gap-2 bg-blue-50 dark:bg-gray-700/50"
             >
               <span
                 :class="activity.dot"
                 class="inline-block w-3 h-3 rounded-full mr-2 mt-2"
               ></span>
               <div>
-                <p class="text-sm font-semibold text-blue-900">
+                <p class="text-sm font-semibold text-blue-900 dark:text-white">
                   {{ $t(activity.title) }}
                 </p>
-                <p class="text-xs text-blue-700">
+                <p class="text-xs text-blue-700 dark:text-blue-300">
                   {{ $t(activity.desc) }}
                 </p>
-                <p class="text-xs text-blue-500">{{ $t(activity.time) }}</p>
+                <p class="text-xs text-blue-500 dark:text-blue-400">
+                  {{ $t(activity.time) }}
+                </p>
               </div>
             </div>
           </div>
@@ -119,6 +133,7 @@
 
 <script setup>
 import Notification from "~/components/dashboard/notification.vue";
+
 const actions = [
   { title: "manage_students", icon: "i-lucide-users" },
   { title: "view_schedule", icon: "i-lucide-calendar" },
@@ -131,21 +146,18 @@ const activities = [
     title: "new_student_enrollment",
     desc: "desc_new_student",
     time: "2_hours_ago",
-    bg: "bg-blue-50",
     dot: "bg-blue-600",
   },
   {
     title: "grade_submission_completed",
     desc: "desc_grade_submission",
     time: "4_hours_ago",
-    bg: "bg-cyan-50",
     dot: "bg-cyan-500",
   },
   {
     title: "system_maintenance_scheduled",
     desc: "desc_system_maintenance",
     time: "6_hours_ago",
-    bg: "bg-red-50",
     dot: "bg-red-500",
   },
 ];

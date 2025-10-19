@@ -1,15 +1,17 @@
 <template>
   <div
-    class="flex justify-center items-center gap-2 py-4 bg-blue-50 rounded-b-lg"
+    class="flex justify-center items-center gap-2 py-4 bg-blue-50 dark:bg-gray-800 rounded-b-lg transition-colors duration-300"
   >
+    <!-- Prev Button -->
     <button
       @click="prevPage"
       :disabled="currentPage === 1"
-      class="w-8 h-8 flex items-center justify-center text-blue-700 border rounded-md hover:bg-blue-200 transition disabled:opacity-50"
+      class="w-8 h-8 flex items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-gray-600 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700 transition disabled:opacity-50"
     >
       <UIcon :name="formatPrevArrow" />
     </button>
 
+    <!-- Page Numbers -->
     <template v-for="i in visiblePages" :key="i">
       <button
         v-if="i !== '...'"
@@ -17,25 +19,27 @@
         class="w-8 h-8 flex items-center justify-center rounded-md border transition"
         :class="[
           i === currentPage
-            ? 'bg-blue-600 text-white border-blue-600'
-            : 'text-blue-700 border-blue-300 bg-white hover:bg-blue-600 hover:text-white',
+            ? 'bg-blue-600 text-white border-blue-600 dark:bg-blue-500 dark:border-blue-500'
+            : 'text-blue-700 dark:text-gray-200 border-blue-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white',
         ]"
       >
         {{ formatNumber(i) }}
       </button>
 
+      <!-- Dots -->
       <span
         v-else
-        class="w-8 h-8 flex items-center justify-center text-blue-400 select-none"
+        class="w-8 h-8 flex items-center justify-center text-blue-400 dark:text-gray-400 select-none"
       >
         ...
       </span>
     </template>
 
+    <!-- Next Button -->
     <button
       @click="nextPage"
       :disabled="currentPage === totalPages"
-      class="w-8 h-8 flex items-center justify-center text-blue-700 border rounded-md hover:bg-blue-200 transition disabled:opacity-50"
+      class="w-8 h-8 flex items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-gray-600 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700 transition disabled:opacity-50"
     >
       <UIcon :name="formatNextArrow" />
     </button>
@@ -72,13 +76,15 @@ watch(
   { immediate: true }
 );
 
-//Localized number formatter (reactive)
+// Localized numbers
 const formatNumber = (num) => {
   const formatter = new Intl.NumberFormat(
     locale.value === "ar" ? "ar-EG" : "en-US"
   );
   return formatter.format(num);
 };
+
+// Arrow icons based on direction
 const formatPrevArrow = computed(() =>
   locale.value === "ar" ? "i-lucide-chevron-right" : "i-lucide-chevron-left"
 );
