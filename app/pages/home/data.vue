@@ -2,7 +2,7 @@
   <div
     class="flex w-full min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
   >
-    <LangSwetch class="mt-4 absolute inset ltr:left-10 rtl:right-10" />
+    <LangSwitch class="mt-4 absolute inset ltr:left-10 rtl:right-10" />
 
     <DarkMode class="mt-4.5 absolute inset ltr:left-34 rtl:right-34" />
 
@@ -101,7 +101,7 @@
 <script setup>
 import BaseCard from "../../components/UI/BaseCard.vue";
 import { useUserStore } from "~/stores/UserStore";
-import LangSwetch from "~/components/UI/LangSwetch.vue";
+import LangSwitch from "~/components/UI/LangSwitch.vue";
 import DarkMode from "~/components/UI/DarkMode.vue";
 
 const UserStore = useUserStore();

@@ -56,7 +56,7 @@
         </span>
       </div>
 
-      <LangSwetch />
+      <LangSwitch />
 
       <!-- User Info -->
       <div
@@ -86,7 +86,7 @@
 <script setup>
 import { useSideBarStore } from "../../stores/SideBarStore.js";
 import DarkMode from "../UI/DarkMode.vue";
-import LangSwetch from "../UI/LangSwetch.vue";
+import LangSwitch from "../UI/LangSwitch.vue";
 
 const showSidebar = useSideBarStore();
 </script>

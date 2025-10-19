@@ -22,7 +22,7 @@
           </div>
         </button>
 
-        <LangSwetch />
+        <LangSwitch />
 
         <DarkMode class="mt-1" />
       </div>
@@ -205,7 +205,7 @@
 import { ref, computed } from "vue";
 import { useUserStore } from "~/stores/UserStore";
 import DarkMode from "~/components/UI/DarkMode.vue";
-import LangSwetch from "~/components/UI/LangSwetch.vue";
+import LangSwitch from "~/components/UI/LangSwitch.vue";
 
 const UserStore = useUserStore();
 
