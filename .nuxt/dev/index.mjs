@@ -2144,7 +2144,22 @@ _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
 _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"24be9-XVAmtIejPOhfgCPC0N12mzdo6KM\"",
+    "mtime": "2025-10-19T08:38:18.290Z",
+    "size": 150505,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"679d7-rDzWYgOIZGRl/XWmoAA5aiVRTFE\"",
+    "mtime": "2025-10-19T08:38:18.290Z",
+    "size": 424407,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3137,6 +3152,53 @@ var delete_success_message$1 = "✅ Product deleted successfully.";
 var delete_cancel_message$1 = "❌ Product deletion cancelled.";
 var duplicate_sku_title$1 = "Duplicate SKU";
 var duplicate_sku_message$1 = "A product with this SKU already exists. Please use a different one.";
+var welcome$1 = "Welcome";
+var password$1 = "Password";
+var school_name$1 = "Your School Name";
+var school_slogan$1 = "Excellence in Education";
+var school_description$1 = "Empowering minds and shaping futures through innovative learning experiences";
+var knowledge$1 = "Knowledge";
+var knowledge_text$1 = "Comprehensive curriculum and learning resources";
+var community$1 = "Community";
+var community_text$1 = "Collaborative learning environment";
+var excellence$1 = "Excellence";
+var excellence_text$1 = "Striving for academic achievement";
+var growth$1 = "Growth";
+var growth_text$1 = "Personal and academic development";
+var back_to_login$1 = "Back to Login";
+var id$1 = "ID";
+var choose_your_role$1 = "Choose Your Role";
+var select_your_position$1 = "Select your position and branch to access your personalized dashboard";
+var change_roles$1 = "Change Roles";
+var select_your_branch$1 = "Select Your Branch";
+var branch_location$1 = "Branch Location";
+var continue_to_dashboard$1 = "Continue to Dashboard";
+var main_campus$1 = "Main Campus";
+var north_branch$1 = "North Branch";
+var south_branch$1 = "South Branch";
+var teacher$1 = "Teacher";
+var student_affairs$1 = "Student Affairs";
+var administrator_branches$1 = "3 branches";
+var teacher_branches$1 = "2 branches";
+var student_affairs_branches$1 = "1 branch";
+var welcome_back$1 = "Welcome Back!";
+var ready_to_continue_learning$1 = "Ready to continue learning";
+var position$1 = "Position";
+var branch$1 = "Branch";
+var enter_dashboard$1 = "Enter Dashboard";
+var invalid_form$1 = "Invalid form, please check your inputs";
+var login_successful$1 = "Login successful, welcome!";
+var name_must_be_in_english$1 = "Name must be in English";
+var name_must_be_in_arabic$1 = "Name must be in Arabic";
+var password_min_length$1 = "Password must be at least 6 characters";
+var password_max_length$1 = "Password must be at most 12 characters";
+var id_required$1 = "ID is required";
+var english_name_required$1 = "English name is required";
+var arabic_name_required$1 = "Arabic name is required";
+var password_required$1 = "Password is required";
+var form_invalid_title$1 = "Error";
+var form_invalid_desc$1 = "❌ Invalid form, please check your inputs";
+var form_success_desc$1 = "✅ Login successful, welcome!";
 const en = {
 	"89": "89",
 	date: date$1,
@@ -3250,7 +3312,68 @@ const en = {
 	delete_success_message: delete_success_message$1,
 	delete_cancel_message: delete_cancel_message$1,
 	duplicate_sku_title: duplicate_sku_title$1,
-	duplicate_sku_message: duplicate_sku_message$1
+	duplicate_sku_message: duplicate_sku_message$1,
+	welcome: welcome$1,
+	"welcome message": "Access your educational dashboard",
+	"staff/student id": "Staff/Student ID",
+	"enter your id": "Enter your ID",
+	"name in english": "Name in English",
+	"name in english placeholder": "Enter your Name in English",
+	"Name in Arabic": "Name in Arabic",
+	"name in arabic placeholder": "Enter your Name in Arabic",
+	password: password$1,
+	"enter your password": "Enter your Password",
+	"sign in": "Sign In",
+	"signing in": "Signing In...",
+	school_name: school_name$1,
+	school_slogan: school_slogan$1,
+	school_description: school_description$1,
+	knowledge: knowledge$1,
+	knowledge_text: knowledge_text$1,
+	community: community$1,
+	community_text: community_text$1,
+	excellence: excellence$1,
+	excellence_text: excellence_text$1,
+	growth: growth$1,
+	growth_text: growth_text$1,
+	back_to_login: back_to_login$1,
+	id: id$1,
+	choose_your_role: choose_your_role$1,
+	select_your_position: select_your_position$1,
+	change_roles: change_roles$1,
+	select_your_branch: select_your_branch$1,
+	branch_location: branch_location$1,
+	continue_to_dashboard: continue_to_dashboard$1,
+	main_campus: main_campus$1,
+	north_branch: north_branch$1,
+	south_branch: south_branch$1,
+	teacher: teacher$1,
+	student_affairs: student_affairs$1,
+	administrator_branches: administrator_branches$1,
+	teacher_branches: teacher_branches$1,
+	student_affairs_branches: student_affairs_branches$1,
+	welcome_back: welcome_back$1,
+	ready_to_continue_learning: ready_to_continue_learning$1,
+	position: position$1,
+	branch: branch$1,
+	enter_dashboard: enter_dashboard$1,
+	"is required": "is required",
+	invalid_form: invalid_form$1,
+	login_successful: login_successful$1,
+	name_must_be_in_english: name_must_be_in_english$1,
+	name_must_be_in_arabic: name_must_be_in_arabic$1,
+	password_min_length: password_min_length$1,
+	password_max_length: password_max_length$1,
+	id_required: id_required$1,
+	english_name_required: english_name_required$1,
+	arabic_name_required: arabic_name_required$1,
+	password_required: password_required$1,
+	form_invalid_title: form_invalid_title$1,
+	form_invalid_desc: form_invalid_desc$1,
+	form_success_desc: form_success_desc$1,
+	"2_hours_ago": "2 hours ago",
+	"4_hours_ago": "4 hours ago",
+	"6_hours_ago": "6 hours ago"
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3260,12 +3383,22 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   active_staff: active_staff$1,
   add_new_product: add_new_product$1,
   administrator: administrator$1,
+  administrator_branches: administrator_branches$1,
   all: all$1,
   all_categories: all_categories$1,
   all_present_today: all_present_today$1,
+  arabic_name_required: arabic_name_required$1,
+  back_to_login: back_to_login$1,
+  branch: branch$1,
+  branch_location: branch_location$1,
   cancel: cancel$1,
   category: category$1,
   certificates: certificates$1,
+  change_roles: change_roles$1,
+  choose_your_role: choose_your_role$1,
+  community: community$1,
+  community_text: community_text$1,
+  continue_to_dashboard: continue_to_dashboard$1,
   dashboard: dashboard$1,
   date: date$1,
   default: en,
@@ -3284,49 +3417,84 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   edit_success_message: edit_success_message$1,
   edit_success_title: edit_success_title$1,
   electronics: electronics$1,
+  english_name_required: english_name_required$1,
+  enter_dashboard: enter_dashboard$1,
   enter_image_url: enter_image_url$1,
+  excellence: excellence$1,
+  excellence_text: excellence_text$1,
   finance: finance$1,
   form_cancel_message: form_cancel_message$1,
   form_cancel_title: form_cancel_title$1,
   form_error_message: form_error_message$1,
   form_error_title: form_error_title$1,
+  form_invalid_desc: form_invalid_desc$1,
+  form_invalid_title: form_invalid_title$1,
+  form_success_desc: form_success_desc$1,
   form_success_message: form_success_message$1,
   form_success_title: form_success_title$1,
   generate_reports: generate_reports$1,
   grade_submission_completed: grade_submission_completed$1,
   greeting: greeting$1,
+  growth: growth$1,
+  growth_text: growth_text$1,
+  id: id$1,
+  id_required: id_required$1,
   image_url: image_url$1,
   increase_from_last_month: increase_from_last_month$1,
   invalid_arabic: invalid_arabic$1,
   invalid_english: invalid_english$1,
+  invalid_form: invalid_form$1,
   invalid_price: invalid_price$1,
   invalid_stock: invalid_stock$1,
   jewelery: jewelery$1,
+  knowledge: knowledge$1,
+  knowledge_text: knowledge_text$1,
+  login_successful: login_successful$1,
+  main_campus: main_campus$1,
   manage_students: manage_students$1,
+  name_must_be_in_arabic: name_must_be_in_arabic$1,
+  name_must_be_in_english: name_must_be_in_english$1,
   new_student_enrollment: new_student_enrollment$1,
+  north_branch: north_branch$1,
   notification_center: notification_center$1,
   of: of$1,
   out_of_stock: out_of_stock$1,
+  password: password$1,
+  password_max_length: password_max_length$1,
+  password_min_length: password_min_length$1,
+  password_required: password_required$1,
+  position: position$1,
   price: price$1,
   price_placeholder: price_placeholder$1,
   products: products$1,
   quick_actions: quick_actions$1,
+  ready_to_continue_learning: ready_to_continue_learning$1,
   recent_activity: recent_activity$1,
   reports: reports$1,
   required_field: required_field$1,
   sar: sar$1,
+  school_description: school_description$1,
+  school_name: school_name$1,
+  school_slogan: school_slogan$1,
   search_by_name: search_by_name$1,
   select_category: select_category$1,
+  select_your_branch: select_your_branch$1,
+  select_your_position: select_your_position$1,
   showing: showing$1,
   sku: sku$1,
   sku_placeholder: sku_placeholder$1,
+  south_branch: south_branch$1,
   status: status$1,
   status_label: status_label$1,
   stock: stock$1,
   stock_placeholder: stock_placeholder$1,
+  student_affairs: student_affairs$1,
+  student_affairs_branches: student_affairs_branches$1,
   submit: submit$1,
   system_maintenance_scheduled: system_maintenance_scheduled$1,
   system_settings: system_settings$1,
+  teacher: teacher$1,
+  teacher_branches: teacher_branches$1,
   total_stock: total_stock$1,
   total_students: total_students$1,
   total_value: total_value$1,
@@ -3334,6 +3502,8 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   unread: unread$1,
   view: view$1,
   view_schedule: view_schedule$1,
+  welcome: welcome$1,
+  welcome_back: welcome_back$1,
   welcome_message: welcome_message$1,
   withdraw_request_desc: withdraw_request_desc$1,
   withdraw_request_title: withdraw_request_title$1,
@@ -3423,6 +3593,53 @@ var delete_success_message = "✅ تم حذف المنتج بنجاح.";
 var delete_cancel_message = "❌ تم الغاء حذف المنتج.";
 var duplicate_sku_title = "رمز المنتج مكرر";
 var duplicate_sku_message = "يوجد منتج بنفس الرمز بالفعل، الرجاء استخدام رمز مختلف.";
+var welcome = "مرحباً";
+var password = "كلمة المرور";
+var school_name = "اسم مدرستك";
+var school_slogan = "التميز في التعليم";
+var school_description = "نُمكّن العقول ونبني المستقبل من خلال تجارب تعليمية مبتكرة";
+var knowledge = "المعرفة";
+var knowledge_text = "منهج شامل وموارد تعليمية متنوعة";
+var community = "المجتمع";
+var community_text = "بيئة تعلم تعاونية محفزة";
+var excellence = "التميز";
+var excellence_text = "السعي نحو التفوق الأكاديمي";
+var growth = "النمو";
+var growth_text = "تطوير شخصي وأكاديمي مستمر";
+var back_to_login = "العودة لتسجيل الدخول";
+var id = "الكود";
+var choose_your_role = "اختر دورك";
+var select_your_position = "اختر موقعك وفرعك للوصول إلى لوحة التحكم الخاصة بك";
+var change_roles = "تغيير الأدوار";
+var select_your_branch = "اختر فرعك";
+var branch_location = "موقع الفرع";
+var continue_to_dashboard = "الانتقال إلى لوحة التحكم";
+var main_campus = "الفرع الرئيسي";
+var north_branch = "فرع الشمال";
+var south_branch = "فرع الجنوب";
+var teacher = "المعلم";
+var student_affairs = "شؤون الطلاب";
+var administrator_branches = "٣ فروع";
+var teacher_branches = "فرعين";
+var student_affairs_branches = "فرع واحد";
+var welcome_back = "مرحباً بعودتك!";
+var ready_to_continue_learning = "جاهز لمواصلة التعلم";
+var position = "الوظيفة";
+var branch = "الفرع";
+var enter_dashboard = "دخول إلى لوحة التحكم";
+var invalid_form = "النموذج غير صالح، يرجى التحقق من البيانات";
+var login_successful = "تم تسجيل الدخول بنجاح، مرحباً بك!";
+var name_must_be_in_english = "يجب أن يكون الاسم باللغة الإنجليزية";
+var name_must_be_in_arabic = "يجب أن يكون الاسم باللغة العربية";
+var password_min_length = "يجب ألا تقل كلمة المرور عن ٦ أحرف";
+var password_max_length = "يجب ألا تزيد كلمة المرور عن ١٢ حرفًا";
+var id_required = "الكود مطلوب";
+var english_name_required = "الاسم باللغة الإنجليزية مطلوب";
+var arabic_name_required = "الاسم باللغة العربية مطلوب";
+var password_required = "كلمة المرور مطلوبة";
+var form_invalid_title = "خطأ";
+var form_invalid_desc = "❌ النموذج غير صالح، يرجى التحقق من البيانات";
+var form_success_desc = "✅ تم تسجيل الدخول بنجاح، مرحباً بك!";
 const ar = {
 	"89": "٨٩",
 	date: date,
@@ -3537,7 +3754,68 @@ const ar = {
 	delete_success_message: delete_success_message,
 	delete_cancel_message: delete_cancel_message,
 	duplicate_sku_title: duplicate_sku_title,
-	duplicate_sku_message: duplicate_sku_message
+	duplicate_sku_message: duplicate_sku_message,
+	welcome: welcome,
+	"welcome message": "ادخل إلى لوحة التحكم التعليمية الخاصة بك",
+	"staff/student id": "كود المستخدم",
+	"enter your id": "ادخل كود المستخدم",
+	"name in english": "الاسم باللغة الانجليزية",
+	"name in english placeholder": "ادخل الاسم باللغة الانجليزية",
+	"Name in Arabic": "الاسم باللغة العربية",
+	"name in arabic placeholder": "ادخل الاسم باللغة العربية",
+	password: password,
+	"enter your password": "ادخل كلمة المرور",
+	"sign in": "تسجيل الدخول",
+	"signing in": "تسجيل الدخول...",
+	school_name: school_name,
+	school_slogan: school_slogan,
+	school_description: school_description,
+	knowledge: knowledge,
+	knowledge_text: knowledge_text,
+	community: community,
+	community_text: community_text,
+	excellence: excellence,
+	excellence_text: excellence_text,
+	growth: growth,
+	growth_text: growth_text,
+	back_to_login: back_to_login,
+	id: id,
+	choose_your_role: choose_your_role,
+	select_your_position: select_your_position,
+	change_roles: change_roles,
+	select_your_branch: select_your_branch,
+	branch_location: branch_location,
+	continue_to_dashboard: continue_to_dashboard,
+	main_campus: main_campus,
+	north_branch: north_branch,
+	south_branch: south_branch,
+	teacher: teacher,
+	student_affairs: student_affairs,
+	administrator_branches: administrator_branches,
+	teacher_branches: teacher_branches,
+	student_affairs_branches: student_affairs_branches,
+	welcome_back: welcome_back,
+	ready_to_continue_learning: ready_to_continue_learning,
+	position: position,
+	branch: branch,
+	enter_dashboard: enter_dashboard,
+	"is required": "مطلوب",
+	invalid_form: invalid_form,
+	login_successful: login_successful,
+	name_must_be_in_english: name_must_be_in_english,
+	name_must_be_in_arabic: name_must_be_in_arabic,
+	password_min_length: password_min_length,
+	password_max_length: password_max_length,
+	id_required: id_required,
+	english_name_required: english_name_required,
+	arabic_name_required: arabic_name_required,
+	password_required: password_required,
+	form_invalid_title: form_invalid_title,
+	form_invalid_desc: form_invalid_desc,
+	form_success_desc: form_success_desc,
+	"6_hours_ago": "منذ ٦ ساعات",
+	"4_hours_ago": "منذ ٤ ساعات",
+	"2_hours_ago": "منذ ساعتين"
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3547,12 +3825,22 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   active_staff: active_staff,
   add_new_product: add_new_product,
   administrator: administrator,
+  administrator_branches: administrator_branches,
   all: all,
   all_categories: all_categories,
   all_present_today: all_present_today,
+  arabic_name_required: arabic_name_required,
+  back_to_login: back_to_login,
+  branch: branch,
+  branch_location: branch_location,
   cancel: cancel,
   category: category,
   certificates: certificates,
+  change_roles: change_roles,
+  choose_your_role: choose_your_role,
+  community: community,
+  community_text: community_text,
+  continue_to_dashboard: continue_to_dashboard,
   dashboard: dashboard,
   date: date,
   default: ar,
@@ -3572,49 +3860,84 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   edit_success_message: edit_success_message,
   edit_success_title: edit_success_title,
   electronics: electronics,
+  english_name_required: english_name_required,
+  enter_dashboard: enter_dashboard,
   enter_image_url: enter_image_url,
+  excellence: excellence,
+  excellence_text: excellence_text,
   finance: finance,
   form_cancel_message: form_cancel_message,
   form_cancel_title: form_cancel_title,
   form_error_message: form_error_message,
   form_error_title: form_error_title,
+  form_invalid_desc: form_invalid_desc,
+  form_invalid_title: form_invalid_title,
+  form_success_desc: form_success_desc,
   form_success_message: form_success_message,
   form_success_title: form_success_title,
   generate_reports: generate_reports,
   grade_submission_completed: grade_submission_completed,
   greeting: greeting,
+  growth: growth,
+  growth_text: growth_text,
+  id: id,
+  id_required: id_required,
   image_url: image_url,
   increase_from_last_month: increase_from_last_month,
   invalid_arabic: invalid_arabic,
   invalid_english: invalid_english,
+  invalid_form: invalid_form,
   invalid_price: invalid_price,
   invalid_stock: invalid_stock,
   jewelery: jewelery,
+  knowledge: knowledge,
+  knowledge_text: knowledge_text,
+  login_successful: login_successful,
+  main_campus: main_campus,
   manage_students: manage_students,
+  name_must_be_in_arabic: name_must_be_in_arabic,
+  name_must_be_in_english: name_must_be_in_english,
   new_student_enrollment: new_student_enrollment,
+  north_branch: north_branch,
   notification_center: notification_center,
   of: of,
   out_of_stock: out_of_stock,
+  password: password,
+  password_max_length: password_max_length,
+  password_min_length: password_min_length,
+  password_required: password_required,
+  position: position,
   price: price,
   price_placeholder: price_placeholder,
   products: products,
   quick_actions: quick_actions,
+  ready_to_continue_learning: ready_to_continue_learning,
   recent_activity: recent_activity,
   reports: reports,
   required_field: required_field,
   sar: sar,
+  school_description: school_description,
+  school_name: school_name,
+  school_slogan: school_slogan,
   search_by_name: search_by_name,
   select_category: select_category,
+  select_your_branch: select_your_branch,
+  select_your_position: select_your_position,
   showing: showing,
   sku: sku,
   sku_placeholder: sku_placeholder,
+  south_branch: south_branch,
   status: status,
   status_label: status_label,
   stock: stock,
   stock_placeholder: stock_placeholder,
+  student_affairs: student_affairs,
+  student_affairs_branches: student_affairs_branches,
   submit: submit,
   system_maintenance_scheduled: system_maintenance_scheduled,
   system_settings: system_settings,
+  teacher: teacher,
+  teacher_branches: teacher_branches,
   total_stock: total_stock,
   total_students: total_students,
   total_value: total_value,
@@ -3622,6 +3945,8 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   unread: unread,
   view: view,
   view_schedule: view_schedule,
+  welcome: welcome,
+  welcome_back: welcome_back,
   welcome_message: welcome_message,
   withdraw_request_desc: withdraw_request_desc,
   withdraw_request_title: withdraw_request_title,

@@ -36,18 +36,17 @@
         <h1
           class="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white mb-3"
         >
-          Your School Name
+          {{ $t("school_name") }}
         </h1>
         <h2
           class="text-lg sm:text-xl lg:text-[1.3rem] font-semibold text-blue-100 mb-2"
         >
-          Excellence in Education
+          {{ $t("school_slogan") }}
         </h2>
         <p
           class="text-sm sm:text-base lg:text-[1.17rem] text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium leading-relaxed"
         >
-          Empowering minds and shaping futures through innovative learning
-          experiences
+          {{ $t("school_description") }}
         </p>
       </div>
 
@@ -69,7 +68,7 @@
               <h3
                 class="text-base sm:text-[1.2rem] font-semibold text-white mb-1 sm:mb-2"
               >
-                {{ card.title }}
+                {{ $t(card.title) }}
               </h3>
               <p
                 :class="[
@@ -77,7 +76,7 @@
                 ]"
                 class="text-blue-100/80 text-xs sm:text-[0.9rem] font-medium"
               >
-                {{ card.text }}
+                {{ $t(card.text) }}
               </p>
             </div>
           </template>
@@ -90,23 +89,23 @@
 <script setup>
 const cards = [
   {
-    title: "Knowledge",
-    text: "Comprehensive curriculum and learning resources",
+    title: "knowledge",
+    text: "knowledge_text",
     icon: "i-lucide-book-open",
   },
   {
-    title: "Community",
-    text: "Collaborative learning environment",
+    title: "community",
+    text: "community_text",
     icon: "i-heroicons-users",
   },
   {
-    title: "Excellence",
-    text: "Striving for academic achievement",
+    title: "excellence",
+    text: "excellence_text",
     icon: "i-heroicons-trophy",
   },
   {
-    title: "Growth",
-    text: "Personal and academic development",
+    title: "growth",
+    text: "growth_text",
     icon: "clarity:target-line",
   },
 ];

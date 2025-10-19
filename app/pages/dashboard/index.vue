@@ -106,7 +106,7 @@
                 <p class="text-xs text-blue-700">
                   {{ $t(activity.desc) }}
                 </p>
-                <p class="text-xs text-blue-500">{{ activity.time }}</p>
+                <p class="text-xs text-blue-500">{{ $t(activity.time) }}</p>
               </div>
             </div>
           </div>
@@ -130,21 +130,21 @@ const activities = [
   {
     title: "new_student_enrollment",
     desc: "desc_new_student",
-    time: "2 hours ago",
+    time: "2_hours_ago",
     bg: "bg-blue-50",
     dot: "bg-blue-600",
   },
   {
     title: "grade_submission_completed",
     desc: "desc_grade_submission",
-    time: "4 hours ago",
+    time: "4_hours_ago",
     bg: "bg-cyan-50",
     dot: "bg-cyan-500",
   },
   {
     title: "system_maintenance_scheduled",
     desc: "desc_system_maintenance",
-    time: "6 hours ago",
+    time: "6_hours_ago",
     bg: "bg-red-50",
     dot: "bg-red-500",
   },

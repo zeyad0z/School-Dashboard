@@ -40,7 +40,7 @@
           <span
             class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-md font-medium"
           >
-            {{ n.date }}
+            {{ formatDateTime(n.date) }}
           </span>
 
           <div class="flex items-center gap-4">
@@ -82,22 +82,33 @@
 
 <script setup>
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 import BasePagination from "../UI/BasePagination.vue";
 
+const { locale } = useI18n();
+
 const notifications = ref([
-  { name: "زياد عبدالعزيز الكيلاني", date: "Mon, Sep 1, 2025 12:58 PM" },
-  { name: "احمد عزمي الهواري", date: "Mon, Sep 1, 2025 12:44 PM" },
-  { name: "عمر سعيد القادمي", date: "Mon, Sep 1, 2025 12:23 PM" },
-  { name: "يحيى سعيد الزهراني", date: "Mon, Sep 1, 2025 12:01 PM" },
-  { name: "مبارك حمدان الشهري", date: "Mon, Sep 1, 2025 11:37 AM" },
-  { name: "خالد بن فيصل", date: "Mon, Sep 1, 2025 11:20 AM" },
-  { name: "نواف الحربي", date: "Mon, Sep 1, 2025 10:45 AM" },
-  { name: "محمد الزهراني", date: "Mon, Sep 1, 2025 09:53 AM" },
-  { name: "طارق محمد الجوهري", date: "Mon, Sep 1, 2025 09:32 AM" },
-  { name: "محمد عبدالفتاح حسين", date: "Mon, Sep 1, 2025 08:50 AM" },
-  { name: "عبدالرحمن كامل عبدالعزيز", date: "Mon, Sep 1, 2025 08:38 AM" },
-  { name: "عمر سعيد القادمي", date: "Mon, Sep 1, 2025 06:55 AM" },
+  { name: "زياد عبدالعزيز الكيلاني", date: "2025-09-01T12:58:00" },
+  { name: "احمد عزمي الهواري", date: "2025-09-01T12:44:00" },
+  { name: "عمر سعيد القادمي", date: "2025-09-01T12:23:00" },
+  { name: "يحيى سعيد الزهراني", date: "2025-09-01T12:01:00" },
+  { name: "مبارك حمدان الشهري", date: "2025-09-01T11:37:00" },
+  { name: "خالد بن فيصل", date: "2025-09-01T11:20:00" },
+  { name: "نواف الحربي", date: "2025-09-01T10:45:00" },
+  { name: "محمد الزهراني", date: "2025-09-01T09:53:00" },
+  { name: "طارق محمد الجوهري", date: "2025-09-01T09:32:00" },
+  { name: "محمد عبدالفتاح حسين", date: "2025-09-01T08:50:00" },
+  { name: "عبدالرحمن كامل عبدالعزيز", date: "2025-09-01T08:38:00" },
+  { name: "عمر سعيد القادمي", date: "2025-09-01T06:55:00" },
 ]);
 
 const paginatedNotifications = ref([]);
+
+function formatDateTime(dateString) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat(locale.value, {
+    dateStyle: "full",
+    timeStyle: "short",
+  }).format(date);
+}
 </script>
