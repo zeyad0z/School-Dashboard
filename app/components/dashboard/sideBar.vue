@@ -2,7 +2,7 @@
   <Transition name="sidebar">
     <aside
       :key="showSidebar.isSidebarOpen"
-      class="flex flex-col px-6 py-6 shadow-xl bg-white dark:bg-[#1e293b] dark:text-gray-100 transition-all duration-500 overflow-hidden border-r border-blue-100 dark:border-gray-800"
+      class="flex flex-col px-6 py-6 shadow-xl bg-white dark:bg-[#1e293b] dark:text-gray-100 transition-all duration-500  overflow-hidden border-r border-blue-100 dark:border-gray-800"
       :class="showSidebar.isSidebarOpen ? 'w-72' : 'w-20'"
     >
       <div class="flex items-center gap-3 mb-4">

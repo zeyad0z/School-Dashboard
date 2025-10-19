@@ -8,14 +8,14 @@
     <!-- Sidebar -->
     <sideBar
       :class="[
-        'fixed top-[85px] h-screen z-20 transition-transform duration-300 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b]',
+        'fixed top-[100px] md:top-[85px]  bottom-0 z-20 transition-transform duration-300 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b]',
         isRTL ? 'right-0' : 'left-0',
         showSidebar.isSidebarOpen ? 'w-72' : 'w-22',
       ]"
     />
 
     <div
-      class="pt-[100px] transition-all duration-300 ease-in-out max-w-[calc(100%-22rem)] mx-auto px-35 h-screen"
+      class="pt-[100px] transition-all duration-300 ease-in-out lg:max-w-[calc(100%-22rem)] mx-auto ps-24 pe-2 md:px-35 h-full"
       :style="{
         transform: showSidebar.isSidebarOpen
           ? isRTL

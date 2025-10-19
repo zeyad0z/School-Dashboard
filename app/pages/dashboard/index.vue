@@ -6,9 +6,9 @@
     <div class="pb-3">
       <!-- Header -->
       <div
-        class="flex flex-col md:flex-row md:items-start md:justify-between mt-2"
+        class="flex flex-col xl:flex-row md:items-start md:justify-between mt-2"
       >
-        <div>
+        <div class="flex flex-col">
           <p class="text-sm text-blue-700 dark:text-blue-300 font-medium">
             {{ $t("date") }}
           </p>
@@ -24,9 +24,9 @@
         </div>
 
         <!-- Top cards -->
-        <div class="flex gap-5 mt-6 md:mt-0">
+        <div class="flex flex-col lg:flex-row gap-5 mt-6 md:mt-0">
           <div
-            class="bg-[#1F6FFF] text-white rounded-xl p-5 w-75 h-43 flex justify-between items-center shadow-md hover:shadow-2xl"
+            class="bg-[#1F6FFF] w-full text-white rounded-xl p-5 md:w-75 md:h-43 flex justify-between items-center shadow-md hover:shadow-2xl"
           >
             <div>
               <p class="text-sm opacity-90">{{ $t("total_students") }}</p>
@@ -43,7 +43,7 @@
           </div>
 
           <div
-            class="bg-[#00B0E7] text-white rounded-xl p-5 w-75 h-43 flex justify-between items-center shadow-md hover:shadow-2xl"
+            class="bg-[#00B0E7] w-full md:w-75 md:h-43 text-white rounded-xl p-5 flex justify-between items-center shadow-md hover:shadow-2xl"
           >
             <div>
               <p class="text-sm opacity-90">{{ $t("active_staff") }}</p>
@@ -61,7 +61,9 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-3 gap-y-6 md:gap-6 mt-8"
+      >
         <!-- Quick Actions -->
         <div
           class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 border border-blue-100 dark:border-gray-700"

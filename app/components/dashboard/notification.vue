@@ -38,7 +38,7 @@
         :key="index"
         class="flex justify-between items-center px-6 py-6 border-b bg-white dark:bg-gray-800 border-blue-100 dark:border-gray-700 transition-colors duration-300"
       >
-        <div class="flex items-start gap-4">
+        <div class="flex flex-col md:flex-row items-start gap-4">
           <span
             class="text-xs bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-md font-medium"
           >

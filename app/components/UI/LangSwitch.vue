@@ -3,14 +3,14 @@
     <select
       v-model="locale"
       @change="changeLanguage"
-      class="text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-md px-2 py-1 outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
+      class="text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-md px-1 md:px-2 md:py-1 outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
     >
       <option value="en">EN</option>
       <option value="ar">AR</option>
     </select>
     <UIcon
       name="i-lucide-globe"
-      class="w-4 h-4 text-blue-600 dark:text-blue-400"
+      class="md:w-5 md:h-5 text-blue-600 dark:text-blue-400"
     />
   </div>
 </template>
