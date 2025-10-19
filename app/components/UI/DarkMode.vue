@@ -1,8 +1,8 @@
 <template>
-  <button @click="toggleDark" class="">
+  <button @click="toggleDark">
     <UIcon
-      :name="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
-      class="dark:text-blue-600 w-5 h-5"
+      :name="isDark ? 'i-lucide-sun' : 'i-lucide-moon'"
+      class="text-blue-600 dark:text-blue-400 w-7 h-7"
     />
   </button>
 </template>

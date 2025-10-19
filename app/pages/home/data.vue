@@ -2,21 +2,9 @@
   <div
     class="flex w-full min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
   >
-    <!-- Language switch -->
-    <div class="flex gap-2 items-start p-4">
-      <select
-        v-model="locale"
-        @change="changeLanguage"
-        class="text-blue-600 dark:text-blue-300 border border-blue-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md px-2 py-1 outline-none focus:ring-2 focus:ring-[#8FAEF3]"
-      >
-        <option selected value="en">EN</option>
-        <option value="ar">AR</option>
-      </select>
-      <UIcon
-        name="i-lucide-globe"
-        class="mt-2 w-4 h-4 text-blue-600 dark:text-blue-300"
-      />
-    </div>
+    <LangSwetch class="mt-4 absolute inset ltr:left-10 rtl:right-10" />
+
+    <DarkMode class="mt-4.5 absolute inset ltr:left-34 rtl:right-34" />
 
     <div class="flex-[1.07] flex justify-center items-center">
       <BaseCard class="mx-7 dark:bg-gray-800 transition-colors duration-300">
@@ -113,14 +101,9 @@
 <script setup>
 import BaseCard from "../../components/UI/BaseCard.vue";
 import { useUserStore } from "~/stores/UserStore";
-import { useI18n } from "vue-i18n";
+import LangSwetch from "~/components/UI/LangSwetch.vue";
+import DarkMode from "~/components/UI/DarkMode.vue";
 
-const { locale, setLocale } = useI18n();
-const changeLanguage = async (event) => {
-  const lang = event.target.value;
-  await setLocale(lang);
-  document.dir = lang === "ar" ? "rtl" : "ltr";
-};
 const UserStore = useUserStore();
 
 const goDashboard = () => {

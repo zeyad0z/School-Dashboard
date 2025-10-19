@@ -17,6 +17,7 @@ interface _GlobalComponents {
       'UIBaseCard': typeof import("../../app/components/UI/BaseCard.vue")['default']
     'UIBasePagination': typeof import("../../app/components/UI/BasePagination.vue")['default']
     'UIDarkMode': typeof import("../../app/components/UI/DarkMode.vue")['default']
+    'UILangSwetch': typeof import("../../app/components/UI/LangSwetch.vue")['default']
     'DashboardDeleteDialog': typeof import("../../app/components/dashboard/deleteDialog.vue")['default']
     'DashboardNavBar': typeof import("../../app/components/dashboard/navBar.vue")['default']
     'DashboardNotification': typeof import("../../app/components/dashboard/notification.vue")['default']
@@ -114,6 +115,7 @@ interface _GlobalComponents {
       'LazyUIBaseCard': LazyComponent<typeof import("../../app/components/UI/BaseCard.vue")['default']>
     'LazyUIBasePagination': LazyComponent<typeof import("../../app/components/UI/BasePagination.vue")['default']>
     'LazyUIDarkMode': LazyComponent<typeof import("../../app/components/UI/DarkMode.vue")['default']>
+    'LazyUILangSwetch': LazyComponent<typeof import("../../app/components/UI/LangSwetch.vue")['default']>
     'LazyDashboardDeleteDialog': LazyComponent<typeof import("../../app/components/dashboard/deleteDialog.vue")['default']>
     'LazyDashboardNavBar': LazyComponent<typeof import("../../app/components/dashboard/navBar.vue")['default']>
     'LazyDashboardNotification': LazyComponent<typeof import("../../app/components/dashboard/notification.vue")['default']>

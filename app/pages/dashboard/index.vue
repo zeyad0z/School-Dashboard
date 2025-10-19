@@ -3,7 +3,7 @@
     name="dashboard-default"
     class="bg-blue-50 dark:bg-gray-900 transition-colors duration-300"
   >
-    <div>
+    <div class="pb-3">
       <!-- Header -->
       <div
         class="flex flex-col md:flex-row md:items-start md:justify-between mt-2"
