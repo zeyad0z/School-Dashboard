@@ -77,7 +77,7 @@
 
       <!-- Content Grid -->
       <div
-        class="grid grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 md:gap-6 mt-8"
+        class="grid grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:gap-6 mt-8"
       >
         <!-- Quick Actions -->
         <div
