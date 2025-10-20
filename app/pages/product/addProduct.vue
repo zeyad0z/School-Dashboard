@@ -1,25 +1,21 @@
 <template>
   <NuxtLayout name="dashboard-prod">
-    <div
-      class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA] dark:from-[#0f172a] dark:to-[#1e293b]"
-    >
+    <div class="md:min-h-screen flex justify-center px-3 sm:px-4 md:px-6 mb-5">
       <div
-        class="h-[44rem] mt-10 bg-white dark:bg-[#1e293b] w-full max-w-4xl rounded-2xl shadow-md p-10 overflow-y-auto"
+        class="w-full max-w-4xl mt-6 md:mt-10 bg-white dark:bg-[#1e293b] rounded-2xl shadow-md p-4 sm:p-6 md:p-8 lg:p-10 h-auto md:h-[44rem] overflow-y-auto"
       >
         <form
-          class="grid grid-cols-1 md:grid-cols-2 gap-5"
+          class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
           @submit.prevent="handleAddProduct"
         >
           <!-- Arabic Name -->
-          <div>
-            <label
-              class="block text-end mb-1 text-sm font-medium dark:text-gray-200"
-            >
+          <div class="col-span-1 md:col-span-1">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               {{ $t("addProduct.titleAr") }}
             </label>
             <input
               v-model="form.titleAr"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
               :placeholder="$t('addProduct.titleArPlaceholder')"
               @input="v$.titleAr.$touch()"
             />
@@ -32,15 +28,13 @@
           </div>
 
           <!-- English Name -->
-          <div>
-            <label
-              class="block mb-1 text-end text-sm font-medium dark:text-gray-200"
-            >
-              {{ $t("addProduct.titleEn") }} <span class="text-red-500">*</span>
+          <div class="col-span-1 md:col-span-1">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("addProduct.titleEn") }}
             </label>
             <input
               v-model="form.titleEn"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
               :placeholder="$t('addProduct.titleEnPlaceholder')"
               @input="v$.titleEn.$touch()"
               @blur="v$.titleEn.$touch()"
@@ -54,15 +48,13 @@
           </div>
 
           <!-- SKU -->
-          <div>
-            <label
-              class="block mb-1 text-end text-sm font-medium dark:text-gray-200"
-            >
-              {{ $t("sku") }} <span class="text-red-500">*</span>
+          <div class="col-span-1 md:col-span-1">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("sku") }}
             </label>
             <input
               v-model="form.id"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
               :placeholder="$t('sku_placeholder')"
               @blur="v$.id.$touch()"
             />
@@ -75,16 +67,14 @@
           </div>
 
           <!-- Category -->
-          <div>
-            <label
-              class="block mb-1 text-sm font-medium text-end dark:text-gray-200"
-            >
-              {{ $t("category") }} <span class="text-red-500">*</span>
+          <div class="col-span-1 md:col-span-1">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("category") }}
             </label>
             <select
               v-model="form.category"
               @blur="v$.category.$touch()"
-              class="px-3 py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 w-full"
+              class="px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 w-full"
             >
               <option value="" disabled hidden>
                 {{ $t("select_category") }}
@@ -103,16 +93,14 @@
           </div>
 
           <!-- Price -->
-          <div>
-            <label
-              class="block mb-1 text-end text-sm font-medium dark:text-gray-200"
-            >
-              {{ $t("price") }} ({{ $t("sar") }})
+          <div class="col-span-1 md:col-span-1">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               <span class="text-red-500">*</span>
+              {{ $t("price") }} ({{ $t("sar") }})
             </label>
             <input
               v-model="form.price"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               type="number"
               step="0.01"
               :placeholder="$t('price_placeholder')"
@@ -127,15 +115,13 @@
           </div>
 
           <!-- Stock -->
-          <div>
-            <label
-              class="block mb-1 text-sm text-end font-medium dark:text-gray-200"
-            >
-              {{ $t("stock") }} <span class="text-red-500">*</span>
+          <div class="col-span-1 md:col-span-1">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("stock") }}
             </label>
             <input
               v-model="form.stock"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               type="number"
               step="1"
               :placeholder="$t('stock_placeholder')"
@@ -150,10 +136,8 @@
           </div>
 
           <!-- Image -->
-          <div class="md:col-span-2">
-            <label
-              class="block mb-1 text-sm text-end font-medium dark:text-gray-200"
-            >
+          <div class="col-span-1 md:col-span-2">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               {{ $t("image_url") }}
             </label>
             <input
@@ -165,46 +149,50 @@
           </div>
 
           <!-- Description -->
-          <div class="md:col-span-2">
-            <label
-              class="block mb-1 text-sm text-end font-medium dark:text-gray-200"
-            >
+          <div class="col-span-1 md:col-span-2">
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               {{ $t("description") }}
             </label>
             <textarea
               v-model="form.description"
-              class="w-full px-3 py-6 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
+              class="w-full px-3 py-4 sm:py-6 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               :placeholder="$t('description_placeholder')"
             />
           </div>
 
           <!-- Status + Buttons -->
-          <div class="col-span-2 flex items-center justify-between">
-            <div class="mt-4">
+          <div
+            class="col-span-1 md:col-span-2 flex flex-nowrap items-center justify-between gap-3 sm:gap-5 mt-4"
+          >
+            <!-- Status -->
+            <div class="w-full flex-1">
               <label class="block mb-1 text-sm font-medium dark:text-gray-200">
                 {{ $t("status_label") }}
               </label>
               <select
                 v-model="form.status"
-                class="px-3 py-2 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 w-full"
+                class="px-3 py-2 border bg-white dark:bg-[#0f172a] rounded-sm focus:outline-none border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               >
                 <option value="Active">{{ $t("active") }}</option>
                 <option value="Out of Stock">{{ $t("out_of_stock") }}</option>
               </select>
             </div>
 
-            <div class="flex gap-4 mt-10">
+            <!-- Buttons -->
+            <div
+              class="flex flex-col md:flex-row gap-3 sm:gap-4 mt-4 sm:mt-5 justify-end sm:w-auto"
+            >
               <button
                 type="button"
                 @click="cancelAdd"
-                class="px-10 py-2 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                class="order-last md:order-first px-8 sm:px-10 py-2 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition sm:w-auto"
               >
                 {{ $t("cancel") }}
               </button>
 
               <button
                 type="submit"
-                class="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition"
+                class="px-8 sm:px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition sm:w-auto"
               >
                 {{ $t("submit") }}
               </button>
@@ -304,7 +292,7 @@ function handleAddProduct() {
     return;
   }
 
-  // ✅ Add new product
+  //Add new product
   dashStore.addNewProduct({
     ...form,
     price: parseFloat(form.price),

@@ -2,44 +2,53 @@
   <Transition name="sidebar">
     <aside
       :key="showSidebar.isSidebarOpen"
-      class="flex flex-col px-6 py-6 shadow-xl bg-white dark:bg-[#1e293b] dark:text-gray-100 transition-all duration-500  overflow-hidden border-r border-blue-100 dark:border-gray-800"
-      :class="showSidebar.isSidebarOpen ? 'w-72' : 'w-20'"
+      class="flex flex-col px-2 py-4 md:px-6 md:py-6 shadow-xl bg-white dark:bg-[#1e293b] dark:text-gray-100 transition-all duration-500 overflow-hidden border-r border-blue-100 dark:border-gray-800"
+      :class="
+        showSidebar.isSidebarOpen ? 'w-49 md:w-72' : 'hidden md:block md:w-22'
+      "
     >
       <div class="flex items-center gap-3 mb-4">
         <div
           class="bg-blue-500 dark:bg-blue-600 rounded-xl flex items-center p-2.5 shadow-xl"
         >
-          <UIcon name="i-lucide-graduation-cap" class="w-7 h-7 text-white" />
+          <UIcon
+            name="i-lucide-graduation-cap"
+            class="w-5 h-5 md:w-7 md:h-7 text-white"
+          />
         </div>
 
         <Transition name="fade-slide" mode="out-in">
           <div v-if="showSidebar.isSidebarOpen" key="open">
-            <h2 class="text-lg font-bold text-blue-900 dark:text-blue-300">
+            <h2
+              class="text-sm md:text-lg font-bold text-blue-900 dark:text-blue-300"
+            >
               {{ $t("ibn khaldun") }}
             </h2>
-            <p class="text-sm font-medium text-blue-600 dark:text-blue-400">
+            <p
+              class="text-xs md:text-sm font-medium text-blue-600 dark:text-blue-400"
+            >
               {{ $t("schools management") }}
             </p>
           </div>
         </Transition>
       </div>
 
-      <hr class="mb-8 border-gray-200 dark:border-gray-700" />
+      <hr class="mb-4 md:mb-8 border-gray-200 dark:border-gray-700" />
 
       <nav class="flex flex-col gap-1">
         <button
           v-for="(item, index) in sidebarItems"
           :key="index"
-          class="flex items-center gap-3 ps-3 py-3.5 rounded-lg text-blue-700 dark:text-gray-200 text-sm font-medium hover:bg-blue-50 dark:hover:bg-[#1b2433] hover:shadow-sm transition"
+          class="flex items-center gap-2 md:gap-3 ps-3 py-3.5 rounded-lg text-blue-700 dark:text-gray-200 text-xs md:text-sm font-medium hover:bg-blue-50 dark:hover:bg-[#1b2433] hover:shadow-sm transition"
           :class="{
-            'bg-blue-600 text-white font-semibold text-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-700':
+            'bg-blue-600 text-white font-semibold text-sm md:text-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-700':
               active === item.name,
           }"
           @click="handleClick(item)"
         >
           <UIcon
             :name="item.icon"
-            class="w-4 h-4 font-bold"
+            class="w-3 h-3 md:w-4 md:h-4 font-bold"
             :class="[showSidebar.isSidebarOpen ? '' : 'mb-1']"
           />
 

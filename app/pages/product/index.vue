@@ -1,18 +1,23 @@
 <template>
-  <NuxtLayout name="dashboard-default" class="bg-blue-50 dark:bg-[#0d1117]">
+  <NuxtLayout name="dashboard-default">
     <div>
       <!-- Header -->
-      <div class="flex justify-between items-center">
-        <div>
-          <h1 class="text-[2rem] font-bold text-blue-900 dark:text-blue-300">
+      <div
+        class="flex flex-col md:flex-row md:justify-between items-center gap-4 mt-4 lg:mt-0"
+      >
+        <div class="text-center md:text-left">
+          <h1
+            class="text-[1.7rem] sm:text-[1.9rem] md:text-[2rem] font-bold text-blue-900 dark:text-blue-300"
+          >
             {{ $t("products management") }}
           </h1>
-          <p class="text-blue-700 dark:text-gray-400">
+          <p class="text-blue-700 dark:text-gray-400 text-sm sm:text-base">
             {{ $t("manage school products, inventory, and pricing") }}
           </p>
         </div>
+
         <button
-          class="border border-blue-300 bg-blue-200 dark:bg-[#1e2533] dark:border-gray-600 rounded-md px-3 py-1.5 text-blue-800 dark:text-gray-200 font-semibold hover:bg-blue-600 hover:text-white dark:hover:bg-[#2563eb] transition"
+          class="border border-blue-300 bg-blue-200 dark:bg-[#1e2533] dark:border-gray-600 rounded-md px-3 py-2 text-blue-800 dark:text-gray-200 font-semibold hover:bg-blue-600 hover:text-white dark:hover:bg-[#2563eb] transition w-[50%] sm:w-auto"
           @click="$router.push('/dashboard')"
         >
           {{ $t("back to dashboard") }}
@@ -21,18 +26,18 @@
 
       <!-- Search & Filter -->
       <div
-        class="bg-white dark:bg-[#1c1f26] rounded-md p-6 mt-7 shadow-lg flex gap-4"
+        class="bg-white dark:bg-[#1c1f26] rounded-md p-4 sm:p-5 md:p-6 mt-7 shadow-lg flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4"
       >
         <input
           v-model="search"
           type="search"
           :placeholder="$t('search_by_name')"
-          class="border border-blue-200 dark:border-gray-600 bg-white dark:bg-[#2a2f3a] text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 w-[56rem] focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3]"
+          class="border border-blue-200 dark:border-gray-600 bg-white dark:bg-[#2a2f3a] text-gray-800 dark:text-gray-200 rounded-md px-3 py-2 w-full sm:flex-1 md:w-[56rem] focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3]"
         />
 
         <select
           v-model="filter"
-          class="border border-blue-200 dark:border-gray-600 bg-white dark:bg-[#2a2f3a] text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 outline-none focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3]"
+          class="border border-blue-200 dark:border-gray-600 bg-white dark:bg-[#2a2f3a] text-gray-800 dark:text-gray-200 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] w-full sm:w-auto"
         >
           <option value="all">{{ $t("all_categories") }}</option>
           <option value="electronics">{{ $t("electronics") }}</option>
@@ -42,7 +47,7 @@
         </select>
 
         <button
-          class="text-white bg-blue-600 dark:bg-blue-700 dark:hover:bg-[#1d4ed8] rounded-md px-3 py-1.5 font-semibold hover:bg-blue-700 transition"
+          class="text-white bg-blue-600 dark:bg-blue-700 dark:hover:bg-[#1d4ed8] rounded-md px-3 py-2 font-semibold hover:bg-blue-700 transition w-full sm:w-auto"
           @click="$router.push('/Product/addProduct')"
         >
           + {{ $t("add product") }}
@@ -50,21 +55,27 @@
       </div>
 
       <!-- Table -->
-      <div class="mt-5">
+      <div class="mt-5 overflow-x-auto">
         <table
-          class="w-full text-center border-collapse table-fixed text-gray-800 dark:text-gray-200"
+          class="min-w-full text-center border-collapse text-gray-800 dark:text-gray-200 mb-5"
         >
           <thead>
             <tr
               class="bg-blue-100 dark:bg-gray-800 text-blue-900 dark:text-blue-300 font-semibold"
             >
-              <th class="w-[8rem] px-6 py-4 text-start">{{ $t("sku") }}</th>
-              <th class="w-[16rem]">{{ $t("product name") }}</th>
-              <th class="w-[15rem]">{{ $t("category") }}</th>
-              <th class="w-[10rem]">{{ $t("price") }} ({{ $t("sar") }})</th>
-              <th class="w-[10rem]">{{ $t("stock") }}</th>
-              <th class="w-[10rem]">{{ $t("status") }}</th>
-              <th class="w-[11rem]">{{ $t("actions") }}</th>
+              <th class="w-[8rem] px-6 py-4 text-start whitespace-nowrap">
+                {{ $t("sku") }}
+              </th>
+              <th class="w-[16rem] whitespace-nowrap">
+                {{ $t("product name") }}
+              </th>
+              <th class="w-[15rem] whitespace-nowrap">{{ $t("category") }}</th>
+              <th class="w-[10rem] whitespace-nowrap">
+                {{ $t("price") }} ({{ $t("sar") }})
+              </th>
+              <th class="w-[10rem] whitespace-nowrap">{{ $t("stock") }}</th>
+              <th class="w-[10rem] whitespace-nowrap">{{ $t("status") }}</th>
+              <th class="w-[11rem] whitespace-nowrap">{{ $t("actions") }}</th>
             </tr>
           </thead>
 
@@ -74,13 +85,19 @@
               :key="product.id"
               class="bg-white dark:bg-[#1c1f26] border-b border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-[#2a2f3a] transition"
             >
-              <td class="px-6 py-4 text-start">{{ product.id }}</td>
-              <td>{{ product.title.slice(0, 30) }}</td>
-              <td>{{ $t(product.category) || product.category }}</td>
-              <td>{{ product.price }}</td>
-              <td>{{ product.stock }}</td>
+              <td class="px-6 py-4 text-start whitespace-nowrap">
+                {{ product.id }}
+              </td>
+              <td class="whitespace-nowrap">
+                {{ product.title.slice(0, 30) }}
+              </td>
+              <td class="whitespace-nowrap">
+                {{ $t(product.category) || product.category }}
+              </td>
+              <td class="whitespace-nowrap">{{ product.price }}</td>
+              <td class="whitespace-nowrap">{{ product.stock }}</td>
               <td
-                class="col-span-1"
+                class="col-span-1 whitespace-nowrap"
                 :class="
                   product.status === 'Out of Stock'
                     ? 'text-red-600 dark:text-red-400'
@@ -96,44 +113,44 @@
                 }}
               </td>
 
-              <td
-                class="flex justify-center items-center gap-7 py-4 col-span-1"
-              >
-                <!-- View -->
-                <button
-                  class="hover:cursor-pointer"
-                  @click="openViewDialog(product)"
-                  :title="$t('view')"
-                >
-                  <Icon
-                    name="lucide:eye"
-                    class="w-4 h-4 text-blue-600 dark:text-blue-400"
-                  />
-                </button>
+              <td class="py-3 md:py-6">
+                <div class="flex justify-center items-center gap-7">
+                  <!-- View -->
+                  <button
+                    class="hover:cursor-pointer"
+                    @click="openViewDialog(product)"
+                    :title="$t('view')"
+                  >
+                    <Icon
+                      name="lucide:eye"
+                      class="w-4 h-4 text-blue-600 dark:text-blue-400"
+                    />
+                  </button>
 
-                <!-- Edit -->
-                <button
-                  class="hover:cursor-pointer"
-                  @click="editProduct(product)"
-                  :title="$t('edit')"
-                >
-                  <Icon
-                    name="lucide:edit-3"
-                    class="w-4 h-4 text-blue-600 dark:text-blue-400"
-                  />
-                </button>
+                  <!-- Edit -->
+                  <button
+                    class="hover:cursor-pointer"
+                    @click="editProduct(product)"
+                    :title="$t('edit')"
+                  >
+                    <Icon
+                      name="lucide:edit-3"
+                      class="w-4 h-4 text-blue-600 dark:text-blue-400"
+                    />
+                  </button>
 
-                <!-- Delete -->
-                <button
-                  class="hover:cursor-pointer"
-                  @click="confirmDelete(product.id)"
-                  :title="$t('delete')"
-                >
-                  <Icon
-                    name="lucide:trash-2"
-                    class="w-4 h-4 text-red-600 dark:text-red-400"
-                  />
-                </button>
+                  <!-- Delete -->
+                  <button
+                    class="hover:cursor-pointer"
+                    @click="confirmDelete(product.id)"
+                    :title="$t('delete')"
+                  >
+                    <Icon
+                      name="lucide:trash-2"
+                      class="w-4 h-4 text-red-600 dark:text-red-400"
+                    />
+                  </button>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -142,7 +159,7 @@
             <tr
               class="bg-blue-100 dark:bg-gray-800 text-blue-900 dark:text-blue-300 font-semibold"
             >
-              <td colspan="2" class="text-start ps-6 py-4">
+              <td colspan="1" class="text-start ps-6 py-4 whitespace-nowrap">
                 <span>
                   {{ $t("showing") }} {{ filteredProducts.length }}
                   {{ $t("of") }}
@@ -150,29 +167,37 @@
                   {{ $t("products") }}
                 </span>
               </td>
-              <td colspan="3">
-                <Pagination
-                  class="bg-blue-100 dark:bg-[#1e2533]"
-                  :data="filteredProducts"
-                  :itemsPerPage="5"
-                  @update:paginatedData="paginatedProducts = $event"
-                />
+
+              <td colspan="4" class="whitespace-nowrap">
+                <div class="flex justify-center">
+                  <Pagination
+                    class="py-5 bg-blue-100 dark:bg-[#1e2533]"
+                    :data="filteredProducts"
+                    :itemsPerPage="5"
+                    @update:paginatedData="paginatedProducts = $event"
+                  />
+                </div>
               </td>
-              <td colspan="2" class="text-end pe-6 py-4">
-                <span class="ml-4 flex items-center justify-end gap-1">
-                  <UIcon
-                    name="i-lucide-dollar-sign"
-                    class="w-4 h-4 text-blue-600 dark:text-blue-400"
-                  />
-                  {{ $t("total_value") }}: {{ $t("sar") }} {{ totalPrice }}
-                </span>
-                <span class="ml-4 flex items-center justify-end gap-1">
-                  <UIcon
-                    name="i-lucide-package"
-                    class="w-4 h-4 text-blue-600 dark:text-blue-400"
-                  />
-                  {{ $t("total_stock") }}: {{ totalStock }}
-                </span>
+
+              <td colspan="2" class="text-end pe-6 py-4 whitespace-nowrap">
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-end sm:gap-6 gap-2"
+                >
+                  <span class="flex items-center justify-end gap-1">
+                    <UIcon
+                      name="i-lucide-dollar-sign"
+                      class="w-4 h-4 text-blue-600 dark:text-blue-400"
+                    />
+                    {{ $t("total_value") }}: {{ $t("sar") }} {{ totalPrice }}
+                  </span>
+                  <span class="flex items-center justify-end gap-1">
+                    <UIcon
+                      name="i-lucide-package"
+                      class="w-4 h-4 text-blue-600 dark:text-blue-400"
+                    />
+                    {{ $t("total_stock") }}: {{ totalStock }}
+                  </span>
+                </div>
               </td>
             </tr>
           </tfoot>

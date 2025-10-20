@@ -4,27 +4,27 @@
   >
     <!-- Header -->
     <div
-      class="flex justify-between items-center bg-blue-50 dark:bg-gray-900 p-8 border-b border-blue-100 dark:border-gray-700 transition-colors duration-300"
+      class="flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center bg-blue-50 dark:bg-gray-900 p-4 md:p-8 border-b border-blue-100 dark:border-gray-700 transition-colors duration-300"
     >
       <div
-        class="flex items-center gap-3 text-blue-800 dark:text-blue-300 text-xl font-bold"
+        class="flex items-center gap-3 text-blue-800 dark:text-blue-300 text-base md:text-xl font-bold"
       >
         <span
-          class="text-white bg-blue-600 dark:bg-blue-500 rounded-lg p-2 flex items-center justify-center"
+          class="text-white bg-blue-600 dark:bg-blue-500 rounded-lg p-1 md:p-2 flex items-center justify-center"
         >
-          <UIcon name="i-lucide-bell" class="text-xl" />
+          <UIcon name="i-lucide-bell" class="w-4 h-4 md:w-5 md:h-5" />
         </span>
         {{ $t("notification_center") }}
       </div>
 
       <div class="flex gap-2">
         <button
-          class="px-4 py-1.5 text-sm font-medium rounded-md bg-blue-600 text-white shadow-sm hover:bg-blue-700 dark:hover:bg-blue-500 transition"
+          class="px-4 py-1.5 text-xs md:text-sm font-medium rounded-md bg-blue-600 text-white shadow-sm hover:bg-blue-700 dark:hover:bg-blue-500 transition"
         >
           {{ $t("all") }}
         </button>
         <button
-          class="px-4 py-1.5 text-sm font-medium rounded-md border border-blue-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-blue-700 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition"
+          class="px-4 py-1.5 text-xs md:text-sm font-medium rounded-md border border-blue-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-blue-700 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition"
         >
           {{ $t("unread") }}
         </button>
@@ -36,33 +36,35 @@
       <div
         v-for="(n, index) in paginatedNotifications"
         :key="index"
-        class="flex justify-between items-center px-6 py-6 border-b bg-white dark:bg-gray-800 border-blue-100 dark:border-gray-700 transition-colors duration-300"
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-0 px-2 py-4 md:px-6 md:py-6 border-b bg-white dark:bg-gray-800 border-blue-100 dark:border-gray-700 transition-colors duration-300"
       >
-        <div class="flex flex-col md:flex-row items-start gap-4">
+        <div class="flex flex-col md:flex-row items-start gap-2.5 md:gap-4">
           <span
             class="text-xs bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-md font-medium"
           >
             {{ formatDateTime(n.date) }}
           </span>
 
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2.5 md:gap-4">
             <div
-              class="w-10 h-10 flex items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full"
+              class="p-1.5 md:p-2.5 flex items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full"
             >
-              <UIcon name="i-lucide-info" />
+              <UIcon name="i-lucide-info" class="w-3.5 h-3.5 md:w-5 md:h-5" />
             </div>
             <div class="flex flex-col gap-1">
-              <p class="text-blue-900 dark:text-gray-100 font-semibold">
+              <p
+                class="text-blue-900 dark:text-gray-100 text-sm md:text-base font-semibold"
+              >
                 {{ $t("withdraw_request_title", { name: n.name }) }}
               </p>
-              <p class="text-blue-700 dark:text-gray-300 text-sm">
+              <p class="text-blue-700 dark:text-gray-300 text-xs md:text-sm">
                 {{ $t("withdraw_request_desc", { name: n.name }) }}
               </p>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center ml-auto md:ml-0 gap-2">
           <button
             class="px-2 py-1 text-sm font-medium border border-blue-300 dark:border-gray-600 text-blue-700 dark:text-gray-200 rounded-md hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition"
           >
@@ -75,7 +77,7 @@
 
     <!-- Pagination -->
     <BasePagination
-      class="py-8 dark:bg-gray-900"
+      class="py-5 md:py-7 dark:bg-gray-900"
       :data="notifications"
       :items-per-page="3"
       @update:paginatedData="paginatedNotifications = $event"

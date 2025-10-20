@@ -28,7 +28,7 @@
         <img
           :src="product?.image"
           alt="Product image"
-          class="w-40 h-40 object-contain rounded-lg shadow-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+          class="w-30 h-30 md:w-40 md:h-40 object-contain rounded-lg shadow-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
         />
       </div>
 

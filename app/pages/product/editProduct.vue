@@ -1,66 +1,58 @@
 <template>
   <NuxtLayout name="dashboard-edit">
-    <div
-      class="min-h-screen flex justify-center bg-gradient-to-b from-[#F7FAFF] to-[#EEF3FA] dark:from-[#0f172a] dark:to-[#1e293b]"
-    >
+    <div class="md:min-h-screen flex justify-center px-3 sm:px-4 md:px-6 mb-5">
       <div
-        class="h-[44rem] mt-10 bg-white dark:bg-[#1e293b] w-full max-w-4xl rounded-2xl shadow-md p-10 overflow-y-auto text-gray-800 dark:text-gray-100"
+        class="w-full max-w-4xl mt-6 md:mt-10 bg-white dark:bg-[#1e293b] rounded-2xl shadow-md p-4 sm:p-6 md:p-8 lg:p-10 h-auto md:h-[44rem] overflow-y-auto"
       >
         <form
-          class="grid grid-cols-1 md:grid-cols-2 gap-5"
+          class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
           @submit.prevent="handleEditProduct"
         >
-          <!-- Arabic / English name -->
+          <!-- Arabic Name -->
           <div>
-            <label
-              class="block text-end mb-1 text-sm font-medium dark:text-gray-200"
-            >
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               {{ $t("addProduct.titleAr") }}
             </label>
             <input
               v-model="titleAr"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100 dark:placeholder-gray-400"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
               :placeholder="$t('addProduct.titleArPlaceholder')"
             />
           </div>
 
+          <!-- English Name -->
           <div>
-            <label
-              class="block mb-1 text-end text-sm font-medium dark:text-gray-200"
-            >
-              {{ $t("addProduct.titleEn") }} <span class="text-red-500">*</span>
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("addProduct.titleEn") }}
             </label>
             <input
               v-model="titleEn"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 text-end rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100 dark:placeholder-gray-400"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 text-end rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 dark:placeholder-gray-400"
               :placeholder="$t('addProduct.titleEnPlaceholder')"
               required
             />
           </div>
 
-          <!-- SKU / Category -->
+          <!-- SKU -->
           <div>
-            <label
-              class="block mb-1 text-end text-sm font-medium dark:text-gray-200"
-            >
-              {{ $t("sku") }} <span class="text-red-500">*</span>
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("sku") }}
             </label>
             <input
               v-model="id"
-              class="w-full px-3 py-1 border bg-gray-100 dark:bg-[#0f172a] dark:border-gray-600 dark:text-gray-400 rounded-sm focus:outline-none border-gray-300 cursor-not-allowed"
+              class="w-full px-3 py-2 sm:py-1 border bg-gray-100 dark:bg-[#0f172a] dark:border-gray-600 dark:text-gray-400 rounded-sm focus:outline-none border-gray-300 cursor-not-allowed"
               disabled
             />
           </div>
 
+          <!-- Category -->
           <div>
-            <label
-              class="block mb-1 text-sm font-medium text-end dark:text-gray-200"
-            >
-              {{ $t("category") }} <span class="text-red-500">*</span>
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("category") }}
             </label>
             <select
               v-model="category"
-              class="px-3 py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100 w-full"
+              class="px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100 w-full"
             >
               <option value="electronics">{{ $t("electronics") }}</option>
               <option value="jewelery">{{ $t("jewelery") }}</option>
@@ -71,17 +63,15 @@
             </select>
           </div>
 
-          <!-- Price / Quantity -->
+          <!-- Price -->
           <div>
-            <label
-              class="block mb-1 text-end text-sm font-medium dark:text-gray-200"
-            >
-              {{ $t("price") }} ({{ $t("sar") }})
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               <span class="text-red-500">*</span>
+              {{ $t("price") }} ({{ $t("sar") }})
             </label>
             <input
               v-model="price"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               type="number"
               step="0.01"
               :placeholder="$t('price_placeholder')"
@@ -89,15 +79,14 @@
             />
           </div>
 
+          <!-- Stock -->
           <div>
-            <label
-              class="block mb-1 text-sm text-end font-medium dark:text-gray-200"
-            >
-              {{ $t("stock") }} <span class="text-red-500">*</span>
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+              <span class="text-red-500">*</span> {{ $t("stock") }}
             </label>
             <input
               v-model="stock"
-              class="w-full px-3 py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100"
+              class="w-full px-3 py-2 sm:py-1 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               type="number"
               step="1"
               :placeholder="$t('stock_placeholder')"
@@ -107,14 +96,12 @@
 
           <!-- Image -->
           <div class="md:col-span-2">
-            <label
-              class="block mb-1 text-sm text-end font-medium dark:text-gray-200"
-            >
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               {{ $t("image_url") }}
             </label>
             <input
               v-model="image"
-              class="w-full px-3 py-2 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100"
+              class="w-full px-3 py-2 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               type="url"
               :placeholder="$t('enter_image_url')"
             />
@@ -122,48 +109,49 @@
 
           <!-- Description -->
           <div class="md:col-span-2">
-            <label
-              class="block mb-1 text-sm text-end font-medium dark:text-gray-200"
-            >
+            <label class="block mb-1 text-sm font-medium dark:text-gray-200">
               {{ $t("description") }}
             </label>
             <textarea
               v-model="description"
-              class="w-full px-3 py-6 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100"
+              class="w-full px-3 py-4 sm:py-6 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               :placeholder="$t('description_placeholder')"
             />
           </div>
 
           <!-- Status + Buttons -->
           <div
-            class="md:col-span-2 flex flex-col md:flex-row items-center justify-between mt-6 gap-5"
+            class="col-span-1 md:col-span-2 flex flex-nowrap items-center justify-between gap-3 sm:gap-5 mt-4"
           >
-            <div class="mt-4">
-              <label
-                class="block mb-1 text-sm font-medium dark:text-gray-200"
-                >{{ $t("status_label") }}</label
-              >
+            <!-- Status -->
+            <div class="w-full flex-1">
+              <label class="block mb-1 text-sm font-medium dark:text-gray-200">
+                {{ $t("status_label") }}
+              </label>
               <select
                 v-model="status"
-                class="px-3 py-2 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:focus:ring-[#4a78e3] dark:text-gray-100 w-full"
+                class="px-3 py-2 border bg-white dark:bg-[#0f172a] dark:border-gray-600 rounded-sm focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#8FAEF3] dark:text-gray-100"
               >
                 <option value="Active">{{ $t("active") }}</option>
                 <option value="Out of Stock">{{ $t("out_of_stock") }}</option>
               </select>
             </div>
 
-            <div class="flex gap-4 mt-10">
+            <!-- Buttons -->
+            <div
+              class="flex flex-col md:flex-row gap-3 sm:gap-4 mt-4 sm:mt-5 justify-end sm:w-auto"
+            >
               <button
                 type="button"
                 @click="cancelEdit"
-                class="px-10 py-2 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                class="order-last md:order-first px-8 sm:px-10 py-2 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition sm:w-auto"
               >
                 {{ $t("cancel") }}
               </button>
 
               <button
                 type="submit"
-                class="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition"
+                class="px-8 sm:px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition sm:w-auto"
               >
                 {{ $t("edit_product") }}
               </button>

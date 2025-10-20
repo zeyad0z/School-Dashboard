@@ -1,14 +1,14 @@
 <template>
   <div
-    class="flex justify-center items-center gap-2 py-4 bg-blue-50 dark:bg-gray-800 rounded-b-lg transition-colors duration-300"
+    class="flex justify-center items-center gap-2 bg-blue-50 dark:bg-gray-800 rounded-b-lg transition-colors duration-300 flex-wrap"
   >
     <!-- Prev Button -->
     <button
       @click="prevPage"
       :disabled="currentPage === 1"
-      class="w-8 h-8 flex items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-gray-600 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700 transition disabled:opacity-50"
+      class="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-gray-600 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700 transition disabled:opacity-50 sm:text-xs md:w-8 md:h-8"
     >
-      <UIcon :name="formatPrevArrow" />
+      <UIcon :name="formatPrevArrow" class="w-3.5 h-3.5 md:w-5 md:h-5" />
     </button>
 
     <!-- Page Numbers -->
@@ -16,7 +16,7 @@
       <button
         v-if="i !== '...'"
         @click="goToPage(i)"
-        class="w-8 h-8 flex items-center justify-center rounded-md border transition"
+        class="w-6 h-6 flex items-center justify-center rounded-md border transition sm:w-7 sm:h-7 md:w-8 md:h-8 text-sm md:text-lg"
         :class="[
           i === currentPage
             ? 'bg-blue-600 text-white border-blue-600 dark:bg-blue-500 dark:border-blue-500'
@@ -29,7 +29,7 @@
       <!-- Dots -->
       <span
         v-else
-        class="w-8 h-8 flex items-center justify-center text-blue-400 dark:text-gray-400 select-none"
+        class="w-4 h-4 md:w-8 md:h-8 flex items-center justify-center text-blue-400 dark:text-gray-400 select-none text-base md:text-xl"
       >
         ...
       </span>
@@ -39,9 +39,9 @@
     <button
       @click="nextPage"
       :disabled="currentPage === totalPages"
-      class="w-8 h-8 flex items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-gray-600 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700 transition disabled:opacity-50"
+      class="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-gray-600 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700 transition disabled:opacity-50 sm:text-xs md:w-8 md:h-8"
     >
-      <UIcon :name="formatNextArrow" />
+      <UIcon :name="formatNextArrow" class="w-3.5 h-3.5 md:w-5 md:h-5" />
     </button>
   </div>
 </template>

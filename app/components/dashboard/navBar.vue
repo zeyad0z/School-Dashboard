@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex items-center justify-between w-full bg-white dark:bg-[#1e293b] px-7 py-4 shadow-md border-b border-gray-100 dark:border-gray-700 transition-colors duration-300"
+    class="flex items-center justify-between w-full bg-white dark:bg-[#1e293b] px-3 py-2 md:px-7 md:py-4 shadow-md border-b border-gray-100 dark:border-gray-700 transition-colors duration-300"
   >
     <div class="flex gap-5 items-center">
       <!-- Sidebar toggle button-->
@@ -13,19 +13,19 @@
 
       <!-- Dropdowns -->
       <select
-        class="border border-blue-200 dark:border-gray-600 bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
+        class="hidden md:block border border-blue-200 dark:border-gray-600 bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
       >
         <option>{{ $t("school manager") }}</option>
       </select>
 
       <select
-        class="border border-blue-200 dark:border-gray-600 bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
+        class="hidden md:block border border-blue-200 dark:border-gray-600 bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
       >
         <option>{{ $t("testing branch") }}</option>
       </select>
 
       <select
-        class="border border-blue-200 dark:border-gray-600 bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
+        class="hidden md:block border border-blue-200 dark:border-gray-600 bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
       >
         <option>{{ $t("2025/2026") }}</option>
       </select>
@@ -34,11 +34,11 @@
       <input
         type="search"
         :placeholder="$t('search')"
-        class="border dark:border-gray-600 dark:text-gray-100 dark:bg-gray-800 border-blue-200 rounded-md px-3 py-1.5 w-[16rem] bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
+        class="hidden md:block border dark:border-gray-600 dark:text-gray-100 dark:bg-gray-800 border-blue-200 rounded-md px-3 py-1.5 w-[16rem] bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
       />
     </div>
 
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-2 md:gap-4">
       <DarkMode />
 
       <!-- Notifications -->
@@ -60,9 +60,9 @@
 
       <!-- User Info -->
       <div
-        class="flex items-center gap-2 px-3 py-2 bg-blue-50 dark:bg-gray-700 rounded-md transition"
+        class="flex items-center gap-2 px-2 py-1 md:px-3 md:py-2 bg-blue-50 dark:bg-gray-700 rounded-md transition"
       >
-        <div class="text-right mr-2 ml-1">
+        <div class="hidden md:block text-right mr-2 ml-1">
           <p class="text-sm font-semibold text-gray-800 dark:text-gray-100">
             {{ $t("international manager") }}
           </p>
