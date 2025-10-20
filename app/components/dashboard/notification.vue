@@ -70,7 +70,7 @@
           >
             {{ $t("view") }}
           </button>
-          <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+          <span class="w-2 h-2 md:w-3 md:h-3 bg-blue-500 rounded-full"></span>
         </div>
       </div>
     </div>
