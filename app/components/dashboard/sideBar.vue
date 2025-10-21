@@ -22,7 +22,7 @@
             <h2
               class="text-sm md:text-lg font-bold text-blue-900 dark:text-blue-300"
             >
-              {{ $t("ibn khaldun") }}
+              {{ $t("your school") }}
             </h2>
             <p
               class="text-xs md:text-sm font-medium text-blue-600 dark:text-blue-400"
