@@ -17,15 +17,19 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { onMounted } from "vue";
 
 const { locale, setLocale } = useI18n();
 
 onMounted(() => {
+  if (typeof document === "undefined") return;
   document.dir = locale.value === "ar" ? "rtl" : "ltr";
 });
 const changeLanguage = async (event) => {
   const lang = event.target.value;
   await setLocale(lang);
-  document.dir = lang === "ar" ? "rtl" : "ltr";
+  if (typeof document !== "undefined") {
+    document.dir = lang === "ar" ? "rtl" : "ltr";
+  }
 };
 </script>

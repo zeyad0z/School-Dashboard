@@ -8,12 +8,21 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import { useColorMode } from "@vueuse/core";
 
-const colorMode = useColorMode();
-const isDark = computed(() => colorMode.value === "light");
+const isDark = ref(false);
+let colorMode;
+
+onMounted(() => {
+  colorMode = useColorMode();
+  isDark.value = colorMode.value === "dark";
+});
 
 const toggleDark = () => {
-  colorMode.value = isDark.value ? "dark" : "light";
+  if (typeof window === "undefined") return;
+  if (!colorMode) colorMode = useColorMode();
+  colorMode.value = isDark.value ? "light" : "dark";
+  isDark.value = !isDark.value;
 };
 </script>

@@ -21,4 +21,8 @@ import LoginCard from "~/components/homePage/loginCard.vue";
 import SideSection from "~/components/homePage/sideSection.vue";
 import DarkMode from "~/components/UI/DarkMode.vue";
 import LangSwitch from "~/components/UI/LangSwitch.vue";
+
+definePageMeta({
+  layout: false,
+});
 </script>

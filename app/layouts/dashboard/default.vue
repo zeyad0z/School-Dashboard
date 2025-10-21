@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import NavBar from "~/components/dashboard/navBar.vue";
 import sideBar from "~/components/dashboard/sideBar.vue";
 import { useSideBarStore } from "../../stores/SideBarStore.js";
@@ -32,16 +32,29 @@ const showSidebar = useSideBarStore();
 const currentDir = ref("ltr");
 const screenWidth = ref(0);
 
+let _resizeHandler = null;
 onMounted(() => {
-  currentDir.value = document?.dir || "ltr";
-  screenWidth.value = window.innerWidth;
+  currentDir.value =
+    typeof document !== "undefined" ? document.dir || "ltr" : "ltr";
+  screenWidth.value = typeof window !== "undefined" ? window.innerWidth : 0;
 
-  window.addEventListener("resize", () => {
+  _resizeHandler = () => {
     screenWidth.value = window.innerWidth;
-  });
+  };
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", _resizeHandler);
+  }
 
   if (screenWidth.value < 1024) {
     showSidebar.isSidebarOpen = false;
+  }
+});
+
+onBeforeUnmount(() => {
+  if (typeof window !== "undefined" && _resizeHandler) {
+    window.removeEventListener("resize", _resizeHandler);
+    _resizeHandler = null;
   }
 });
 

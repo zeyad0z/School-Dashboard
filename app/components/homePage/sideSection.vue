@@ -2,24 +2,7 @@
   <div
     class="h-full w-full bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] relative dark:from-[#1e3a8a] dark:via-[#1e40af] dark:to-[#1d4ed8]"
   >
-    <!-- subtle stars background -->
-    <div
-      class="absolute inset-0 opacity-20 pointer-events-none"
-      style="
-        background-image: radial-gradient(
-            circle at 20% 30%,
-            white 2px,
-            transparent 2px
-          ),
-          radial-gradient(circle at 60% 70%, white 1.6px, transparent 1.6px),
-          radial-gradient(circle at 80% 20%, white 2.4px, transparent 2.4px),
-          radial-gradient(circle at 30% 80%, white 1.2px, transparent 1.2px),
-          radial-gradient(circle at 70% 40%, white 2px, transparent 2px);
-        background-size: 120px 120px, 80px 80px, 100px 100px, 150px 150px,
-          90px 90px;
-        background-position: 0 0, 40px 40px, 20px 60px, 80px 20px, 60px 80px;
-      "
-    ></div>
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-stars"></div>
 
     <div class="relative z-10 px-4 sm:px-6 lg:px-20 py-8 sm:py-10">
       <div class="text-center mb-10 sm:mb-12">
@@ -97,4 +80,21 @@ const cards = [
   { title: "excellence", text: "excellence_text", icon: "i-heroicons-trophy" },
   { title: "growth", text: "growth_text", icon: "clarity:target-line" },
 ];
+
 </script>
+
+<style scoped>
+.bg-stars {
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      white 2px,
+      transparent 2px
+    ),
+    radial-gradient(circle at 60% 70%, white 1.6px, transparent 1.6px),
+    radial-gradient(circle at 80% 20%, white 2.4px, transparent 2.4px),
+    radial-gradient(circle at 30% 80%, white 1.2px, transparent 1.2px),
+    radial-gradient(circle at 70% 40%, white 2px, transparent 2px);
+  background-size: 120px 120px, 80px 80px, 100px 100px, 150px 150px, 90px 90px;
+  background-position: 0 0, 40px 40px, 20px 60px, 80px 20px, 60px 80px;
+}
+</style>

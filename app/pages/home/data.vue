@@ -63,7 +63,7 @@
             <div
               class="ml-2 text-[#2563EB] dark:text-blue-300 text-xs font-semibold bg-[#DCE6F7] dark:bg-blue-900/40 rounded-md px-2 py-0.5"
             >
-              {{ $t(UserStore.user?.role) }}
+              {{ UserStore.user?.role ? $t(UserStore.user.role) : "-" }}
             </div>
           </div>
 
@@ -78,7 +78,7 @@
             <span
               class="ml-2 text-[#2563EB] dark:text-blue-300 text-xs font-semibold bg-[#F1F5F9] dark:bg-blue-900/40 border-2 border-[#DCE6F7] dark:border-blue-800 rounded-md px-2 py-0.5"
             >
-              {{ $t(UserStore.user?.branch) }}
+              {{ UserStore.user?.branch ? $t(UserStore.user.branch) : "-" }}
             </span>
           </div>
         </div>
@@ -103,6 +103,10 @@ import BaseCard from "../../components/UI/BaseCard.vue";
 import { useUserStore } from "~/stores/UserStore";
 import LangSwitch from "~/components/UI/LangSwitch.vue";
 import DarkMode from "~/components/UI/DarkMode.vue";
+
+definePageMeta({
+  layout: false,
+});
 
 const UserStore = useUserStore();
 

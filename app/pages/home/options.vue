@@ -207,6 +207,10 @@ import { useUserStore } from "~/stores/UserStore";
 import DarkMode from "~/components/UI/DarkMode.vue";
 import LangSwitch from "~/components/UI/LangSwitch.vue";
 
+definePageMeta({
+  layout: false,
+});
+
 const UserStore = useUserStore();
 
 const selectedRole = ref(null);

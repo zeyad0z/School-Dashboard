@@ -3185,6 +3185,9 @@ var form_invalid_title$1 = "Error";
 var form_invalid_desc$1 = "❌ Invalid form, please check your inputs";
 var form_success_desc$1 = "✅ Login successful, welcome!";
 var search$1 = "🔍  Search...";
+var description$1 = "Description";
+var confirm_deletion$1 = "Confirm Deletion";
+var confirm_delete_message$1 = "Are you sure you want to delete this product?";
 const en = {
 	"89": "89",
 	date: date$1,
@@ -3360,7 +3363,10 @@ const en = {
 	"2_hours_ago": "2 hours ago",
 	"4_hours_ago": "4 hours ago",
 	"6_hours_ago": "6 hours ago",
-	search: search$1
+	search: search$1,
+	description: description$1,
+	confirm_deletion: confirm_deletion$1,
+	confirm_delete_message: confirm_delete_message$1
 };
 
 const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3385,6 +3391,8 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   choose_your_role: choose_your_role$1,
   community: community$1,
   community_text: community_text$1,
+  confirm_delete_message: confirm_delete_message$1,
+  confirm_deletion: confirm_deletion$1,
   continue_to_dashboard: continue_to_dashboard$1,
   dashboard: dashboard$1,
   date: date$1,
@@ -3394,6 +3402,7 @@ const en$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   desc_grade_submission: desc_grade_submission$1,
   desc_new_student: desc_new_student$1,
   desc_system_maintenance: desc_system_maintenance$1,
+  description: description$1,
   description_placeholder: description_placeholder$1,
   duplicate_sku_message: duplicate_sku_message$1,
   duplicate_sku_title: duplicate_sku_title$1,
@@ -3629,6 +3638,8 @@ var form_invalid_title = "خطأ";
 var form_invalid_desc = "❌ النموذج غير صالح، يرجى التحقق من البيانات";
 var form_success_desc = "✅ تم تسجيل الدخول بنجاح، مرحباً بك!";
 var search = "🔍  بحث...";
+var confirm_deletion = "تاكيد الحذف";
+var confirm_delete_message = "هل انت متاكد انك تريد حذف هذا المنتج؟";
 const ar = {
 	"89": "٨٩",
 	date: date,
@@ -3805,7 +3816,9 @@ const ar = {
 	"6_hours_ago": "منذ ٦ ساعات",
 	"4_hours_ago": "منذ ٤ ساعات",
 	"2_hours_ago": "منذ ساعتين",
-	search: search
+	search: search,
+	confirm_deletion: confirm_deletion,
+	confirm_delete_message: confirm_delete_message
 };
 
 const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3830,6 +3843,8 @@ const ar$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   choose_your_role: choose_your_role,
   community: community,
   community_text: community_text,
+  confirm_delete_message: confirm_delete_message,
+  confirm_deletion: confirm_deletion,
   continue_to_dashboard: continue_to_dashboard,
   dashboard: dashboard,
   date: date,

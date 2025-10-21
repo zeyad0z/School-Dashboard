@@ -182,5 +182,8 @@
   "2_hours_ago": "2 hours ago",
   "4_hours_ago": "4 hours ago",
   "6_hours_ago": "6 hours ago",
-  "search": "🔍  Search..."
+  "search": "🔍  Search...",
+  "description": "Description",
+  "confirm_deletion": "Confirm Deletion",
+  "confirm_delete_message": "Are you sure you want to delete this product?"
 }

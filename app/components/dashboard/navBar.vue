@@ -4,12 +4,12 @@
   >
     <div class="flex gap-5 items-center">
       <!-- Sidebar toggle button-->
-      <Button
+      <button
         class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition"
         @click="showSidebar.toggleSidebar()"
       >
         <UIcon name="i-lucide-menu" class="w-5 h-5" />
-      </Button>
+      </button>
 
       <!-- Dropdowns -->
       <select
