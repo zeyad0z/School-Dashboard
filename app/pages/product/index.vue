@@ -57,25 +57,33 @@
       <!-- Table -->
       <div class="mt-5 overflow-x-auto">
         <table
-          class="min-w-full text-center border-collapse text-gray-800 dark:text-gray-200 mb-5"
+          class="min-w-full text-center border-collapse text-gray-800 dark:text-gray-200 mb-5 text-sm md:text-base"
         >
           <thead>
             <tr
               class="bg-blue-100 dark:bg-gray-800 text-blue-900 dark:text-blue-300 font-semibold"
             >
-              <th class="w-[8rem] px-6 py-4 text-start whitespace-nowrap">
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
                 {{ $t("sku") }}
               </th>
-              <th class="w-[16rem] whitespace-nowrap">
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
                 {{ $t("product name") }}
               </th>
-              <th class="w-[15rem] whitespace-nowrap">{{ $t("category") }}</th>
-              <th class="w-[10rem] whitespace-nowrap">
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
+                {{ $t("category") }}
+              </th>
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
                 {{ $t("price") }} ({{ $t("sar") }})
               </th>
-              <th class="w-[10rem] whitespace-nowrap">{{ $t("stock") }}</th>
-              <th class="w-[10rem] whitespace-nowrap">{{ $t("status") }}</th>
-              <th class="w-[11rem] whitespace-nowrap">{{ $t("actions") }}</th>
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
+                {{ $t("stock") }}
+              </th>
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
+                {{ $t("status") }}
+              </th>
+              <th class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
+                {{ $t("actions") }}
+              </th>
             </tr>
           </thead>
 
@@ -85,19 +93,23 @@
               :key="product.id"
               class="bg-white dark:bg-[#1c1f26] border-b border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-[#2a2f3a] transition"
             >
-              <td class="px-6 py-4 text-start whitespace-nowrap">
+              <td class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
                 {{ product.id }}
               </td>
-              <td class="whitespace-nowrap">
+              <td class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
                 {{ product.title.slice(0, 30) }}
               </td>
-              <td class="whitespace-nowrap">
+              <td class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
                 {{ $t(product.category) || product.category }}
               </td>
-              <td class="whitespace-nowrap">{{ product.price }}</td>
-              <td class="whitespace-nowrap">{{ product.stock }}</td>
+              <td class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
+                {{ product.price }}
+              </td>
+              <td class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap">
+                {{ product.stock }}
+              </td>
               <td
-                class="col-span-1 whitespace-nowrap"
+                class="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap"
                 :class="
                   product.status === 'Out of Stock'
                     ? 'text-red-600 dark:text-red-400'
@@ -112,9 +124,8 @@
                   )
                 }}
               </td>
-
-              <td class="py-3 md:py-6">
-                <div class="flex justify-center items-center gap-7">
+              <td class="px-3 md:px-6 py-3 md:py-4">
+                <div class="flex justify-center items-center gap-4 md:gap-7">
                   <!-- View -->
                   <button
                     class="hover:cursor-pointer"
@@ -159,7 +170,10 @@
             <tr
               class="bg-blue-100 dark:bg-gray-800 text-blue-900 dark:text-blue-300 font-semibold"
             >
-              <td colspan="1" class="text-start ps-6 py-4 whitespace-nowrap">
+              <td
+                colspan="1"
+                class="text-start ps-3 md:ps-6 py-3 md:py-4 whitespace-nowrap"
+              >
                 <span>
                   {{ $t("showing") }} {{ filteredProducts.length }}
                   {{ $t("of") }}
@@ -171,7 +185,7 @@
               <td colspan="4" class="whitespace-nowrap">
                 <div class="flex justify-center">
                   <Pagination
-                    class="py-5 bg-blue-100 dark:bg-[#1e2533]"
+                    class="py-3 md:py-5 bg-blue-100 dark:bg-[#1e2533]"
                     :data="filteredProducts"
                     :itemsPerPage="5"
                     @update:paginatedData="paginatedProducts = $event"
@@ -179,9 +193,12 @@
                 </div>
               </td>
 
-              <td colspan="2" class="text-end pe-6 py-4 whitespace-nowrap">
+              <td
+                colspan="2"
+                class="text-end pe-3 md:pe-6 py-3 md:py-4 whitespace-nowrap"
+              >
                 <div
-                  class="flex flex-col sm:flex-row sm:items-center sm:justify-end sm:gap-6 gap-2"
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-end sm:gap-6 gap-2 text-sm md:text-base"
                 >
                   <span class="flex items-center justify-end gap-1">
                     <UIcon

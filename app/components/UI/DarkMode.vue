@@ -11,9 +11,9 @@
 import { useColorMode } from "@vueuse/core";
 
 const colorMode = useColorMode();
-const isDark = computed(() => colorMode.value === "dark");
+const isDark = computed(() => colorMode.value === "light");
 
 const toggleDark = () => {
-  colorMode.value = isDark.value ? "light" : "dark";
+  colorMode.value = isDark.value ? "dark" : "light";
 };
 </script>

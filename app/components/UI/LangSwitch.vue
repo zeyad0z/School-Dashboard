@@ -19,6 +19,10 @@
 import { useI18n } from "vue-i18n";
 
 const { locale, setLocale } = useI18n();
+
+onMounted(() => {
+  document.dir = locale.value === "ar" ? "rtl" : "ltr";
+});
 const changeLanguage = async (event) => {
   const lang = event.target.value;
   await setLocale(lang);
