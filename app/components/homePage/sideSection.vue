@@ -1,72 +1,59 @@
 <template>
   <div
-    class="h-full w-full bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] relative dark:from-[#1e3a8a] dark:via-[#1e40af] dark:to-[#1d4ed8]"
+    class="right relative w-full min-h-screen hidden lg:flex flex-col items-center justify-center text-white text-2xl font-bold transition-colors duration-300 bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] dark:from-[#1e3a8a] dark:via-[#1e40af] dark:to-[#1d4ed8]"
   >
+    <!-- background pattern -->
     <div class="absolute inset-0 opacity-20 pointer-events-none bg-stars"></div>
 
-    <div class="relative z-10 px-4 sm:px-6 lg:px-20 py-8 sm:py-10">
-      <div class="text-center mb-10 sm:mb-12">
-        <div class="flex justify-center mb-4 mt-5 sm:mt-2 xl:mt-17">
-          <div
-            class="w-20 h-20 sm:w-24 sm:h-24 lg:w-[6rem] lg:h-[6rem] bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center dark:bg-white/10 dark:backdrop-blur-xl"
-          >
-            <UIcon
-              name="i-heroicons-building-office"
-              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[3.5rem] lg:h-[3.5rem] text-white dark:text-blue-300"
-            />
-          </div>
+    <!-- content -->
+    <div
+      class="relative z-10 flex flex-col items-center justify-center text-center px-8 py-10"
+    >
+      <!-- title section -->
+      <div class="flex flex-col items-center">
+        <div
+          class="p-5 rounded-3xl bg-white/20 backdrop-blur-md dark:bg-white/10 dark:backdrop-blur-xl mb-5 border border-white/30 flex items-center justify-center shadow-lg shadow-black/20"
+        >
+          <UIcon
+            name="i-heroicons-building-office"
+            class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[3.5rem] lg:h-[3.5rem] text-white dark:text-blue-300"
+          />
         </div>
 
-        <h1
-          class="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white mb-3 dark:text-blue-100"
-        >
+        <h1 class="mb-3 font-bold text-4xl text-white dark:text-blue-100">
           {{ $t("school_name") }}
         </h1>
-        <h2
-          class="text-lg sm:text-xl lg:text-[1.3rem] font-semibold text-blue-100 mb-2 dark:text-blue-300"
-        >
+        <h2 class="font-medium text-xl text-blue-100 dark:text-blue-300 mb-2">
           {{ $t("school_slogan") }}
         </h2>
         <p
-          class="text-sm sm:text-base lg:text-[1.17rem] text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium leading-relaxed dark:text-gray-300"
+          class="text-center px-6 xl:px-24 text-lg font-medium text-blue-100/90 dark:text-gray-300 max-w-[46rem]"
         >
           {{ $t("school_description") }}
         </p>
       </div>
 
+      <!-- cards section -->
       <div
-        class="grid grid-cols-2 md:gap-x-15 md:gap-y-6.5 max-w-lg sm:max-w-2xl lg:max-w-[40rem] mx-12 mb-6"
+        class="cards grid grid-cols-2 gap-6 p-8 mt-6 max-w-[1000px] w-full justify-center"
       >
         <UCard
           v-for="card in cards"
           :key="card.title"
-          class="bg-white/15 rounded-2xl lg:w-[12.5rem] xl:w-[20.2rem] ring-1 ring-white/30 hover:bg-white/20 backdrop-blur-3xl transition-all duration-300 group dark:bg-white/10 dark:ring-gray-700 dark:hover:bg-white/20"
+          class="border border-white/30 bg-white/15 dark:bg-white/10 rounded-2xl hover:bg-white/20 dark:hover:bg-white/20 transition-all duration-300 flex flex-col items-center backdrop-blur-3xl ring-0"
         >
-          <template #header>
-            <div class="flex flex-col items-center text-center py-1">
-              <div
-                class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-3"
-              >
-                <UIcon
-                  :name="card.icon"
-                  class="w-12 h-12 text-white dark:text-blue-300"
-                />
-              </div>
-              <h3
-                class="text-base sm:text-[1.2rem] font-semibold text-white mb-1 sm:mb-2 dark:text-gray-100"
-              >
-                {{ $t(card.title) }}
-              </h3>
-              <p
-                :class="[
-                  card.title === 'knowledge' || 'comunnity' ? 'mb-2' : '',
-                ]"
-                class="text-blue-100/80 text-xs sm:text-[0.9rem] font-medium dark:text-gray-300"
-              >
-                {{ $t(card.text) }}
-              </p>
-            </div>
-          </template>
+          <UIcon
+            :name="card.icon"
+            class="w-10 h-10 mb-2 text-white dark:text-blue-300"
+          />
+          <h3 class="font-bold text-lg text-white dark:text-gray-100 mb-1">
+            {{ $t(card.title) }}
+          </h3>
+          <p
+            class="mt-2 text-center max-w-[260px] text-blue-100/80 dark:text-gray-300 text-sm font-medium"
+          >
+            {{ $t(card.text) }}
+          </p>
         </UCard>
       </div>
     </div>
@@ -76,11 +63,10 @@
 <script setup>
 const cards = [
   { title: "knowledge", text: "knowledge_text", icon: "i-lucide-book-open" },
-  { title: "community", text: "community_text", icon: "i-heroicons-users" },
-  { title: "excellence", text: "excellence_text", icon: "i-heroicons-trophy" },
-  { title: "growth", text: "growth_text", icon: "clarity:target-line" },
+  { title: "community", text: "community_text", icon: "i-lucide-users" },
+  { title: "excellence", text: "excellence_text", icon: "i-lucide-award" },
+  { title: "growth", text: "growth_text", icon: "i-lucide-target" },
 ];
-
 </script>
 
 <style scoped>
