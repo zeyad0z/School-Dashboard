@@ -41,7 +41,7 @@
 
         <!-- English Name -->
         <label for="ename" class="text-sm font-medium dark:text-gray-200">
-          {{ t("name in english") }}
+          {{ $t("name in english") }}
         </label>
         <input
           type="text"
@@ -70,7 +70,7 @@
 
         <!-- Arabic Name -->
         <label for="aname" class="text-sm font-medium dark:text-gray-200">
-          {{ t("Name in Arabic") }}
+          {{ $t("Name in Arabic") }}
         </label>
         <input
           type="text"
@@ -99,7 +99,7 @@
 
         <!-- Password -->
         <label for="pass" class="text-sm font-medium dark:text-gray-200">
-          {{ t("password") }}
+          {{ $t("password") }}
         </label>
         <input
           type="password"
@@ -123,13 +123,13 @@
           v-if="v$.pass.$error && v$.pass.minLength.$invalid"
           class="text-red-500 text-sm"
         >
-          {{ t("password_min_length") }}
+          {{ $t("password_min_length") }}
         </p>
         <p
           v-if="v$.pass.$error && v$.pass.maxLength.$invalid"
           class="text-red-500 text-sm"
         >
-          {{ t("password_max_length") }}
+          {{ $t("password_max_length") }}
         </p>
 
         <!-- Submit -->
@@ -157,7 +157,7 @@ import { required, minLength, maxLength, helpers } from "@vuelidate/validators";
 import { useI18n } from "vue-i18n";
 
 const toast = useToast();
-const { t } = useI18n();
+const { t } = useI18n({ useScope: "global" });
 const UserStore = useUserStore();
 const loading = ref(false);
 
@@ -169,12 +169,12 @@ const state = reactive({
 });
 
 const arabicOnly = helpers.withMessage(
-  t("name_must_be_in_arabic"),
+  () => t("name_must_be_in_arabic"),
   (value) => !!value && /^[\u0600-\u06FF\s]+$/.test(value)
 );
 
 const englishOnly = helpers.withMessage(
-  t("name_must_be_in_english"),
+  () => t("name_must_be_in_english"),
   (value) => !!value && /^[A-Za-z\s]+$/.test(value)
 );
 
