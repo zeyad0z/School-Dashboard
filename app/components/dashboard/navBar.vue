@@ -30,12 +30,20 @@
         <option>{{ $t("2025/2026") }}</option>
       </select>
 
-      <!-- Search -->
-      <input
-        type="search"
-        :placeholder="$t('search')"
-        class="hidden md:block border dark:border-gray-600 dark:text-gray-100 dark:bg-gray-800 border-blue-200 rounded-md px-3 py-1.5 w-[16rem] bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
-      />
+      <div class="relative hidden md:block">
+        <!-- Icon -->
+        <UIcon
+          name="i-lucide-search"
+          class="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-600 dark:text-gray-300"
+        />
+
+        <!-- Input -->
+        <input
+          type="search"
+          :placeholder="$t('search')"
+          class="border ltr:pl-10 rtl:pr-10 ltr:pr-3 rtl:pl-3 dark:border-gray-600 dark:text-gray-100 dark:bg-gray-800 border-blue-200 rounded-md pl-10 pr-3 py-1.5 w-[16rem] bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#8FAEF3] transition"
+        />
+      </div>
     </div>
 
     <div class="flex items-center gap-2 md:gap-4">

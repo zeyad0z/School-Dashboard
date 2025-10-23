@@ -39,7 +39,7 @@
 
     <!-- Title & Subtitle -->
     <div
-      :class="[selectedRole ? 'md:mt-0' : 'md:mt-32']"
+      :class="[selectedRole ? 'lg:mt-0' : 'lg:mt-15 ']"
       class="flex flex-col items-center text-center p-2 mb-8"
     >
       <div
@@ -191,7 +191,7 @@
       :class="[
         'flex items-center gap-2 px-12 py-1.5 rounded-xl mt-6 mb-8 text-[1.2rem] font-semibold transition-all duration-200',
         !selectedRole || !selectedBranch
-          ? 'bg-[#83AAFD] dark:bg-blue-800 text-white cursor-not-allowed'
+          ? 'bg-[#83AAFD] dark:bg-blue-800 text-white disabled:opacity-50 cursor-not-allowed'
           : 'bg-[#2460e2] hover:bg-[#1447E6] dark:bg-blue-700 dark:hover:bg-blue-600 text-white cursor-pointer',
       ]"
       @click="continueToDashboard"
