@@ -232,6 +232,7 @@
               <td colspan="5" class="py-2 sm:py-3 lg:py-5">
                 <div class="flex justify-center">
                   <Pagination
+                    class="bg-blue-100"
                     :data="filteredProducts"
                     :itemsPerPage="5"
                     @update:paginatedData="paginatedProducts = $event"
@@ -380,3 +381,20 @@ function editProduct(product) {
 
 const paginatedProducts = ref([]);
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #8ec5ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #1447e6;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1339a1;
+}
+</style>

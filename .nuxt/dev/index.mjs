@@ -3,41 +3,41 @@ import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, setCookie, removeResponseHeader, createError, getResponseStatus, getQuery as getQuery$1, getRouterParam, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatusText } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/h3/dist/index.mjs';
-import { escapeHtml } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import destr, { destr as destr$1 } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/destr/dist/index.mjs';
-import { renderToString } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/vue/server-renderer/index.mjs';
-import { klona } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/klona/dist/index.mjs';
-import defu, { defuFn, createDefu } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/scule/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/unhead/dist/server.mjs';
-import { stringify, uneval } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/devalue/index.js';
-import { isVNode, toValue, isRef } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/vue/index.mjs';
-import { createHooks } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/unstorage/drivers/fs.mjs';
-import { digest, hash as hash$1 } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/ohash/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, setCookie, removeResponseHeader, createError, getResponseStatus, getQuery as getQuery$1, getRouterParam, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatusText } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/h3/dist/index.mjs';
+import { escapeHtml } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import destr, { destr as destr$1 } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/destr/dist/index.mjs';
+import { renderToString } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/vue/server-renderer/index.mjs';
+import { klona } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/klona/dist/index.mjs';
+import defu, { defuFn, createDefu } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/scule/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/unhead/dist/server.mjs';
+import { stringify, uneval } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/devalue/index.js';
+import { isVNode, toValue, isRef } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/vue/index.mjs';
+import { createHooks } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/unstorage/drivers/fs.mjs';
+import { digest, hash as hash$1 } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/ohash/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/youch-core/build/index.js';
-import { Youch } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/youch-core/build/index.js';
+import { Youch } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { getContext } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/unctx/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/errx/dist/index.js';
-import { createPathIndexLanguageParser, parseAcceptLanguage } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/@intlify/utils/dist/index.mjs';
-import { parse } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/cookie-es/dist/index.mjs';
-import { createRouterMatcher } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/vue-router/dist/vue-router.node.mjs';
+import { getContext } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/unctx/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/errx/dist/index.js';
+import { createPathIndexLanguageParser, parseAcceptLanguage } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/@intlify/utils/dist/index.mjs';
+import { parse } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/cookie-es/dist/index.mjs';
+import { createRouterMatcher } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/vue-router/dist/vue-router.node.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1, basename } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/pathe/dist/index.mjs';
-import { getIcons } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/@iconify/utils/lib/index.js';
-import { collections } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/.nuxt/nuxt-icon-server-bundle.mjs';
-import { walkResolver } from 'file://C:/Users/Zeyad/Desktop/Log-in-and-choose/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1, basename } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/pathe/dist/index.mjs';
+import { getIcons } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/@iconify/utils/lib/index.js';
+import { collections } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/.nuxt/nuxt-icon-server-bundle.mjs';
+import { walkResolver } from 'file://C:/Users/Zeyad/Desktop/School-Dashboard/node_modules/unhead/dist/utils.mjs';
 
 const HASH_RE = /#/g;
 const AMPERSAND_RE = /&/g;
@@ -289,7 +289,7 @@ function stringifyParsedURL(parsed) {
   return proto + auth + host + pathname + search + hash;
 }
 
-const serverAssets = [{"baseName":"server","dir":"C:/Users/Zeyad/Desktop/Log-in-and-choose/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"C:/Users/Zeyad/Desktop/School-Dashboard/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -301,11 +301,11 @@ const storage$1 = createStorage({});
 
 storage$1.mount('/assets', assets$1);
 
-storage$1.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/Zeyad/Desktop/Log-in-and-choose","watchOptions":{"ignored":[null]}}));
-storage$1.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/Zeyad/Desktop/Log-in-and-choose/server","watchOptions":{"ignored":[null]}}));
-storage$1.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/Zeyad/Desktop/Log-in-and-choose/.nuxt"}));
-storage$1.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/Zeyad/Desktop/Log-in-and-choose/.nuxt/cache"}));
-storage$1.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/Zeyad/Desktop/Log-in-and-choose/.data/kv"}));
+storage$1.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/Zeyad/Desktop/School-Dashboard","watchOptions":{"ignored":[null]}}));
+storage$1.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/Zeyad/Desktop/School-Dashboard/server","watchOptions":{"ignored":[null]}}));
+storage$1.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/Zeyad/Desktop/School-Dashboard/.nuxt"}));
+storage$1.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/Zeyad/Desktop/School-Dashboard/.nuxt/cache"}));
+storage$1.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/Zeyad/Desktop/School-Dashboard/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage$1, base) : storage$1;
@@ -1560,13 +1560,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _DN52GIqV3dd3Y3p8FOl1ANQNh5E8QUcgJ_uNmnlM = (function(nitro) {
+const _ReaKSlNHwO7uHm1kYZmLClvz9OsKE2Vhrn3jXA1Ko04 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
 });
 
-const rootDir = "C:/Users/Zeyad/Desktop/Log-in-and-choose";
+const rootDir = "C:/Users/Zeyad/Desktop/School-Dashboard";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
@@ -1589,7 +1589,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _oFuI_EgBYQj1MdZV2noly8NcZQG_NW1k1sKxzjpyiA = (nitroApp) => {
+const _I64swqrUxBChhQ8LTQyYxgnRidzvWo3h5u_yVVafApI = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1783,14 +1783,14 @@ const localeCodes =  [
 const localeLoaders = {
   en: [
     {
-      key: "locale_en_46json_0fa2bfdc",
+      key: "locale_en_46json_cabe9df2",
       load: () => Promise.resolve().then(function () { return en$1; }),
       cache: true
     }
   ],
   ar: [
     {
-      key: "locale_ar_46json_1903f988",
+      key: "locale_ar_46json_784d3343",
       load: () => Promise.resolve().then(function () { return ar$1; }),
       cache: true
     }
@@ -2027,7 +2027,7 @@ function* detect(detectors, detection, path) {
   }
   yield { locale: detection.fallbackLocale, source: "fallback" };
 }
-const _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ = defineNitroPlugin(async (nitro) => {
+const _Tu0pcM6Z0QzX1rTTQQZ15ar1ToNZUoQxE0jfK0Nws = defineNitroPlugin(async (nitro) => {
   const runtimeI18n = useRuntimeI18n();
   const rootRedirect = resolveRootRedirect(runtimeI18n.rootRedirect);
   const _defaultLocale = runtimeI18n.defaultLocale || "";
@@ -2131,17 +2131,17 @@ const _Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ = defineNitroPlugin(async (nit
 
 const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"light\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
 
-const _ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI = (function(nitro) {
+const _ioQCzotKgmqJ08vwLyUJ3N812iARkSmxfHYTtxZrdmg = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _DN52GIqV3dd3Y3p8FOl1ANQNh5E8QUcgJ_uNmnlM,
-_oFuI_EgBYQj1MdZV2noly8NcZQG_NW1k1sKxzjpyiA,
-_Iy1Q4TE72qa_ye7_CIvv0QImQewbbq77tjbY59_FKQ,
-_ZKPQJ4fO6icdUYOtQuKT_NN1iebvae30o3g2NL8bcBI
+  _ReaKSlNHwO7uHm1kYZmLClvz9OsKE2Vhrn3jXA1Ko04,
+_I64swqrUxBChhQ8LTQyYxgnRidzvWo3h5u_yVVafApI,
+_Tu0pcM6Z0QzX1rTTQQZ15ar1ToNZUoQxE0jfK0Nws,
+_ioQCzotKgmqJ08vwLyUJ3N812iARkSmxfHYTtxZrdmg
 ];
 
 const assets = {};
@@ -2169,7 +2169,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _aU5ema = eventHandler((event) => {
+const _pQ4_ma = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2327,7 +2327,7 @@ function publicAssetsURL(...path) {
 
 const warnOnceSet = /* @__PURE__ */ new Set();
 const DEFAULT_ENDPOINT = "https://api.iconify.design";
-const _VV6kQY = defineCachedEventHandler(async (event) => {
+const _VKpGV5 = defineCachedEventHandler(async (event) => {
   const url = getRequestURL(event);
   if (!url)
     return createError({ status: 400, message: "Invalid icon request" });
@@ -2497,7 +2497,7 @@ defineCachedEventHandler(_cachedMessageLoader, {
   swr: false,
   getKey: (event) => [getRouterParam(event, "locale") ?? "null", getRouterParam(event, "hash") ?? "null"].join("-")
 });
-const _hpkgI5 = _messagesHandler ;
+const _17GaoV = _messagesHandler ;
 
 const VueResolver = (_, value) => {
   return isRef(value) ? toValue(value) : value;
@@ -2556,8 +2556,8 @@ function setSSRError(ssrContext, error) {
 
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => import('file://C:/Users/Zeyad/Desktop/Log-in-and-choose/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
-const getClientManifest = () => import('file://C:/Users/Zeyad/Desktop/Log-in-and-choose/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://C:/Users/Zeyad/Desktop/School-Dashboard/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://C:/Users/Zeyad/Desktop/School-Dashboard/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -2805,16 +2805,16 @@ async function getIslandContext(event) {
   return ctx;
 }
 
-const _lazy_Rml3q2 = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_kjOWDZ = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '', handler: _aU5ema, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_Rml3q2, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_nuxt_icon/:collection', handler: _VV6kQY, lazy: false, middleware: false, method: undefined },
-  { route: '/_i18n/:hash/:locale/messages.json', handler: _hpkgI5, lazy: false, middleware: false, method: undefined },
+  { route: '', handler: _pQ4_ma, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_kjOWDZ, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_nuxt_icon/:collection', handler: _VKpGV5, lazy: false, middleware: false, method: undefined },
+  { route: '/_i18n/:hash/:locale/messages.json', handler: _17GaoV, lazy: false, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/_fonts/**', handler: _lazy_Rml3q2, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_Rml3q2, lazy: true, middleware: false, method: undefined }
+  { route: '/_fonts/**', handler: _lazy_kjOWDZ, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_kjOWDZ, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
