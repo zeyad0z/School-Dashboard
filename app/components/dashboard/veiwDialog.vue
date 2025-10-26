@@ -34,6 +34,19 @@
 
       <!-- Fields Grid -->
       <div class="grid grid-cols-2 gap-5">
+        <div class="flex flex-col">
+          <label
+            class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1"
+          >
+            Product Name
+          </label>
+          <div
+            class="bg-blue-100 dark:bg-gray-800 p-2 rounded-md text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 overflow-x-auto whitespace-nowrap custom-scroll"
+          >
+            {{ prodName || "—" }}
+          </div>
+        </div>
+
         <div v-for="(value, key) in fields" :key="key" class="flex flex-col">
           <label
             class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1"
@@ -63,11 +76,12 @@
         <div
           class="bg-blue-100 dark:bg-gray-800 px-5 py-3 rounded-md text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 col-span-2 flex justify-between items-center"
         >
-          <span class="font-bold text-blue-600 dark:text-blue-400"
+          <span
+            class="font-bold text-blue-600 dark:text-blue-400 text-[0.9rem] md:text-[1.5rem]"
             >Total Inventory Value</span
           >
           <span
-            class="font-bold text-blue-900 dark:text-blue-300 text-[1.5rem]"
+            class="font-bold text-blue-900 dark:text-blue-300 text-[0.9rem] md:text-[1.5rem]"
           >
             {{ total }} SAR
           </span>
@@ -103,13 +117,14 @@ const props = defineProps({
 });
 
 const fields = computed(() => ({
-  "Product Name (English)": props.product?.title || "",
   SKU: props.product?.id || "",
   Status: props.product?.status || "",
   Category: props.product?.category || "",
   Price: props.product?.price ? `${props.product.price} SAR` : "",
   "Stock Quantity": (props.product?.stock || "") + " Units",
 }));
+
+const prodName = computed(() => props.product?.title || "");
 
 const disc = computed(() => props.product?.description || "");
 
@@ -119,3 +134,23 @@ const total = computed(() =>
     : "—"
 );
 </script>
+
+<style scoped>
+.custom-scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #8ec5ff;
+  border-radius: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #1447e6;
+  border-radius: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #1339a1;
+}
+</style>
